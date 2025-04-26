@@ -3,7 +3,6 @@ package it.simonetugnetti.adaptivedimensions.resources.utils
 import android.content.res.Resources
 import android.content.res.Resources.NotFoundException
 import it.simonetugnetti.adaptivedimensions.R
-import it.simonetugnetti.adaptivedimensions.resources.enums.AdaptiveDp
 import it.simonetugnetti.adaptivedimensions.resources.enums.AdaptiveSp
 
 val adaptiveSpEnumEntries = AdaptiveSp.entries
@@ -20,6 +19,10 @@ fun Resources.getAdaptiveSpDimension(asp: AdaptiveSp) =
     try { getDimension(asp.dimen) }
     catch (_: NotFoundException) { 0f }
 
+fun Resources.getAdaptiveSpExactDimension(asp: AdaptiveSp) =
+    try { (getDimension(asp.dimen) / displayMetrics.density).toInt() }
+    catch (_: NotFoundException) { 0 }
+
 fun Resources.getAdaptiveSpDimensionPixelOffset(asp: AdaptiveSp) =
     try { getDimensionPixelOffset(asp.dimen) }
     catch (_: NotFoundException) { 0 }
@@ -30,7 +33,7 @@ fun Resources.getAdaptiveSpDimensionPixelSize(asp: AdaptiveSp) =
 
 fun Resources.getListOfAdaptiveSpDimenRes() =
     try {
-        val typedArray = obtainTypedArray(R.array.array_of_asp)
+        val typedArray = obtainTypedArray(R.array.asps)
         val listOfAdaptiveDpDimenRes = mutableListOf<Int>()
 
         for (i in 0 until typedArray.length())

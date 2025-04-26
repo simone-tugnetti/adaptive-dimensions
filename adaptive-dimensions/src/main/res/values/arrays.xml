@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <array name="array_of_adp">
+    <array name="adps">
         <item>@dimen/_0adp</item>
         <item>@dimen/_1adp</item>
         <item>@dimen/_2adp</item>
@@ -605,7 +605,7 @@
         <item>@dimen/_600adp</item>
     </array>
 
-    <array name="array_of_asp">
+    <array name="asps">
         <item>@dimen/_0asp</item>
         <item>@dimen/_1asp</item>
         <item>@dimen/_2asp</item>

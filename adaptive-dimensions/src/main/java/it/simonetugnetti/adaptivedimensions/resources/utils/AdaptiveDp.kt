@@ -19,6 +19,10 @@ fun Resources.getAdaptiveDpDimension(adp: AdaptiveDp) =
     try { getDimension(adp.dimen) }
     catch (_: NotFoundException) { 0f }
 
+fun Resources.getAdaptiveDpExactDimension(adp: AdaptiveDp) =
+    try { (getDimension(adp.dimen) / displayMetrics.density).toInt() }
+    catch (_: NotFoundException) { 0 }
+
 fun Resources.getAdaptiveDpDimensionPixelOffset(adp: AdaptiveDp) =
     try { getDimensionPixelOffset(adp.dimen) }
     catch (_: NotFoundException) { 0 }
@@ -29,7 +33,7 @@ fun Resources.getAdaptiveDpDimensionPixelSize(adp: AdaptiveDp) =
 
 fun Resources.getListOfAdaptiveDpDimenRes() =
     try {
-        val typedArray = obtainTypedArray(R.array.array_of_adp)
+        val typedArray = obtainTypedArray(R.array.adps)
         val listOfAdaptiveDpResourceId = mutableListOf<Int>()
 
         for (i in 0 until typedArray.length())
