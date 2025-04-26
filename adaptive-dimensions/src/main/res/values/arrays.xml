@@ -2,6 +2,7 @@
 <resources>
 
     <array name="array_of_adp">
+        <item>@dimen/_0adp</item>
         <item>@dimen/_1adp</item>
         <item>@dimen/_2adp</item>
         <item>@dimen/_3adp</item>
@@ -605,6 +606,7 @@
     </array>
 
     <array name="array_of_asp">
+        <item>@dimen/_0asp</item>
         <item>@dimen/_1asp</item>
         <item>@dimen/_2asp</item>
         <item>@dimen/_3asp</item>

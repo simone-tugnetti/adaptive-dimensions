@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="_0asp">0sp</dimen>
     <dimen name="_1asp">1sp</dimen>
     <dimen name="_2asp">2sp</dimen>
     <dimen name="_3asp">3sp</dimen>

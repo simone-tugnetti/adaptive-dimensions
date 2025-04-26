@@ -1,10 +1,11 @@
-package it.simonetugnetti.adaptivedimensions.enums
+package it.simonetugnetti.adaptivedimensions.resources.enums
 
 import androidx.annotation.DimenRes
 import it.simonetugnetti.adaptivedimensions.R
 
 @Suppress("EnumEntryName")
 enum class AdaptiveSp(@DimenRes val dimen: Int) {
+    _0(R.dimen._0asp),
     _1(R.dimen._1asp),
     _2(R.dimen._2asp),
     _3(R.dimen._3asp),
