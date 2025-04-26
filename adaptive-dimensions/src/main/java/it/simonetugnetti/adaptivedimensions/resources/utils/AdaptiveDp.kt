@@ -5,9 +5,11 @@ import android.content.res.Resources.NotFoundException
 import it.simonetugnetti.adaptivedimensions.R
 import it.simonetugnetti.adaptivedimensions.resources.enums.AdaptiveDp
 
+typealias AdaptiveDpDimenRes = Int
+
 val adaptiveDpEnumEntries = AdaptiveDp.entries
 
-val listOfAdaptiveDpEnumDimenRes = mutableListOf<Int>().apply {
+val listOfAdaptiveDpEnumDimenRes = mutableListOf<AdaptiveDpDimenRes>().apply {
     adaptiveDpEnumEntries.forEach {
         add(it.dimen)
     }
@@ -34,7 +36,7 @@ fun Resources.getAdaptiveDpDimensionPixelSize(adp: AdaptiveDp) =
 fun Resources.getListOfAdaptiveDpDimenRes() =
     try {
         val typedArray = obtainTypedArray(R.array.adps)
-        val listOfAdaptiveDpResourceId = mutableListOf<Int>()
+        val listOfAdaptiveDpResourceId = mutableListOf<AdaptiveDpDimenRes>()
 
         for (i in 0 until typedArray.length())
             listOfAdaptiveDpResourceId.add(typedArray.getResourceId(i, 0))
