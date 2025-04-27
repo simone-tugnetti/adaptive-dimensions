@@ -34,6 +34,7 @@ android {
 
 dependencies {
     implementation(libs.androidx.core.ktx)
+    implementation(libs.kotlin.reflect)
     implementation(platform(libs.androidx.compose))
     implementation(libs.androidx.compose.ui)
 }

@@ -1,9 +1,9 @@
 package it.simonetugnetti.adaptivedimensions.compose.data.adp
 
 import androidx.compose.ui.unit.dp
-import it.simonetugnetti.adaptivedimensions.compose.model.AdaptiveDp
+import it.simonetugnetti.adaptivedimensions.compose.model.Adp
 
-val adp_sw750dp = AdaptiveDp(
+internal val adp_sw750dp = Adp(
     zero = 0.dp,
     _1adp = 2.50.dp,
     _2adp = 5.dp,

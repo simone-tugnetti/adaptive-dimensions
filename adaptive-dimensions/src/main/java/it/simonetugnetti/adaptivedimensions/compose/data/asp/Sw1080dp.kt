@@ -1,9 +1,9 @@
 package it.simonetugnetti.adaptivedimensions.compose.data.asp
 
 import androidx.compose.ui.unit.sp
-import it.simonetugnetti.adaptivedimensions.compose.model.AdaptiveSp
+import it.simonetugnetti.adaptivedimensions.compose.model.Asp
 
-val asp_sw1080dp = AdaptiveSp(
+internal val asp_sw1080dp = Asp(
     zero = 0.sp,
     _1asp = 3.60.sp,
     _2asp = 7.20.sp,

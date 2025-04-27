@@ -1,9 +1,10 @@
 package it.simonetugnetti.adaptivedimensions.compose.model
 
 import androidx.compose.ui.unit.Dp
+import kotlin.reflect.full.memberProperties
 
 @Suppress("PropertyName")
-data class AdaptiveDp(
+data class Adp internal constructor(
     val zero: Dp,
     val _1adp: Dp,
     val _2adp: Dp,
@@ -605,4 +606,19 @@ data class AdaptiveDp(
     val _598adp: Dp,
     val _599adp: Dp,
     val _600adp: Dp
-)
+) {
+
+    val listOfAdps = mutableListOf<Dp>().apply {
+
+        add(this@Adp.zero)
+
+        for (i in 1..600)
+            this@Adp::class.memberProperties.find {
+                it.name == "_${i}adp"
+            }?.let {
+                add(it.getter.call(this@Adp) as Dp)
+            }
+
+    }.toList()
+
+}

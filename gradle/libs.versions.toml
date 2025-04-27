@@ -2,14 +2,13 @@
 agp = "8.9.2"
 kotlin = "2.1.20"
 coreKtx = "1.16.0"
-appcompat = "1.7.0"
 compose = "2025.04.01"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 androidx-compose = { group = "androidx.compose", name = "compose-bom", version.ref = "compose" }
 androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin" }
 
 [plugins]
 android-library = { id = "com.android.library", version.ref = "agp" }

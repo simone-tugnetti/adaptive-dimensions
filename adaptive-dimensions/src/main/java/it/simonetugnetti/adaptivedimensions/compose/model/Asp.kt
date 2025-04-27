@@ -1,9 +1,10 @@
 package it.simonetugnetti.adaptivedimensions.compose.model
 
 import androidx.compose.ui.unit.TextUnit
+import kotlin.reflect.full.memberProperties
 
 @Suppress("PropertyName")
-data class AdaptiveSp(
+data class Asp internal constructor(
     val zero: TextUnit,
     val _1asp: TextUnit,
     val _2asp: TextUnit,
@@ -605,4 +606,19 @@ data class AdaptiveSp(
     val _598asp: TextUnit,
     val _599asp: TextUnit,
     val _600asp: TextUnit
-)
+) {
+
+    val listOfAsps = mutableListOf<TextUnit>().apply {
+
+        add(this@Asp.zero)
+
+        for (i in 1..600)
+            this@Asp::class.memberProperties.find {
+                it.name == "_${i}adp"
+            }?.let {
+                add(it.getter.call(this@Asp) as TextUnit)
+            }
+
+    }.toList()
+
+}

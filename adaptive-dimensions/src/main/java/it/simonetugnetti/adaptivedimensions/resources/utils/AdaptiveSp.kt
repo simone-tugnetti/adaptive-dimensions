@@ -55,6 +55,13 @@ fun Resources.getListOfAdaptiveSpDimension() =
         }
     }.toList()
 
+fun Resources.getListOfAdaptiveSpExactDimension() =
+    mutableListOf<Int>().apply {
+        getListOfAdaptiveSpDimenRes().forEach {
+            add(getAdaptiveSpExactDimension(it.asAdaptiveSp()))
+        }
+    }.toList()
+
 fun Resources.getListOfAdaptiveSpDimensionPixelOffset() =
     mutableListOf<Int>().apply {
         getListOfAdaptiveSpDimenRes().forEach {
