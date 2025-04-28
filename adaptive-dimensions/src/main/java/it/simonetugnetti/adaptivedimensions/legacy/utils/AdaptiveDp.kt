@@ -2,22 +2,15 @@ package it.simonetugnetti.adaptivedimensions.legacy.utils
 
 import android.content.res.Resources
 import android.content.res.Resources.NotFoundException
-import androidx.annotation.DrawableRes
+import androidx.annotation.DimenRes
 import it.simonetugnetti.adaptivedimensions.R
 import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveDp
+import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveDp.entries
 
-typealias AdaptiveDpDimenRes = @receiver:DrawableRes Int
+val listOfAdaptiveDpDimenRes = AdaptiveDp.entries.map { it.dimen }
 
-val adaptiveDpEnumEntries = AdaptiveDp.entries
-
-val listOfAdaptiveDpEnumDimenRes = mutableListOf<AdaptiveDpDimenRes>().apply {
-    adaptiveDpEnumEntries.forEach {
-        add(it.dimen)
-    }
-}.toList()
-
-fun AdaptiveDpDimenRes.asAdaptiveDp() =
-    adaptiveDpEnumEntries.find { it.dimen == this } ?: AdaptiveDp._0adp
+fun @receiver:DimenRes Int.asAdaptiveDp() =
+    AdaptiveDp.entries.find { it.dimen == this } ?: AdaptiveDp._0adp
 
 fun Resources.getAdaptiveDpDimension(adp: AdaptiveDp) =
     try { getDimension(adp.dimen) }
@@ -38,7 +31,7 @@ fun Resources.getAdaptiveDpDimensionPixelSize(adp: AdaptiveDp) =
 fun Resources.getListOfAdaptiveDpDimenRes() =
     try {
         val typedArray = obtainTypedArray(R.array.adps)
-        val listOfAdaptiveDpResourceId = mutableListOf<AdaptiveDpDimenRes>()
+        val listOfAdaptiveDpResourceId = mutableListOf<@receiver:DimenRes Int>()
 
         for (i in 0 until typedArray.length())
             listOfAdaptiveDpResourceId.add(typedArray.getResourceId(i, 0))

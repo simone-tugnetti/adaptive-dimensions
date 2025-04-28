@@ -3,6 +3,16 @@ package it.simonetugnetti.adaptivedimensions.legacy.enums
 import androidx.annotation.DimenRes
 import it.simonetugnetti.adaptivedimensions.R
 
+/**
+ * Constant Enumeration of **Adaptive Sps**
+ *
+ * This structure contains all of *asps* references in resource dimensions
+ * that changes automatically based on screen width
+ *
+ * @property dimen Dimen Res linked by the corresponding entry
+ * @sample it.simonetugnetti.adaptivedimensions.legacy.samples.adaptiveSpEnumSample
+ * @since 1.0.0
+ */
 @Suppress("EnumEntryName")
 enum class AdaptiveSp(@DimenRes val dimen: Int) {
     _0asp(R.dimen._0asp),

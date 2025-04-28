@@ -3,6 +3,16 @@ package it.simonetugnetti.adaptivedimensions.legacy.enums
 import androidx.annotation.DimenRes
 import it.simonetugnetti.adaptivedimensions.R
 
+/**
+ * Constant Enumeration of **Adaptive Dps**
+ *
+ * This structure contains all of *adps* references in resource dimensions
+ * that changes automatically based on screen width
+ *
+ * @property dimen Dimen Res linked by the corresponding entry
+ * @sample it.simonetugnetti.adaptivedimensions.legacy.samples.adaptiveDpEnumSample
+ * @since 1.0.0
+ */
 @Suppress("EnumEntryName")
 enum class AdaptiveDp(@DimenRes val dimen: Int) {
     _0adp(R.dimen._0adp),
