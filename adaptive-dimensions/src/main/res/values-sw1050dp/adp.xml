@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Adaptive Dp Dimensions -->
+<!-- Smallest Screen Width: 1050dp -->
+
 <resources>
     <dimen name="_0adp">0dp</dimen>
     <dimen name="_1adp">3.50dp</dimen>
