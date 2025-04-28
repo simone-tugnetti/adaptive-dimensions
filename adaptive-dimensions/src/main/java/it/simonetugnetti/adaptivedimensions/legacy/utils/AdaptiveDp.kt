@@ -1,11 +1,12 @@
-package it.simonetugnetti.adaptivedimensions.resources.utils
+package it.simonetugnetti.adaptivedimensions.legacy.utils
 
 import android.content.res.Resources
 import android.content.res.Resources.NotFoundException
+import androidx.annotation.DrawableRes
 import it.simonetugnetti.adaptivedimensions.R
-import it.simonetugnetti.adaptivedimensions.resources.enums.AdaptiveDp
+import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveDp
 
-typealias AdaptiveDpDimenRes = Int
+typealias AdaptiveDpDimenRes = @receiver:DrawableRes Int
 
 val adaptiveDpEnumEntries = AdaptiveDp.entries
 
@@ -15,7 +16,8 @@ val listOfAdaptiveDpEnumDimenRes = mutableListOf<AdaptiveDpDimenRes>().apply {
     }
 }.toList()
 
-fun Int.asAdaptiveDp() = adaptiveDpEnumEntries.find { it.dimen == this } ?: AdaptiveDp._0
+fun AdaptiveDpDimenRes.asAdaptiveDp() =
+    adaptiveDpEnumEntries.find { it.dimen == this } ?: AdaptiveDp._0adp
 
 fun Resources.getAdaptiveDpDimension(adp: AdaptiveDp) =
     try { getDimension(adp.dimen) }

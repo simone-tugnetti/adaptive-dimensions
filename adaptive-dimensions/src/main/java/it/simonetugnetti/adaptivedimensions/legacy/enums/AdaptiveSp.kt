@@ -1,4 +1,4 @@
-package it.simonetugnetti.adaptivedimensions.resources.enums
+package it.simonetugnetti.adaptivedimensions.legacy.enums
 
 import androidx.annotation.DimenRes
 import it.simonetugnetti.adaptivedimensions.R

@@ -2,14 +2,13 @@ package it.simonetugnetti.adaptivedimensions.compose.utils
 
 import androidx.compose.foundation.layout.BoxWithConstraintsScope
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.platform.LocalWindowInfo
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.window.core.layout.WindowWidthSizeClass
 import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveDp
-import it.simonetugnetti.adaptivedimensions.compose.model.Adp
+import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveDp as AdaptiveDpLegacy
 
 val BoxWithConstraintsScope.maxWidthAdaptiveDp: AdaptiveDp
     get() = when {
@@ -82,3 +81,7 @@ val WindowWidthSizeClass.adaptiveDp: AdaptiveDp
         WindowWidthSizeClass.EXPANDED -> AdaptiveDp.SW840
         else -> AdaptiveDp.DEFAULT
     }
+
+@Composable
+fun dimensionAdaptiveDpResource(adp: AdaptiveDpLegacy): Dp =
+    runCatching { dimensionResource(adp.dimen) }.getOrDefault(0.dp)

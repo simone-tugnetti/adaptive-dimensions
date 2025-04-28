@@ -9,8 +9,7 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.platform.LocalWindowInfo
+import androidx.compose.ui.UiComposable
 import androidx.compose.ui.unit.dp
 import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveDp
 import it.simonetugnetti.adaptivedimensions.compose.utils.adaptiveDp
@@ -22,8 +21,9 @@ val LocalAdp = compositionLocalOf { AdaptiveDp.DEFAULT.adp }
 val LocalStaticAdp = staticCompositionLocalOf { AdaptiveDp.DEFAULT.adp }
 
 @Composable
+@UiComposable
 fun CompositionLocalProviderWindowWidthSizeAdaptiveDp(
-    content: @Composable () -> Unit
+    content: @Composable @UiComposable () -> Unit
 ) {
 
     val windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass
@@ -36,11 +36,12 @@ fun CompositionLocalProviderWindowWidthSizeAdaptiveDp(
 }
 
 @Composable
+@UiComposable
 fun CompositionLocalProviderContainerSizeAdaptiveDp(
-    content: @Composable () -> Unit
+    content: @Composable @UiComposable () -> Unit
 ) {
 
-    val adp = LocalWindowInfo.current.containerSize.widthAdaptiveDp.adp
+    val adp = currentWindowSize().widthAdaptiveDp.adp
 
     CompositionLocalProvider(LocalAdp provides adp) {
         content()
@@ -49,11 +50,12 @@ fun CompositionLocalProviderContainerSizeAdaptiveDp(
 }
 
 @Composable
+@UiComposable
 fun BoxWithConstraintsAdaptiveDp(
     modifier: Modifier = Modifier,
     contentAlignment: Alignment = Alignment.TopStart,
     propagateMinConstraints: Boolean = false,
-    content: @Composable () -> Unit
+    content: @Composable @UiComposable () -> Unit
 ) {
 
     BoxWithConstraints(
@@ -71,37 +73,38 @@ fun BoxWithConstraintsAdaptiveDp(
 }
 
 @Composable
+@UiComposable
 fun BoxWithConstraintsAdaptiveDp(
     modifier: Modifier = Modifier,
     contentAlignment: Alignment = Alignment.TopStart,
     propagateMinConstraints: Boolean = false,
-    sw300dp: (@Composable () -> Unit)? = null,
-    sw330dp: (@Composable () -> Unit)? = null,
-    sw360dp: (@Composable () -> Unit)? = null,
-    sw390dp: (@Composable () -> Unit)? = null,
-    sw420dp: (@Composable () -> Unit)? = null,
-    sw450dp: (@Composable () -> Unit)? = null,
-    sw480dp: (@Composable () -> Unit)? = null,
-    sw510dp: (@Composable () -> Unit)? = null,
-    sw540dp: (@Composable () -> Unit)? = null,
-    sw570dp: (@Composable () -> Unit)? = null,
-    sw600dp: (@Composable () -> Unit)? = null,
-    sw630dp: (@Composable () -> Unit)? = null,
-    sw660dp: (@Composable () -> Unit)? = null,
-    sw690dp: (@Composable () -> Unit)? = null,
-    sw720dp: (@Composable () -> Unit)? = null,
-    sw750dp: (@Composable () -> Unit)? = null,
-    sw780dp: (@Composable () -> Unit)? = null,
-    sw810dp: (@Composable () -> Unit)? = null,
-    sw840dp: (@Composable () -> Unit)? = null,
-    sw870dp: (@Composable () -> Unit)? = null,
-    sw900dp: (@Composable () -> Unit)? = null,
-    sw930dp: (@Composable () -> Unit)? = null,
-    sw960dp: (@Composable () -> Unit)? = null,
-    sw990dp: (@Composable () -> Unit)? = null,
-    sw1020dp: (@Composable () -> Unit)? = null,
-    sw1050dp: (@Composable () -> Unit)? = null,
-    sw1080dp: (@Composable () -> Unit)? = null
+    sw300dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw330dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw360dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw390dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw420dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw450dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw480dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw510dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw540dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw570dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw600dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw630dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw660dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw690dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw720dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw750dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw780dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw810dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw840dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw870dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw900dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw930dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw960dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw990dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw1020dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw1050dp: (@Composable @UiComposable () -> Unit)? = null,
+    sw1080dp: (@Composable @UiComposable () -> Unit)? = null
 ) {
 
     BoxWithConstraints(
@@ -146,9 +149,10 @@ fun BoxWithConstraintsAdaptiveDp(
 }
 
 @Composable
+@UiComposable
 private fun BoxWithConstraintAdaptiveDpSingleItem(
     adaptiveDp: AdaptiveDp,
-    content: @Composable () -> Unit
+    content: @Composable @UiComposable () -> Unit
 ) {
     CompositionLocalProvider(LocalAdp provides adaptiveDp.adp) {
         content()

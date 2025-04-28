@@ -1,9 +1,9 @@
-package it.simonetugnetti.adaptivedimensions.resources.utils
+package it.simonetugnetti.adaptivedimensions.legacy.utils
 
 import android.content.res.Resources
 import android.content.res.Resources.NotFoundException
 import it.simonetugnetti.adaptivedimensions.R
-import it.simonetugnetti.adaptivedimensions.resources.enums.AdaptiveSp
+import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveSp
 
 typealias AdaptiveSpDimenRes = Int
 
@@ -15,7 +15,7 @@ val listOfAdaptiveSpEnumDimenRes = mutableListOf<AdaptiveSpDimenRes>().apply {
     }
 }.toList()
 
-fun Int.asAdaptiveSp() = adaptiveSpEnumEntries.find { it.dimen == this } ?: AdaptiveSp._0
+fun Int.asAdaptiveSp() = adaptiveSpEnumEntries.find { it.dimen == this } ?: AdaptiveSp._0asp
 
 fun Resources.getAdaptiveSpDimension(asp: AdaptiveSp) =
     try { getDimension(asp.dimen) }
