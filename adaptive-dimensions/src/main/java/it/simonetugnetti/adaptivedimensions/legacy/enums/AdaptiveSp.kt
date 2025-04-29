@@ -1,7 +1,10 @@
 package it.simonetugnetti.adaptivedimensions.legacy.enums
 
+import android.content.res.Resources
+import android.content.res.Resources.NotFoundException
 import androidx.annotation.DimenRes
 import it.simonetugnetti.adaptivedimensions.R
+import it.simonetugnetti.adaptivedimensions.legacy.utils.logAspError
 
 /**
  * Constant Enumeration of **Adaptive Sps**
@@ -615,5 +618,87 @@ enum class AdaptiveSp(@DimenRes val dimen: Int) {
     _597asp(R.dimen._597asp),
     _598asp(R.dimen._598asp),
     _599asp(R.dimen._599asp),
-    _600asp(R.dimen._600asp)
+    _600asp(R.dimen._600asp);
+
+    /**
+     * Retrieve the Dimension in float given
+     * the specific [AdaptiveSp] Entry and Screen Width
+     *
+     * @since 1.0.0
+     * @return Float representation of DimenRes
+     * @param res Application Resources instance
+     */
+    fun getDimension(res: Resources) =
+        try { res.getDimension(dimen) }
+        catch (e: NotFoundException) {
+            logAspError("Resource not Found", e)
+            0f
+        }
+
+    /**
+     * Retrieve the Exact Dimension in Int given
+     * the specific [AdaptiveSp] Entry and Screen Width
+     *
+     * @since 1.0.0
+     * @return Int representation of DimenRes
+     * @param res Application Resources instance
+     */
+    fun getExactDimension(res: Resources) =
+        try { (res.getDimension(dimen) / res.displayMetrics.density).toInt() }
+        catch (e: NotFoundException) {
+            logAspError("Resource not Found", e)
+            0
+        }
+
+    /**
+     * Retrieve the Pixel Offset Dimension in Int given
+     * the specific [AdaptiveSp] Entry and Screen Width
+     *
+     * @since 1.0.0
+     * @return Int representation of DimenRes
+     * @param res Application Resources instance
+     */
+    fun getDimensionPixelOffset(res: Resources) =
+        try { res.getDimensionPixelOffset(dimen) }
+        catch (e: NotFoundException) {
+            logAspError("Resource not Found", e)
+            0
+        }
+
+    /**
+     * Retrieve the Pixel Size Dimension in Int given
+     * the specific [AdaptiveSp] Entry and Screen Width
+     *
+     * @since 1.0.0
+     * @return Int representation of DimenRes
+     * @param res Application Resources instance
+     */
+    fun getDimensionPixelSize(res: Resources) =
+        try { res.getDimensionPixelSize(dimen) }
+        catch (e: NotFoundException) {
+            logAspError("Resource not Found", e)
+            0
+        }
+
+    companion object {
+
+        /**
+         * Retrieve the size of [AdaptiveSp] entries
+         *
+         * @since 1.0.0
+         * @return Size of the collection
+         */
+        fun size() = entries.size
+
+        /**
+         * Retrieve a list that contains all
+         * the dimension resource IDs in [AdaptiveSp]
+         *
+         * @since 1.0.0
+         * @return list of DimenRes IDs
+         */
+        fun listOfDimenRes() = entries.map { it.dimen }
+
+    }
+
 }

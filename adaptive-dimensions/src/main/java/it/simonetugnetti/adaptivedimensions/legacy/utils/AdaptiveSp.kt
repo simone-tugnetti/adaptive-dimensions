@@ -2,6 +2,7 @@ package it.simonetugnetti.adaptivedimensions.legacy.utils
 
 import android.content.res.Resources
 import android.content.res.Resources.NotFoundException
+import android.util.Log
 import it.simonetugnetti.adaptivedimensions.R
 import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveSp
 
@@ -75,3 +76,6 @@ fun Resources.getListOfAdaptiveSpDimensionPixelSize() =
             add(getAdaptiveSpDimensionPixelSize(it.asAdaptiveSp()))
         }
     }.toList()
+
+internal fun logAspError(message: String, throwable: Throwable?) =
+    Log.e(AdaptiveSp::class.simpleName, message, throwable)

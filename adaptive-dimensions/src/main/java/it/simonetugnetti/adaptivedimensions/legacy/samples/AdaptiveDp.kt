@@ -1,19 +1,24 @@
 package it.simonetugnetti.adaptivedimensions.legacy.samples
 
-import android.content.res.Resources
+import android.content.Context
 import it.simonetugnetti.adaptivedimensions.R
 import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveDp
 import it.simonetugnetti.adaptivedimensions.legacy.utils.getAdaptiveDpDimension
 
-internal fun Resources.adaptiveDpEnumSample() {
+internal fun Context.adaptiveDpEnumSample() {
 
-    // With generic constant
-    getDimension(R.dimen._1adp)
+    /*
+     * 1adp for Screen width 300dp = 1dp
+     * 1adp for Screen width 600dp = 2dp
+     */
 
-    // With Enum Structure of Adaptive Dp
-    getDimension(AdaptiveDp._1adp.dimen)
+    // With Resource Receiver
+    resources.getDimension(R.dimen._1adp)
+    resources.getDimension(AdaptiveDp._1adp.dimen)
+    resources.getAdaptiveDpDimension(AdaptiveDp._1adp)
 
-    // With Enum Structure of Adaptive Dp and helper function
-    getAdaptiveDpDimension(AdaptiveDp._1adp)
+    // With Enum Entry Receiver
+    AdaptiveDp._1adp.getDimension(resources)
+    AdaptiveDp._1adp.getDimensionPixelOffset(resources)
 
 }

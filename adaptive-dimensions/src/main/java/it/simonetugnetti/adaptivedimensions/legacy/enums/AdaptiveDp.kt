@@ -1,7 +1,10 @@
 package it.simonetugnetti.adaptivedimensions.legacy.enums
 
+import android.content.res.Resources
+import android.content.res.Resources.NotFoundException
 import androidx.annotation.DimenRes
 import it.simonetugnetti.adaptivedimensions.R
+import it.simonetugnetti.adaptivedimensions.legacy.utils.logAdpError
 
 /**
  * Constant Enumeration of **Adaptive Dps**
@@ -9,7 +12,7 @@ import it.simonetugnetti.adaptivedimensions.R
  * This structure contains all of *adps* references in resource dimensions
  * that changes automatically based on screen width
  *
- * @property dimen Dimen Res linked by the corresponding entry
+ * @property dimen DimenRes linked by the corresponding entry
  * @sample it.simonetugnetti.adaptivedimensions.legacy.samples.adaptiveDpEnumSample
  * @since 1.0.0
  */
@@ -615,5 +618,82 @@ enum class AdaptiveDp(@DimenRes val dimen: Int) {
     _597adp(R.dimen._597adp),
     _598adp(R.dimen._598adp),
     _599adp(R.dimen._599adp),
-    _600adp(R.dimen._600adp)
+    _600adp(R.dimen._600adp);
+
+    /**
+     * Retrieve the Dimension in float given the specific [AdaptiveDp] Entry and Screen Width
+     *
+     * @since 1.0.0
+     * @return Float representation of DimenRes
+     * @param res Application Resources instance
+     */
+    fun getDimension(res: Resources) =
+        try { res.getDimension(dimen) }
+        catch (e: NotFoundException) {
+            logAdpError("Resource not Found", e)
+            0f
+        }
+
+    /**
+     * Retrieve the Exact Dimension in Int given the specific [AdaptiveDp] Entry and Screen Width
+     *
+     * @since 1.0.0
+     * @return Int representation of DimenRes
+     * @param res Application Resources instance
+     */
+    fun getExactDimension(res: Resources) =
+        try { (res.getDimension(dimen) / res.displayMetrics.density).toInt() }
+        catch (e: NotFoundException) {
+            logAdpError("Resource not Found", e)
+            0
+        }
+
+    /**
+     * Retrieve the Pixel Offset Dimension in Int given the specific [AdaptiveDp] Entry and Screen Width
+     *
+     * @since 1.0.0
+     * @return Int representation of DimenRes
+     * @param res Application Resources instance
+     */
+    fun getDimensionPixelOffset(res: Resources) =
+        try { res.getDimensionPixelOffset(dimen) }
+        catch (e: NotFoundException) {
+            logAdpError("Resource not Found", e)
+            0
+        }
+
+    /**
+     * Retrieve the Pixel Size Dimension in Int given the specific [AdaptiveDp] Entry and Screen Width
+     *
+     * @since 1.0.0
+     * @return Int representation of DimenRes
+     * @param res Application Resources instance
+     */
+    fun getDimensionPixelSize(res: Resources) =
+        try { res.getDimensionPixelSize(dimen) }
+        catch (e: NotFoundException) {
+            logAdpError("Resource not Found", e)
+            0
+        }
+
+    companion object {
+
+        /**
+         * Retrieve the size of [AdaptiveDp] entries
+         *
+         * @since 1.0.0
+         * @return Size of the collection
+         */
+        fun size() = entries.size
+
+        /**
+         * Retrieve a list that contains all the dimension resource IDs in [AdaptiveDp]
+         *
+         * @since 1.0.0
+         * @return list of DimenRes IDs
+         */
+        fun listOfDimenRes() = entries.map { it.dimen }
+
+    }
+
 }

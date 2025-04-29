@@ -2,13 +2,19 @@ package it.simonetugnetti.adaptivedimensions.legacy.utils
 
 import android.content.res.Resources
 import android.content.res.Resources.NotFoundException
+import android.util.Log
 import androidx.annotation.DimenRes
 import it.simonetugnetti.adaptivedimensions.R
 import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveDp
-import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveDp.entries
 
-val listOfAdaptiveDpDimenRes = AdaptiveDp.entries.map { it.dimen }
-
+/**
+ * Retrieve an [AdaptiveDp] Enum Entry
+ * associated by the given DimenRes
+ *
+ * @since 1.0.0
+ * @receiver Dimension Resource ID
+ * @return [AdaptiveDp] associated entry or [AdaptiveDp._0adp] otherwise
+ */
 fun @receiver:DimenRes Int.asAdaptiveDp() =
     AdaptiveDp.entries.find { it.dimen == this } ?: AdaptiveDp._0adp
 
@@ -70,3 +76,6 @@ fun Resources.getListOfAdaptiveDpDimensionPixelSize() =
             add(getAdaptiveDpDimensionPixelSize(it.asAdaptiveDp()))
         }
     }.toList()
+
+internal fun logAdpError(message: String, throwable: Throwable?) =
+    Log.e(AdaptiveDp::class.simpleName, message, throwable)
