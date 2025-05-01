@@ -9,11 +9,26 @@ import it.simonetugnetti.adaptivedimensions.legacy.utils.logAdpError
 /**
  * Constant Enumeration of **Adaptive Dps**
  *
- * This structure contains all of *adps* references in resource dimensions
- * that changes automatically based on screen width
+ * This structure contains all of *adps* references, from 1adp to 600adp, in resource dimensions
+ * that changes automatically based on screen width.
+ *
+ * ```
+ * /*
+ *  * 1adp for Screen width 300dp = 1dp
+ *  * 1adp for Screen width 600dp = 2dp
+ *  */
+ *
+ *  // With Resource Receiver
+ *  resources.getDimension(R.dimen._1adp)
+ *  resources.getDimension(AdaptiveDp._1adp.dimen)
+ *  resources.getAdaptiveDpDimension(AdaptiveDp._1adp)
+ *
+ *  // With Enum Entry Receiver
+ *  AdaptiveDp._1adp.getDimension(resources)
+ *  AdaptiveDp._1adp.getDimensionPixelOffset(resources)
+ * ```
  *
  * @property dimen DimenRes linked by the corresponding entry
- * @sample it.simonetugnetti.adaptivedimensions.legacy.samples.adaptiveDpEnumSample
  * @since 1.0.0
  */
 @Suppress("EnumEntryName")
@@ -626,6 +641,9 @@ enum class AdaptiveDp(@DimenRes val dimen: Int) {
      * @since 1.0.0
      * @return Float representation of DimenRes
      * @param res Application Resources instance
+     * @see getExactDimension
+     * @see getDimensionPixelOffset
+     * @see getDimensionPixelSize
      */
     fun getDimension(res: Resources) =
         try { res.getDimension(dimen) }

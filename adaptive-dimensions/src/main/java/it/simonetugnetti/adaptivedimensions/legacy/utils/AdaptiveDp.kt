@@ -8,8 +8,15 @@ import it.simonetugnetti.adaptivedimensions.R
 import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveDp
 
 /**
- * Retrieve an [AdaptiveDp] Enum Entry
- * associated by the given DimenRes
+ * Retrieve an [AdaptiveDp] `entry` associated by the given DimenRes
+ *
+ * ```
+ * // 1adp = AdaptiveDp._1adp
+ * R.dimen._1adp.asAdaptiveDp()
+ *
+ * // Unknown = AdaptiveDp._0adp
+ * R.dimen.another_res.asAdaptiveDp()
+ * ```
  *
  * @since 1.0.0
  * @receiver Dimension Resource ID
@@ -18,22 +25,98 @@ import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveDp
 fun @receiver:DimenRes Int.asAdaptiveDp() =
     AdaptiveDp.entries.find { it.dimen == this } ?: AdaptiveDp._0adp
 
+/**
+ * Retrieve an `adp` dimensional for the resource ID.
+ *
+ * @since 1.0.0
+ * @receiver Application [Resources] Instance
+ * @param adp An [AdaptiveDp] entry
+ * @return Resource dimension `float` value based on screen width
+ * and converted to pixel
+ * @see getAdaptiveDpExactDimension
+ * @see getAdaptiveDpDimensionPixelOffset
+ * @see getAdaptiveDpDimensionPixelSize
+ */
 fun Resources.getAdaptiveDpDimension(adp: AdaptiveDp) =
     try { getDimension(adp.dimen) }
-    catch (_: NotFoundException) { 0f }
+    catch (e: NotFoundException) {
+        logAdpError("Resource not Found", e)
+        0f
+    }
 
+/**
+ * Retrieve an `adp` exact dimensional for the resource ID.
+ *
+ * @since 1.0.0
+ * @receiver Application [Resources] Instance
+ * @param adp An [AdaptiveDp] entry
+ * @return A dp `integer` value based on screen width divided by display density
+ * @see getAdaptiveDpDimension
+ * @see getAdaptiveDpDimensionPixelOffset
+ * @see getAdaptiveDpDimensionPixelSize
+ */
 fun Resources.getAdaptiveDpExactDimension(adp: AdaptiveDp) =
     try { (getDimension(adp.dimen) / displayMetrics.density).toInt() }
-    catch (_: NotFoundException) { 0 }
+    catch (e: NotFoundException) {
+        logAdpError("Resource not Found", e)
+        0
+    }
+    catch (e: ArithmeticException) {
+        logAdpError("Arithmetic Error", e)
+        0
+    }
 
+/**
+ * Retrieve an `adp` dimensional for the resource ID for use as an offset in raw pixels
+ *
+ * @since 1.0.0
+ * @receiver Application [Resources] Instance
+ * @param adp An [AdaptiveDp] entry
+ * @return Resource dimension value multiplied by
+ * the appropriate metric and truncated to `integer` pixels
+ * @see getAdaptiveDpDimension
+ * @see getAdaptiveDpExactDimension
+ * @see getAdaptiveDpDimensionPixelSize
+ */
 fun Resources.getAdaptiveDpDimensionPixelOffset(adp: AdaptiveDp) =
     try { getDimensionPixelOffset(adp.dimen) }
-    catch (_: NotFoundException) { 0 }
+    catch (e: NotFoundException) {
+        logAdpError("Resource not Found", e)
+        0
+    }
 
+/**
+ * Retrieve an `adp` dimensional for the resource ID for use as a size in raw pixels
+ *
+ * @since 1.0.0
+ * @receiver Application [Resources] Instance
+ * @param adp An [AdaptiveDp] entry
+ * @return Resource dimension value multiplied by
+ * the appropriate metric and truncated to `integer` pixels
+ * @see getAdaptiveDpDimension
+ * @see getAdaptiveDpExactDimension
+ * @see getAdaptiveDpDimensionPixelOffset
+ */
 fun Resources.getAdaptiveDpDimensionPixelSize(adp: AdaptiveDp) =
     try { getDimensionPixelSize(adp.dimen) }
-    catch (_: NotFoundException) { 0 }
+    catch (e: NotFoundException) {
+        logAdpError("Resource not Found", e)
+        0
+    }
 
+/**
+ * Retrieve a `list` of all `adp` dimensional resources IDs
+ * stored in an array resource reference
+ *
+ * ```
+ * // [R. dimen._1adp, ... , R. dimen._600adp]
+ * resources.getListOfAdaptiveDpDimenRes()
+ * ```
+ *
+ * @since 1.0.0
+ * @receiver Application [Resources] Instance
+ * @return List of adp dimensional resource IDs
+ */
 fun Resources.getListOfAdaptiveDpDimenRes() =
     try {
         val typedArray = obtainTypedArray(R.array.adps)
@@ -46,9 +129,35 @@ fun Resources.getListOfAdaptiveDpDimenRes() =
             typedArray.recycle()
         }
     }
-    catch (_: NotFoundException) { listOf() }
-    catch (_: RuntimeException) { listOf() }
+    catch (e: NotFoundException) {
+        logAdpError("Array Resource not Found", e)
+        listOf()
+    }
+    catch (e: RuntimeException) {
+        logAdpError("Runtime error", e)
+        listOf()
+    }
 
+/**
+ * Retrieve a `list` of all `adp` dimensional for the resource IDs
+ * stored in an array resource reference
+ *
+ * ```
+ * /*
+ *   [getAdaptiveDpDimension(AdaptiveDp._1adp),
+ *    ... ,
+ *    getAdaptiveDpDimension(AdaptiveDp._600adp)]
+ * */
+ * resources.getListOfAdaptiveDpDimension()
+ * ```
+ *
+ * @since 1.0.0
+ * @receiver Application [Resources] Instance
+ * @return List of adp dimensional
+ * @see getListOfAdaptiveDpExactDimension
+ * @see getListOfAdaptiveDpDimensionPixelOffset
+ * @see getListOfAdaptiveDpDimensionPixelSize
+ */
 fun Resources.getListOfAdaptiveDpDimension() =
     mutableListOf<Float>().apply {
         getListOfAdaptiveDpDimenRes().forEach {
@@ -56,6 +165,26 @@ fun Resources.getListOfAdaptiveDpDimension() =
         }
     }.toList()
 
+/**
+ * Retrieve a `list` of all `adp` exact dimensional
+ * for the resource IDs stored in an array resource reference
+ *
+ * ```
+ * /*
+ *   [getAdaptiveDpExactDimension(AdaptiveDp._1adp),
+ *    ... ,
+ *    getAdaptiveDpExactDimension(AdaptiveDp._600adp)]
+ * */
+ * resources.getListOfAdaptiveDpExactDimension()
+ * ```
+ *
+ * @since 1.0.0
+ * @receiver Application [Resources] Instance
+ * @return List of `adp` exact dimensional
+ * @see getListOfAdaptiveDpDimension
+ * @see getListOfAdaptiveDpDimensionPixelOffset
+ * @see getListOfAdaptiveDpDimensionPixelSize
+ */
 fun Resources.getListOfAdaptiveDpExactDimension() =
     mutableListOf<Int>().apply {
         getListOfAdaptiveDpDimenRes().forEach {
@@ -63,6 +192,26 @@ fun Resources.getListOfAdaptiveDpExactDimension() =
         }
     }.toList()
 
+/**
+ * Retrieve a `list` of all `adp` dimensional for the resource IDs,
+ * for use as an offset in raw pixels, stored in an array resource reference
+ *
+ * ```
+ * /*
+ *   [getAdaptiveDpDimensionPixelOffset(AdaptiveDp._1adp),
+ *    ... ,
+ *    getAdaptiveDpDimensionPixelOffset(AdaptiveDp._600adp)]
+ * */
+ * resources.getListOfAdaptiveDpDimensionPixelOffset()
+ * ```
+ *
+ * @since 1.0.0
+ * @receiver Application [Resources] Instance
+ * @return List of `adp` dimensional
+ * @see getListOfAdaptiveDpDimension
+ * @see getListOfAdaptiveDpExactDimension
+ * @see getListOfAdaptiveDpDimensionPixelSize
+ */
 fun Resources.getListOfAdaptiveDpDimensionPixelOffset() =
     mutableListOf<Int>().apply {
         getListOfAdaptiveDpDimenRes().forEach {
@@ -70,6 +219,26 @@ fun Resources.getListOfAdaptiveDpDimensionPixelOffset() =
         }
     }.toList()
 
+/**
+ * Retrieve a `list` of all `adp` dimensional for the resource IDs,
+ * for use as a size in raw pixels, stored in an array resource reference
+ *
+ * ```
+ * /*
+ *   [getAdaptiveDpDimensionPixelSize(AdaptiveDp._1adp),
+ *    ... ,
+ *    getAdaptiveDpDimensionPixelSize(AdaptiveDp._600adp)]
+ * */
+ * resources.getListOfAdaptiveDpDimensionPixelSize()
+ * ```
+ *
+ * @since 1.0.0
+ * @receiver Application [Resources] Instance
+ * @return List of `adp` dimensional
+ * @see getListOfAdaptiveDpDimension
+ * @see getListOfAdaptiveDpExactDimension
+ * @see getListOfAdaptiveDpDimensionPixelOffset
+ */
 fun Resources.getListOfAdaptiveDpDimensionPixelSize() =
     mutableListOf<Int>().apply {
         getListOfAdaptiveDpDimenRes().forEach {
@@ -77,5 +246,13 @@ fun Resources.getListOfAdaptiveDpDimensionPixelSize() =
         }
     }.toList()
 
-internal fun logAdpError(message: String, throwable: Throwable?) =
+/**
+ * Default Log Error for [AdaptiveDp] structure.
+ *
+ * @since 1.0.0
+ * @param message The message you would like logged.
+ * @param throwable An exception to log.
+ */
+internal fun logAdpError(message: String, throwable: Throwable?) {
     Log.e(AdaptiveDp::class.simpleName, message, throwable)
+}

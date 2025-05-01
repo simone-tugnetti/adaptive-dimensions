@@ -12,8 +12,23 @@ import it.simonetugnetti.adaptivedimensions.legacy.utils.logAspError
  * This structure contains all of *asps* references in resource dimensions
  * that changes automatically based on screen width
  *
+ * ```
+ * /*
+ *  * 1asp for Screen width 300dp = 1sp
+ *  * 1asp for Screen width 600dp = 2sp
+ *  */
+ *
+ * // With Resource Receiver
+ * resources.getDimension(R.dimen._1asp)
+ * resources.getDimension(AdaptiveSp._1asp.dimen)
+ * resources.getAdaptiveSpDimension(AdaptiveSp._1asp)
+ *
+ * // With Enum Entry Receiver
+ * AdaptiveSp._1asp.getDimension(resources)
+ * AdaptiveSp._1asp.getDimensionPixelOffset(resources)
+ * ```
+ *
  * @property dimen Dimen Res linked by the corresponding entry
- * @sample it.simonetugnetti.adaptivedimensions.legacy.samples.adaptiveSpEnumSample
  * @since 1.0.0
  */
 @Suppress("EnumEntryName")
