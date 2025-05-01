@@ -9,8 +9,8 @@ import it.simonetugnetti.adaptivedimensions.legacy.utils.logAspError
 /**
  * Constant Enumeration of **Adaptive Sps**
  *
- * This structure contains all of *asps* references in resource dimensions
- * that changes automatically based on screen width
+ * Structure that contains all of *adps* references, from 1asp to 600asp,
+ * in resource dimensions that changes automatically based on screen width.
  *
  * ```
  * /*
@@ -28,10 +28,9 @@ import it.simonetugnetti.adaptivedimensions.legacy.utils.logAspError
  * AdaptiveSp._1asp.getDimensionPixelOffset(resources)
  * ```
  *
- * @property dimen Dimen Res linked by the corresponding entry
+ * @property dimen Dimensional resource ID linked by the corresponding entry.
  * @since 1.0.0
  */
-@Suppress("EnumEntryName")
 enum class AdaptiveSp(@DimenRes val dimen: Int) {
     _0asp(R.dimen._0asp),
     _1asp(R.dimen._1asp),
@@ -636,12 +635,17 @@ enum class AdaptiveSp(@DimenRes val dimen: Int) {
     _600asp(R.dimen._600asp);
 
     /**
-     * Retrieve the Dimension in float given
-     * the specific [AdaptiveSp] Entry and Screen Width
+     * Retrieve the `float` Dimension given
+     * the specific [AdaptiveSp] entry and based
+     * on device screen width.
      *
      * @since 1.0.0
-     * @return Float representation of DimenRes
-     * @param res Application Resources instance
+     * @return Resource dimension value multiplied by the
+     * appropriate metric to convert to pixels.
+     * @param res Application Resources instance.
+     * @see getExactDimension
+     * @see getDimensionPixelOffset
+     * @see getDimensionPixelSize
      */
     fun getDimension(res: Resources) =
         try { res.getDimension(dimen) }
@@ -651,12 +655,17 @@ enum class AdaptiveSp(@DimenRes val dimen: Int) {
         }
 
     /**
-     * Retrieve the Exact Dimension in Int given
-     * the specific [AdaptiveSp] Entry and Screen Width
+     * Retrieve the `integer` Exact Dimension given
+     * the specific [AdaptiveSp] entry and based
+     * on device screen width.
      *
      * @since 1.0.0
-     * @return Int representation of DimenRes
-     * @param res Application Resources instance
+     * @return Int representation of dimensional resource
+     * divided by display density.
+     * @param res Application Resources instance.
+     * @see getDimension
+     * @see getDimensionPixelOffset
+     * @see getDimensionPixelSize
      */
     fun getExactDimension(res: Resources) =
         try { (res.getDimension(dimen) / res.displayMetrics.density).toInt() }
@@ -666,12 +675,17 @@ enum class AdaptiveSp(@DimenRes val dimen: Int) {
         }
 
     /**
-     * Retrieve the Pixel Offset Dimension in Int given
-     * the specific [AdaptiveSp] Entry and Screen Width
+     * Retrieve the `integer` Pixel Offset Dimension given
+     * the specific [AdaptiveSp] Entry and based
+     * on device screen width.
      *
      * @since 1.0.0
-     * @return Int representation of DimenRes
-     * @param res Application Resources instance
+     * @return Resource dimension value multiplied by
+     * the appropriate metric and truncated to `integer` pixels.
+     * @param res Application Resources instance.
+     * @see getDimension
+     * @see getExactDimension
+     * @see getDimensionPixelSize
      */
     fun getDimensionPixelOffset(res: Resources) =
         try { res.getDimensionPixelOffset(dimen) }
@@ -681,12 +695,17 @@ enum class AdaptiveSp(@DimenRes val dimen: Int) {
         }
 
     /**
-     * Retrieve the Pixel Size Dimension in Int given
-     * the specific [AdaptiveSp] Entry and Screen Width
+     * Retrieve the `integer` Pixel Size Dimension given
+     * the specific [AdaptiveSp] entry and based
+     * on device screen width.
      *
      * @since 1.0.0
-     * @return Int representation of DimenRes
-     * @param res Application Resources instance
+     * @return Resource dimension value multiplied by
+     * the appropriate metric and truncated to `integer` pixels.
+     * @param res Application Resources instance.
+     * @see getDimension
+     * @see getExactDimension
+     * @see getDimensionPixelOffset
      */
     fun getDimensionPixelSize(res: Resources) =
         try { res.getDimensionPixelSize(dimen) }
@@ -698,19 +717,24 @@ enum class AdaptiveSp(@DimenRes val dimen: Int) {
     companion object {
 
         /**
-         * Retrieve the size of [AdaptiveSp] entries
+         * Retrieve the size of [AdaptiveSp] entries.
          *
          * @since 1.0.0
-         * @return Size of the collection
+         * @return Size of the entries.
          */
         fun size() = entries.size
 
         /**
-         * Retrieve a list that contains all
-         * the dimension resource IDs in [AdaptiveSp]
+         * Retrieve a list that contains
+         * all dimension resource IDs in [AdaptiveSp].
+         *
+         * ```
+         * // [R.dimen._1asp, ... , R.dimen._600asp]
+         * AdaptiveSp.listOfDimenRes()
+         * ```
          *
          * @since 1.0.0
-         * @return list of DimenRes IDs
+         * @return list of `asp` dimension resource IDs.
          */
         fun listOfDimenRes() = entries.map { it.dimen }
 

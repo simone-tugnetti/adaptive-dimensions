@@ -8,7 +8,8 @@ import it.simonetugnetti.adaptivedimensions.R
 import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveDp
 
 /**
- * Retrieve an [AdaptiveDp] `entry` associated by the given DimenRes
+ * Retrieve an [AdaptiveDp] `entry` associated by the given
+ * dimension resource ID.
  *
  * ```
  * // 1adp = AdaptiveDp._1adp
@@ -19,8 +20,8 @@ import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveDp
  * ```
  *
  * @since 1.0.0
- * @receiver Dimension Resource ID
- * @return [AdaptiveDp] associated entry or [AdaptiveDp._0adp] otherwise
+ * @receiver Dimension Resource ID.
+ * @return [AdaptiveDp] associated entry or [AdaptiveDp._0adp] otherwise.
  */
 fun @receiver:DimenRes Int.asAdaptiveDp() =
     AdaptiveDp.entries.find { it.dimen == this } ?: AdaptiveDp._0adp
@@ -29,10 +30,10 @@ fun @receiver:DimenRes Int.asAdaptiveDp() =
  * Retrieve an `adp` dimensional for the resource ID.
  *
  * @since 1.0.0
- * @receiver Application [Resources] Instance
- * @param adp An [AdaptiveDp] entry
+ * @receiver Application [Resources] Instance.
+ * @param adp An [AdaptiveDp] entry.
  * @return Resource dimension `float` value based on screen width
- * and converted to pixel
+ * and converted to pixel.
  * @see getAdaptiveDpExactDimension
  * @see getAdaptiveDpDimensionPixelOffset
  * @see getAdaptiveDpDimensionPixelSize
@@ -48,9 +49,10 @@ fun Resources.getAdaptiveDpDimension(adp: AdaptiveDp) =
  * Retrieve an `adp` exact dimensional for the resource ID.
  *
  * @since 1.0.0
- * @receiver Application [Resources] Instance
- * @param adp An [AdaptiveDp] entry
- * @return A dp `integer` value based on screen width divided by display density
+ * @receiver Application [Resources] Instance.
+ * @param adp An [AdaptiveDp] entry.
+ * @return A dp `integer` value based on screen width
+ * divided by display density.
  * @see getAdaptiveDpDimension
  * @see getAdaptiveDpDimensionPixelOffset
  * @see getAdaptiveDpDimensionPixelSize
@@ -67,13 +69,14 @@ fun Resources.getAdaptiveDpExactDimension(adp: AdaptiveDp) =
     }
 
 /**
- * Retrieve an `adp` dimensional for the resource ID for use as an offset in raw pixels
+ * Retrieve an `adp` dimensional for the resource ID
+ * for use as an offset in raw pixels.
  *
  * @since 1.0.0
- * @receiver Application [Resources] Instance
- * @param adp An [AdaptiveDp] entry
+ * @receiver Application [Resources] Instance.
+ * @param adp An [AdaptiveDp] entry.
  * @return Resource dimension value multiplied by
- * the appropriate metric and truncated to `integer` pixels
+ * the appropriate metric and truncated to `integer` pixels.
  * @see getAdaptiveDpDimension
  * @see getAdaptiveDpExactDimension
  * @see getAdaptiveDpDimensionPixelSize
@@ -86,13 +89,14 @@ fun Resources.getAdaptiveDpDimensionPixelOffset(adp: AdaptiveDp) =
     }
 
 /**
- * Retrieve an `adp` dimensional for the resource ID for use as a size in raw pixels
+ * Retrieve an `adp` dimensional for the resource ID
+ * for use as a size in raw pixels.
  *
  * @since 1.0.0
- * @receiver Application [Resources] Instance
- * @param adp An [AdaptiveDp] entry
+ * @receiver Application [Resources] Instance.
+ * @param adp An [AdaptiveDp] entry.
  * @return Resource dimension value multiplied by
- * the appropriate metric and truncated to `integer` pixels
+ * the appropriate metric and truncated to `integer` pixels.
  * @see getAdaptiveDpDimension
  * @see getAdaptiveDpExactDimension
  * @see getAdaptiveDpDimensionPixelOffset
@@ -106,7 +110,7 @@ fun Resources.getAdaptiveDpDimensionPixelSize(adp: AdaptiveDp) =
 
 /**
  * Retrieve a `list` of all `adp` dimensional resources IDs
- * stored in an array resource reference
+ * stored in an array resource reference.
  *
  * ```
  * // [R. dimen._1adp, ... , R. dimen._600adp]
@@ -114,8 +118,8 @@ fun Resources.getAdaptiveDpDimensionPixelSize(adp: AdaptiveDp) =
  * ```
  *
  * @since 1.0.0
- * @receiver Application [Resources] Instance
- * @return List of adp dimensional resource IDs
+ * @receiver Application [Resources] Instance.
+ * @return List of adp dimensional resource IDs.
  */
 fun Resources.getListOfAdaptiveDpDimenRes() =
     try {
@@ -140,7 +144,7 @@ fun Resources.getListOfAdaptiveDpDimenRes() =
 
 /**
  * Retrieve a `list` of all `adp` dimensional for the resource IDs
- * stored in an array resource reference
+ * stored in an array resource reference.
  *
  * ```
  * /*
@@ -152,8 +156,8 @@ fun Resources.getListOfAdaptiveDpDimenRes() =
  * ```
  *
  * @since 1.0.0
- * @receiver Application [Resources] Instance
- * @return List of adp dimensional
+ * @receiver Application [Resources] Instance.
+ * @return List of adp dimensional.
  * @see getListOfAdaptiveDpExactDimension
  * @see getListOfAdaptiveDpDimensionPixelOffset
  * @see getListOfAdaptiveDpDimensionPixelSize
@@ -167,7 +171,7 @@ fun Resources.getListOfAdaptiveDpDimension() =
 
 /**
  * Retrieve a `list` of all `adp` exact dimensional
- * for the resource IDs stored in an array resource reference
+ * for the resource IDs stored in an array resource reference.
  *
  * ```
  * /*
@@ -179,8 +183,8 @@ fun Resources.getListOfAdaptiveDpDimension() =
  * ```
  *
  * @since 1.0.0
- * @receiver Application [Resources] Instance
- * @return List of `adp` exact dimensional
+ * @receiver Application [Resources] Instance.
+ * @return List of adp dimensional.
  * @see getListOfAdaptiveDpDimension
  * @see getListOfAdaptiveDpDimensionPixelOffset
  * @see getListOfAdaptiveDpDimensionPixelSize
@@ -194,7 +198,7 @@ fun Resources.getListOfAdaptiveDpExactDimension() =
 
 /**
  * Retrieve a `list` of all `adp` dimensional for the resource IDs,
- * for use as an offset in raw pixels, stored in an array resource reference
+ * for use as an offset in raw pixels, stored in an array resource reference.
  *
  * ```
  * /*
@@ -206,8 +210,8 @@ fun Resources.getListOfAdaptiveDpExactDimension() =
  * ```
  *
  * @since 1.0.0
- * @receiver Application [Resources] Instance
- * @return List of `adp` dimensional
+ * @receiver Application [Resources] Instance.
+ * @return List of adp dimensional.
  * @see getListOfAdaptiveDpDimension
  * @see getListOfAdaptiveDpExactDimension
  * @see getListOfAdaptiveDpDimensionPixelSize
@@ -221,7 +225,7 @@ fun Resources.getListOfAdaptiveDpDimensionPixelOffset() =
 
 /**
  * Retrieve a `list` of all `adp` dimensional for the resource IDs,
- * for use as a size in raw pixels, stored in an array resource reference
+ * for use as a size in raw pixels, stored in an array resource reference.
  *
  * ```
  * /*
@@ -233,8 +237,8 @@ fun Resources.getListOfAdaptiveDpDimensionPixelOffset() =
  * ```
  *
  * @since 1.0.0
- * @receiver Application [Resources] Instance
- * @return List of `adp` dimensional
+ * @receiver Application [Resources] Instance.
+ * @return List of adp dimensional.
  * @see getListOfAdaptiveDpDimension
  * @see getListOfAdaptiveDpExactDimension
  * @see getListOfAdaptiveDpDimensionPixelOffset
