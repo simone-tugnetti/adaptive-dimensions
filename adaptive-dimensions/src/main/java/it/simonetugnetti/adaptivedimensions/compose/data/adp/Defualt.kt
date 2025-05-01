@@ -1,8 +1,15 @@
 package it.simonetugnetti.adaptivedimensions.compose.data.adp
 
 import androidx.compose.ui.unit.dp
+import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveDp
 import it.simonetugnetti.adaptivedimensions.compose.model.Adp
 
+/**
+ * Variable containing default [Adp] values.
+ *
+ * @since 1.0.0
+ * @see AdaptiveDp
+ */
 internal val adp_default = Adp(
     zero = 0.dp,
     _1adp = 1.dp,

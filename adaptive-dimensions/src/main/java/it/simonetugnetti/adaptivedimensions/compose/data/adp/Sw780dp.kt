@@ -1,8 +1,16 @@
 package it.simonetugnetti.adaptivedimensions.compose.data.adp
 
 import androidx.compose.ui.unit.dp
+import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveDp
 import it.simonetugnetti.adaptivedimensions.compose.model.Adp
 
+/**
+ * Variable containing [Adp] values
+ * for smallest screen width equal to 780dp.
+ *
+ * @since 1.0.0
+ * @see AdaptiveDp
+ */
 internal val adp_sw780dp = Adp(
     zero = 0.dp,
     _1adp = 2.60.dp,

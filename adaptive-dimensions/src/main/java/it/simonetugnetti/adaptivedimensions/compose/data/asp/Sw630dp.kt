@@ -1,8 +1,16 @@
 package it.simonetugnetti.adaptivedimensions.compose.data.asp
 
 import androidx.compose.ui.unit.sp
+import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveSp
 import it.simonetugnetti.adaptivedimensions.compose.model.Asp
 
+/**
+ * Variable containing [Asp] values
+ * for smallest screen width equal to 630dp.
+ *
+ * @since 1.0.0
+ * @see AdaptiveSp
+ */
 internal val asp_sw630dp = Asp(
     zero = 0.sp,
     _1asp = 2.10.sp,
