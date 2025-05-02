@@ -1,6 +1,5 @@
 package it.simonetugnetti.adaptivedimensions.compose.enums
 
-import it.simonetugnetti.adaptivedimensions.compose.composables.CompositionLocalProviderContainerSizeAdaptiveSp
 import it.simonetugnetti.adaptivedimensions.compose.data.asp.asp_default
 import it.simonetugnetti.adaptivedimensions.compose.data.asp.asp_sw1020dp
 import it.simonetugnetti.adaptivedimensions.compose.data.asp.asp_sw1050dp
@@ -30,7 +29,6 @@ import it.simonetugnetti.adaptivedimensions.compose.data.asp.asp_sw930dp
 import it.simonetugnetti.adaptivedimensions.compose.data.asp.asp_sw960dp
 import it.simonetugnetti.adaptivedimensions.compose.data.asp.asp_sw990dp
 import it.simonetugnetti.adaptivedimensions.compose.model.Asp
-import it.simonetugnetti.adaptivedimensions.compose.utils.widthAdaptiveSp
 
 /**
  * Constant Enumeration for Compose of **Adaptive Dps**
@@ -44,14 +42,13 @@ import it.simonetugnetti.adaptivedimensions.compose.utils.widthAdaptiveSp
  * ```
  *
  * These are just constant values, for a responsive dimensions
- * you have to call composable functions in `composables` package
- * or extension variables in `utils` package.
+ * you have to call composable functions in
+ * [composables][it.simonetugnetti.adaptivedimensions.compose.composables] package
+ * or extension variables in [utils][it.simonetugnetti.adaptivedimensions.compose.utils] package.
  *
  * @property asp Actual [Asp] reference selected for screen width.
  * @since 1.0.0
  * @see AdaptiveDp
- * @see CompositionLocalProviderContainerSizeAdaptiveSp
- * @see widthAdaptiveSp
  */
 enum class AdaptiveSp(val asp: Asp) {
     DEFAULT(asp_default),

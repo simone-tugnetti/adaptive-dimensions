@@ -29,8 +29,6 @@ import it.simonetugnetti.adaptivedimensions.compose.data.adp.adp_sw930dp
 import it.simonetugnetti.adaptivedimensions.compose.data.adp.adp_sw960dp
 import it.simonetugnetti.adaptivedimensions.compose.data.adp.adp_sw990dp
 import it.simonetugnetti.adaptivedimensions.compose.model.Adp
-import it.simonetugnetti.adaptivedimensions.compose.composables.CompositionLocalProviderContainerSizeAdaptiveDp
-import it.simonetugnetti.adaptivedimensions.compose.utils.widthAdaptiveDp
 
 /**
  * Constant Enumeration for Compose of **Adaptive Dps**
@@ -44,14 +42,13 @@ import it.simonetugnetti.adaptivedimensions.compose.utils.widthAdaptiveDp
  * ```
  *
  * These are just constant values, for a responsive dimensions
- * you have to call composable functions in `composables` package
- * or extension variables in `utils` package.
+ * you have to call composable functions in
+ * [composables][it.simonetugnetti.adaptivedimensions.compose.composables] package
+ * or extension variables in [utils][it.simonetugnetti.adaptivedimensions.compose.utils] package.
  *
  * @property adp Actual [Adp] reference selected for screen width.
  * @since 1.0.0
  * @see AdaptiveSp
- * @see CompositionLocalProviderContainerSizeAdaptiveDp
- * @see widthAdaptiveDp
  */
 enum class AdaptiveDp(val adp: Adp) {
     DEFAULT(adp_default),

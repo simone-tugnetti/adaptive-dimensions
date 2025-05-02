@@ -5,13 +5,17 @@ import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.material3.adaptive.currentWindowSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.UiComposable
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveDp
+import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveDp as AdaptiveDpLegacy
 import it.simonetugnetti.adaptivedimensions.compose.utils.adaptiveDp
 import it.simonetugnetti.adaptivedimensions.compose.utils.maxWidthAdaptiveDp
 import it.simonetugnetti.adaptivedimensions.compose.utils.widthAdaptiveDp
@@ -158,3 +162,9 @@ private fun BoxWithConstraintAdaptiveDpSingleItem(
         content()
     }
 }
+
+@Composable
+@ReadOnlyComposable
+fun dimensionAdaptiveDpResource(adp: AdaptiveDpLegacy): Dp =
+    runCatching { dimensionResource(adp.dimen) }
+        .getOrDefault(AdaptiveDp.DEFAULT.adp.zero)

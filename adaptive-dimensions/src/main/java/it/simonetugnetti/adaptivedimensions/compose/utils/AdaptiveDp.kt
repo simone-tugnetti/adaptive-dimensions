@@ -1,15 +1,23 @@
 package it.simonetugnetti.adaptivedimensions.compose.utils
 
 import androidx.compose.foundation.layout.BoxWithConstraintsScope
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.window.core.layout.WindowWidthSizeClass
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.material3.adaptive.currentWindowSize
+import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveDp
-import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveDp as AdaptiveDpLegacy
+import it.simonetugnetti.adaptivedimensions.compose.model.Adp
 
+/**
+ * Retrieve an [AdaptiveDp] entry based on [BoxWithConstraintsScope.maxWidth].
+ *
+ * @since 1.0.0
+ * @receiver Scope of [BoxWithConstraints] composable.
+ * @see Adp
+ * @see maxWidthAdaptiveSp
+ */
 val BoxWithConstraintsScope.maxWidthAdaptiveDp: AdaptiveDp
     get() = when {
         maxWidth <= 300.dp -> AdaptiveDp.SW300
@@ -42,6 +50,14 @@ val BoxWithConstraintsScope.maxWidthAdaptiveDp: AdaptiveDp
         else -> AdaptiveDp.DEFAULT
     }
 
+/**
+ * Retrieve an [AdaptiveDp] entry based on [IntSize.width].
+ *
+ * @since 1.0.0
+ * @see Adp
+ * @see currentWindowSize
+ * @see widthAdaptiveSp
+ */
 val IntSize.widthAdaptiveDp: AdaptiveDp
     get() = when {
         width.dp <= 300.dp -> AdaptiveDp.SW300
@@ -74,6 +90,20 @@ val IntSize.widthAdaptiveDp: AdaptiveDp
         else -> AdaptiveDp.DEFAULT
     }
 
+/**
+ * Retrieve an [AdaptiveDp] entry based on [WindowWidthSizeClass] entry.
+ *
+ * ```
+ * WindowWidthSizeClass.COMPACT = AdaptiveDp.DEFAULT
+ * WindowWidthSizeClass.MEDIUM = AdaptiveDp.SW600
+ * WindowWidthSizeClass.EXPANDED = AdaptiveDp.SW840
+ * ```
+ *
+ * @since 1.0.0
+ * @see Adp
+ * @see currentWindowAdaptiveInfo
+ * @see adaptiveSp
+ */
 val WindowWidthSizeClass.adaptiveDp: AdaptiveDp
     get() = when (this) {
         WindowWidthSizeClass.COMPACT -> AdaptiveDp.DEFAULT
@@ -81,7 +111,3 @@ val WindowWidthSizeClass.adaptiveDp: AdaptiveDp
         WindowWidthSizeClass.EXPANDED -> AdaptiveDp.SW840
         else -> AdaptiveDp.DEFAULT
     }
-
-@Composable
-fun dimensionAdaptiveDpResource(adp: AdaptiveDpLegacy): Dp =
-    runCatching { dimensionResource(adp.dimen) }.getOrDefault(0.dp)

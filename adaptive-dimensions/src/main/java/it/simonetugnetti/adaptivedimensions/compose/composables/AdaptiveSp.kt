@@ -5,14 +5,18 @@ import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.material3.adaptive.currentWindowSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.UiComposable
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveSp
-import it.simonetugnetti.adaptivedimensions.compose.utils.adaptiveDp
+import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveSp as AdaptiveSpLegacy
 import it.simonetugnetti.adaptivedimensions.compose.utils.adaptiveSp
 import it.simonetugnetti.adaptivedimensions.compose.utils.maxWidthAdaptiveSp
 import it.simonetugnetti.adaptivedimensions.compose.utils.widthAdaptiveSp
@@ -186,3 +190,9 @@ private fun BoxWithConstraintAdaptiveSpSingleItem(
         content()
     }
 }
+
+@Composable
+@ReadOnlyComposable
+fun dimensionAdaptiveSpResource(asp: AdaptiveSpLegacy): TextUnit =
+    runCatching { dimensionResource(asp.dimen).value.sp }
+        .getOrDefault(AdaptiveSp.DEFAULT.asp.zero)

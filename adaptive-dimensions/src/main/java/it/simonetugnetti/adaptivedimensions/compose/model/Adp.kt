@@ -1,8 +1,22 @@
 package it.simonetugnetti.adaptivedimensions.compose.model
 
 import androidx.compose.ui.unit.Dp
+import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveDp
+import it.simonetugnetti.adaptivedimensions.compose.data.adp.adp_default
 import kotlin.reflect.full.memberProperties
 
+/**
+ * Data model used to store `adp` values for
+ * different devices screen width.
+ *
+ * For more info, check values in
+ * [adp][it.simonetugnetti.adaptivedimensions.compose.data.adp] package
+ *
+ * @constructor Adps values from zero to 600adp
+ * @since 1.0.0
+ * @see Asp
+ * @see AdaptiveDp
+ */
 data class Adp internal constructor(
     val zero: Dp,
     val _1adp: Dp,
@@ -607,6 +621,11 @@ data class Adp internal constructor(
     val _600adp: Dp
 ) {
 
+    /**
+     * Retrieve a `list` of all [Dp] values in this data model
+     *
+     * @since 1.0.0
+     */
     val listOfAdps = mutableListOf<Dp>().apply {
 
         add(this@Adp.zero)

@@ -1,8 +1,22 @@
 package it.simonetugnetti.adaptivedimensions.compose.model
 
 import androidx.compose.ui.unit.TextUnit
+import it.simonetugnetti.adaptivedimensions.compose.data.asp.asp_default
+import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveSp
 import kotlin.reflect.full.memberProperties
 
+/**
+ * Data model used to store `asp` values for
+ * different devices screen width.
+ *
+ * For more info, check values in
+ * [asp][it.simonetugnetti.adaptivedimensions.compose.data.asp] package
+ *
+ * @constructor Asps values from zero to 600asp
+ * @since 1.0.0
+ * @see Adp
+ * @see AdaptiveSp
+ */
 data class Asp internal constructor(
     val zero: TextUnit,
     val _1asp: TextUnit,
@@ -607,6 +621,11 @@ data class Asp internal constructor(
     val _600asp: TextUnit
 ) {
 
+    /**
+     * Retrieve a `list` of all [TextUnit] values in this data model
+     *
+     * @since 1.0.0
+     */
     val listOfAsps = mutableListOf<TextUnit>().apply {
 
         add(this@Asp.zero)
