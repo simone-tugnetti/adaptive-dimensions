@@ -3,7 +3,6 @@ package it.simonetugnetti.adaptivedimensions.compose.model
 import androidx.compose.ui.unit.Dp
 import kotlin.reflect.full.memberProperties
 
-@Suppress("PropertyName")
 data class Adp internal constructor(
     val zero: Dp,
     val _1adp: Dp,

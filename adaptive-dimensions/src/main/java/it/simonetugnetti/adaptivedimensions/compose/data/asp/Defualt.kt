@@ -5,7 +5,7 @@ import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveSp
 import it.simonetugnetti.adaptivedimensions.compose.model.Asp
 
 /**
- * Variable containing default [Asp] values.
+ * Variable containing `default` [Asp] values.
  *
  * @since 1.0.0
  * @see AdaptiveSp

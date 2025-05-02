@@ -3,7 +3,6 @@ package it.simonetugnetti.adaptivedimensions.compose.model
 import androidx.compose.ui.unit.TextUnit
 import kotlin.reflect.full.memberProperties
 
-@Suppress("PropertyName")
 data class Asp internal constructor(
     val zero: TextUnit,
     val _1asp: TextUnit,

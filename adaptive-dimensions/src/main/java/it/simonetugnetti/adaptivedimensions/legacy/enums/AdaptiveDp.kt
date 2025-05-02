@@ -30,6 +30,7 @@ import it.simonetugnetti.adaptivedimensions.legacy.utils.logAdpError
  *
  * @property dimen Dimensional resource ID linked by the corresponding entry.
  * @since 1.0.0
+ * @see AdaptiveSp
  */
 enum class AdaptiveDp(@DimenRes val dimen: Int) {
     _0adp(R.dimen._0adp),

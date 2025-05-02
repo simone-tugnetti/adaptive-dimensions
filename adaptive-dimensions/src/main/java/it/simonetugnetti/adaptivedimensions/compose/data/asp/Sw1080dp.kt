@@ -6,7 +6,7 @@ import it.simonetugnetti.adaptivedimensions.compose.model.Asp
 
 /**
  * Variable containing [Asp] values
- * for smallest screen width equal to 1080dp.
+ * for smallest screen width equal to `1080dp`.
  *
  * @since 1.0.0
  * @see AdaptiveSp

@@ -1,5 +1,6 @@
 package it.simonetugnetti.adaptivedimensions.compose.enums
 
+import it.simonetugnetti.adaptivedimensions.compose.composables.CompositionLocalProviderContainerSizeAdaptiveSp
 import it.simonetugnetti.adaptivedimensions.compose.data.asp.asp_default
 import it.simonetugnetti.adaptivedimensions.compose.data.asp.asp_sw1020dp
 import it.simonetugnetti.adaptivedimensions.compose.data.asp.asp_sw1050dp
@@ -29,7 +30,29 @@ import it.simonetugnetti.adaptivedimensions.compose.data.asp.asp_sw930dp
 import it.simonetugnetti.adaptivedimensions.compose.data.asp.asp_sw960dp
 import it.simonetugnetti.adaptivedimensions.compose.data.asp.asp_sw990dp
 import it.simonetugnetti.adaptivedimensions.compose.model.Asp
+import it.simonetugnetti.adaptivedimensions.compose.utils.widthAdaptiveSp
 
+/**
+ * Constant Enumeration for Compose of **Adaptive Dps**
+ *
+ * Structure that contains all of [Asp] references
+ * groped by device screen width.
+ *
+ * ```
+ * // Enum.SmallestScreenWidth.Asp.Value
+ * AdaptiveSp.SW300.asp._1asp
+ * ```
+ *
+ * These are just constant values, for a responsive dimensions
+ * you have to call composable functions in `composables` package
+ * or extension variables in `utils` package.
+ *
+ * @property asp Actual [Asp] reference selected for screen width.
+ * @since 1.0.0
+ * @see AdaptiveDp
+ * @see CompositionLocalProviderContainerSizeAdaptiveSp
+ * @see widthAdaptiveSp
+ */
 enum class AdaptiveSp(val asp: Asp) {
     DEFAULT(asp_default),
     SW300(asp_sw300dp),
@@ -58,5 +81,32 @@ enum class AdaptiveSp(val asp: Asp) {
     SW990(asp_sw990dp),
     SW1020(asp_sw1020dp),
     SW1050(asp_sw1050dp),
-    SW1080(asp_sw1080dp)
+    SW1080(asp_sw1080dp);
+
+    companion object {
+
+        /**
+         * Retrieve the size of [AdaptiveSp] entries.
+         *
+         * @since 1.0.0
+         * @return Size of the entries.
+         */
+        fun size() = entries.size
+
+        /**
+         * Retrieve a list that contains
+         * all [Asp] references in [AdaptiveSp].
+         *
+         * ```
+         * // [asp_default, ... , asp_sw600dp]
+         * AdaptiveSp.listOfAsps()
+         * ```
+         *
+         * @since 1.0.0
+         * @return list of [Asp] references.
+         */
+        fun listOfAsps() = entries.map { it.asp }
+
+    }
+
 }

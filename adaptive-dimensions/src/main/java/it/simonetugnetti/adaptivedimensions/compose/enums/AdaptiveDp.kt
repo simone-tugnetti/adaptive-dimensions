@@ -29,7 +29,30 @@ import it.simonetugnetti.adaptivedimensions.compose.data.adp.adp_sw930dp
 import it.simonetugnetti.adaptivedimensions.compose.data.adp.adp_sw960dp
 import it.simonetugnetti.adaptivedimensions.compose.data.adp.adp_sw990dp
 import it.simonetugnetti.adaptivedimensions.compose.model.Adp
+import it.simonetugnetti.adaptivedimensions.compose.composables.CompositionLocalProviderContainerSizeAdaptiveDp
+import it.simonetugnetti.adaptivedimensions.compose.utils.widthAdaptiveDp
 
+/**
+ * Constant Enumeration for Compose of **Adaptive Dps**
+ *
+ * Structure that contains all of [Adp] references
+ * groped by device screen width.
+ *
+ * ```
+ * // Enum.SmallestScreenWidth.Adp.Value
+ * AdaptiveDp.SW300.adp._1adp
+ * ```
+ *
+ * These are just constant values, for a responsive dimensions
+ * you have to call composable functions in `composables` package
+ * or extension variables in `utils` package.
+ *
+ * @property adp Actual [Adp] reference selected for screen width.
+ * @since 1.0.0
+ * @see AdaptiveSp
+ * @see CompositionLocalProviderContainerSizeAdaptiveDp
+ * @see widthAdaptiveDp
+ */
 enum class AdaptiveDp(val adp: Adp) {
     DEFAULT(adp_default),
     SW300(adp_sw300dp),
@@ -58,5 +81,32 @@ enum class AdaptiveDp(val adp: Adp) {
     SW990(adp_sw990dp),
     SW1020(adp_sw1020dp),
     SW1050(adp_sw1050dp),
-    SW1080(adp_sw1080dp)
+    SW1080(adp_sw1080dp);
+
+    companion object {
+
+        /**
+         * Retrieve the size of [AdaptiveDp] entries.
+         *
+         * @since 1.0.0
+         * @return Size of the entries.
+         */
+        fun size() = entries.size
+
+        /**
+         * Retrieve a list that contains
+         * all [Adp] references in [AdaptiveDp].
+         *
+         * ```
+         * // [adp_default, ... , adp_sw600dp]
+         * AdaptiveDp.listOfAdps()
+         * ```
+         *
+         * @since 1.0.0
+         * @return list of [Adp] references.
+         */
+        fun listOfAdps() = entries.map { it.adp }
+
+    }
+
 }

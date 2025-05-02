@@ -6,7 +6,7 @@ import it.simonetugnetti.adaptivedimensions.compose.model.Adp
 
 /**
  * Variable containing [Adp] values
- * for smallest screen width equal to 480dp.
+ * for smallest screen width equal to `480dp`.
  *
  * @since 1.0.0
  * @see AdaptiveDp
