@@ -124,7 +124,7 @@ fun Resources.getAdaptiveSpDimensionPixelSize(asp: AdaptiveSp) =
 fun Resources.getListOfAdaptiveSpDimenRes() =
     try {
         val typedArray = obtainTypedArray(R.array.asps)
-        val listOfAdaptiveSpResourceId = mutableListOf<@receiver:DimenRes Int>()
+        val listOfAdaptiveSpResourceId = mutableListOf<Int>()
 
         for (i in 0 until typedArray.length())
             listOfAdaptiveSpResourceId.add(typedArray.getResourceId(i, 0))

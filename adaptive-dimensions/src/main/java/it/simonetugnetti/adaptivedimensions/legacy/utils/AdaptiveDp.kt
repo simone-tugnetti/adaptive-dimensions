@@ -124,7 +124,7 @@ fun Resources.getAdaptiveDpDimensionPixelSize(adp: AdaptiveDp) =
 fun Resources.getListOfAdaptiveDpDimenRes() =
     try {
         val typedArray = obtainTypedArray(R.array.adps)
-        val listOfAdaptiveDpResourceId = mutableListOf<@receiver:DimenRes Int>()
+        val listOfAdaptiveDpResourceId = mutableListOf<Int>()
 
         for (i in 0 until typedArray.length())
             listOfAdaptiveDpResourceId.add(typedArray.getResourceId(i, 0))

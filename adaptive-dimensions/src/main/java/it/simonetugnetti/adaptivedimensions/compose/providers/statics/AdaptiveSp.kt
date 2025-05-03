@@ -2,6 +2,9 @@ package it.simonetugnetti.adaptivedimensions.compose.providers.statics
 
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.BoxWithConstraintsScope
+//noinspection UsingMaterialAndMaterial3Libraries
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme as Material3Theme
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.material3.adaptive.currentWindowSize
 import androidx.compose.runtime.Composable
@@ -9,6 +12,7 @@ import androidx.compose.runtime.CompositionLocal
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.NonSkippableComposable
 import androidx.compose.runtime.ProvidableCompositionLocal
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -52,6 +56,40 @@ import it.simonetugnetti.adaptivedimensions.compose.utils.widthAdaptiveSp
  * @see staticCompositionLocalOf
  */
 val LocalStaticAsp = staticCompositionLocalOf { AdaptiveSp.DEFAULT.asp }
+
+/**
+ * Retrieve the current value of [LocalStaticAsp] called directly
+ * in [MaterialTheme].
+ *
+ * ```
+ * MaterialTheme.staticAsp._1asp // = LocalStaticAsp.current._1asp
+ * ```
+ *
+ * @since 1.0.0
+ * @see LocalStaticAsp
+ * @see AdaptiveSp
+ */
+val MaterialTheme.staticAsp: Asp
+    @Composable
+    @ReadOnlyComposable
+    get() = LocalStaticAsp.current
+
+/**
+ * Retrieve the current value of [LocalStaticAsp] called directly
+ * in [MaterialTheme][Material3Theme].
+ *
+ * ```
+ * MaterialTheme.staticAsp._1asp // = LocalStaticAsp.current._1asp
+ * ```
+ *
+ * @since 1.0.0
+ * @see LocalStaticAsp
+ * @see AdaptiveSp
+ */
+val Material3Theme.staticAsp: Asp
+    @Composable
+    @ReadOnlyComposable
+    get() = LocalStaticAsp.current
 
 /**
  * Update [LocalStaticAsp] key by the given `adaptiveSp`.

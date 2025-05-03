@@ -2,6 +2,9 @@ package it.simonetugnetti.adaptivedimensions.compose.providers.dynamic
 
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.BoxWithConstraintsScope
+//noinspection UsingMaterialAndMaterial3Libraries
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme as Material3Theme
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.material3.adaptive.currentWindowSize
 import androidx.compose.runtime.Composable
@@ -9,6 +12,7 @@ import androidx.compose.runtime.CompositionLocal
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.NonSkippableComposable
 import androidx.compose.runtime.ProvidableCompositionLocal
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -52,6 +56,40 @@ import it.simonetugnetti.adaptivedimensions.compose.utils.widthAdaptiveDp
  * @see compositionLocalOf
  */
 val LocalAdp = compositionLocalOf { AdaptiveDp.DEFAULT.adp }
+
+/**
+ * Retrieve the current value of [LocalAdp] called directly
+ * in [MaterialTheme].
+ *
+ * ```
+ * MaterialTheme.adp._1adp // = LocalAdp.current._1adp
+ * ```
+ *
+ * @since 1.0.0
+ * @see LocalAdp
+ * @see AdaptiveDp
+ */
+val MaterialTheme.adp: Adp
+    @Composable
+    @ReadOnlyComposable
+    get() = LocalAdp.current
+
+/**
+ * Retrieve the current value of [LocalAdp] called directly
+ * in [MaterialTheme][Material3Theme].
+ *
+ * ```
+ * MaterialTheme.adp._1adp // = LocalAdp.current._1adp
+ * ```
+ *
+ * @since 1.0.0
+ * @see LocalAdp
+ * @see AdaptiveDp
+ */
+val Material3Theme.adp: Adp
+    @Composable
+    @ReadOnlyComposable
+    get() = LocalAdp.current
 
 /**
  * Update [LocalAdp] key by the given `adaptiveDp`.
