@@ -4,11 +4,19 @@ import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.BoxWithConstraintsScope
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.material3.adaptive.currentWindowSize
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntSize
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.window.core.layout.WindowWidthSizeClass
 import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveSp
+import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveSp as AdaptiveSpLegacy
 import it.simonetugnetti.adaptivedimensions.compose.model.Asp
+import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveDp
 
 /**
  * Retrieve an [AdaptiveSp] entry based on [BoxWithConstraintsScope.maxWidth].
@@ -111,3 +119,17 @@ val WindowWidthSizeClass.adaptiveSp: AdaptiveSp
         WindowWidthSizeClass.EXPANDED -> AdaptiveSp.SW840
         else -> AdaptiveSp.DEFAULT
     }
+
+/**
+ * Load a dimension resource.
+ *
+ * @since 1.0.0
+ * @param asp An [AdaptiveSp][AdaptiveSpLegacy] `entry`.
+ * @return the [TextUnit] dimension associated with the resource
+ * @see dimensionResource
+ */
+@Composable
+@ReadOnlyComposable
+fun dimensionAdaptiveSpResource(asp: AdaptiveSpLegacy): TextUnit =
+    runCatching { dimensionResource(asp.dimen).value.sp }
+        .getOrDefault(AdaptiveSp.DEFAULT.asp.zero)

@@ -7,7 +7,12 @@ import androidx.window.core.layout.WindowWidthSizeClass
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.material3.adaptive.currentWindowSize
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.unit.Dp
 import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveDp
+import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveDp as AdaptiveDpLegacy
 import it.simonetugnetti.adaptivedimensions.compose.model.Adp
 
 /**
@@ -111,3 +116,17 @@ val WindowWidthSizeClass.adaptiveDp: AdaptiveDp
         WindowWidthSizeClass.EXPANDED -> AdaptiveDp.SW840
         else -> AdaptiveDp.DEFAULT
     }
+
+/**
+ * Load a dimension resource.
+ *
+ * @since 1.0.0
+ * @param adp An [AdaptiveDp][AdaptiveDpLegacy] `entry`.
+ * @return the [Dp] dimension associated with the resource
+ * @see dimensionResource
+ */
+@Composable
+@ReadOnlyComposable
+fun dimensionAdaptiveDpResource(adp: AdaptiveDpLegacy): Dp =
+    runCatching { dimensionResource(adp.dimen) }
+        .getOrDefault(AdaptiveDp.DEFAULT.adp.zero)

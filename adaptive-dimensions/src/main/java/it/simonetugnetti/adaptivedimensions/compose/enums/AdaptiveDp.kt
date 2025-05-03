@@ -43,7 +43,7 @@ import it.simonetugnetti.adaptivedimensions.compose.model.Adp
  *
  * These are just constant values, for a responsive dimensions
  * you have to call composable functions in
- * [composables][it.simonetugnetti.adaptivedimensions.compose.composables] package
+ * [composables][it.simonetugnetti.adaptivedimensions.compose.providers] package
  * or extension variables in [utils][it.simonetugnetti.adaptivedimensions.compose.utils] package.
  *
  * @property adp Actual [Adp] reference selected for screen width.
