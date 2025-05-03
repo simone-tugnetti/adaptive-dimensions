@@ -19,9 +19,9 @@ import androidx.window.core.layout.WindowSizeClass
 import androidx.window.core.layout.WindowWidthSizeClass
 import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveSp
 import it.simonetugnetti.adaptivedimensions.compose.model.Asp
+import it.simonetugnetti.adaptivedimensions.compose.providers.dynamic.BoxWithConstraintsAdaptiveSp
 import it.simonetugnetti.adaptivedimensions.compose.providers.dynamic.CompositionLocalProviderAdaptiveSp
 import it.simonetugnetti.adaptivedimensions.compose.providers.dynamic.LocalAsp
-import it.simonetugnetti.adaptivedimensions.compose.providers.dynamic.BoxWithConstraintsAdaptiveSp
 import it.simonetugnetti.adaptivedimensions.compose.utils.adaptiveSp
 import it.simonetugnetti.adaptivedimensions.compose.utils.maxWidthAdaptiveSp
 import it.simonetugnetti.adaptivedimensions.compose.utils.widthAdaptiveSp

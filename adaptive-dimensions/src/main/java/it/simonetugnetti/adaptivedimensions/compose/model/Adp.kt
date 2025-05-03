@@ -2,7 +2,6 @@ package it.simonetugnetti.adaptivedimensions.compose.model
 
 import androidx.compose.ui.unit.Dp
 import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveDp
-import it.simonetugnetti.adaptivedimensions.compose.data.adp.adp_default
 import kotlin.reflect.full.memberProperties
 
 /**

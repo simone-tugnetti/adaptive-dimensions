@@ -1,19 +1,19 @@
 package it.simonetugnetti.adaptivedimensions.compose.utils
 
-import androidx.compose.foundation.layout.BoxWithConstraintsScope
-import androidx.compose.ui.unit.IntSize
-import androidx.compose.ui.unit.dp
-import androidx.window.core.layout.WindowWidthSizeClass
 import androidx.compose.foundation.layout.BoxWithConstraints
-import androidx.compose.material3.adaptive.currentWindowSize
+import androidx.compose.foundation.layout.BoxWithConstraintsScope
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
+import androidx.compose.material3.adaptive.currentWindowSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.IntSize
+import androidx.compose.ui.unit.dp
+import androidx.window.core.layout.WindowWidthSizeClass
 import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveDp
-import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveDp as AdaptiveDpLegacy
 import it.simonetugnetti.adaptivedimensions.compose.model.Adp
+import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveDp as AdaptiveDpLegacy
 
 /**
  * Retrieve an [AdaptiveDp] entry based on [BoxWithConstraintsScope.maxWidth].

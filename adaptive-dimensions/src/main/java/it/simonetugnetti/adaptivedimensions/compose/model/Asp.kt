@@ -1,7 +1,6 @@
 package it.simonetugnetti.adaptivedimensions.compose.model
 
 import androidx.compose.ui.unit.TextUnit
-import it.simonetugnetti.adaptivedimensions.compose.data.asp.asp_default
 import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveSp
 import kotlin.reflect.full.memberProperties
 
