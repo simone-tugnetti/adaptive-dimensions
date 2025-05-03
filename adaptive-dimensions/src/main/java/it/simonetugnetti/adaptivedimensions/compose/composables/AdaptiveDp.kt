@@ -17,8 +17,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.UiComposable
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.window.core.layout.WindowWidthSizeClass
+import androidx.window.core.layout.WindowSizeClass
 import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveDp
 import it.simonetugnetti.adaptivedimensions.compose.model.Adp
 import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveDp as AdaptiveDpLegacy
@@ -88,7 +90,7 @@ val LocalStaticAdp = staticCompositionLocalOf { AdaptiveDp.DEFAULT.adp }
  */
 @Composable
 @NonSkippableComposable
-private fun CompositionLocalProviderAdaptiveDp(
+fun CompositionLocalProviderAdaptiveDp(
     adaptiveDp: AdaptiveDp,
     content: @Composable () -> Unit
 ) {
@@ -107,7 +109,7 @@ private fun CompositionLocalProviderAdaptiveDp(
  */
 @Composable
 @NonSkippableComposable
-private fun CompositionLocalProviderStaticAdaptiveDp(
+fun CompositionLocalProviderStaticAdaptiveDp(
     adaptiveDp: AdaptiveDp,
     content: @Composable () -> Unit
 ) {
@@ -117,88 +119,89 @@ private fun CompositionLocalProviderStaticAdaptiveDp(
 }
 
 /**
- * Update [LocalAdp] key by actual [WindowWidthSizeClass].
+ * Update [LocalAdp] key by the given [WindowWidthSizeClass] `entry`.
  *
  * Unlike using [currentWindowSize], this only provides
  * three [AdaptiveDp] entry. For more info, check [adaptiveDp].
  *
  * @since 1.0.0
+ * @param windowWidthSizeClass An actual [WindowWidthSizeClass] entry.
  * @param content Composable inside the [CompositionLocalProvider]
- * @see CompositionLocalProviderWindowWidthSizeStaticAdaptiveDp
  * @see currentWindowAdaptiveInfo
+ * @see WindowSizeClass
  */
 @Composable
 @NonSkippableComposable
-fun CompositionLocalProviderWindowWidthSizeAdaptiveDp(
+fun CompositionLocalProviderAdaptiveDp(
+    windowWidthSizeClass: WindowWidthSizeClass =
+        currentWindowAdaptiveInfo()
+            .windowSizeClass
+            .windowWidthSizeClass,
     content: @Composable () -> Unit
 ) {
 
-    CompositionLocalProviderAdaptiveDp(
-        currentWindowAdaptiveInfo()
-            .windowSizeClass
-            .windowWidthSizeClass
-            .adaptiveDp
-    ) {
+    CompositionLocalProviderAdaptiveDp(windowWidthSizeClass.adaptiveDp) {
         content()
     }
 
 }
 
 /**
- * Update [LocalStaticAdp] key by actual [WindowWidthSizeClass].
+ * Update [LocalStaticAdp] key by the given [WindowWidthSizeClass] `entry`.
  *
  * Unlike using [currentWindowSize], this only provides
  * three [AdaptiveDp] entry. For more info, check [adaptiveDp].
  *
  * @since 1.0.0
+ * @param windowWidthSizeClass An actual [WindowWidthSizeClass] entry.
  * @param content Composable inside the [CompositionLocalProvider]
- * @see CompositionLocalProviderWindowWidthSizeAdaptiveDp
  * @see currentWindowAdaptiveInfo
+ * @see WindowSizeClass
  */
 @Composable
 @NonSkippableComposable
-fun CompositionLocalProviderWindowWidthSizeStaticAdaptiveDp(
+fun CompositionLocalProviderStaticAdaptiveDp(
+    windowWidthSizeClass: WindowWidthSizeClass =
+        currentWindowAdaptiveInfo()
+            .windowSizeClass
+            .windowWidthSizeClass,
     content: @Composable () -> Unit
 ) {
 
-    CompositionLocalProviderStaticAdaptiveDp(
-        currentWindowAdaptiveInfo()
-            .windowSizeClass
-            .windowWidthSizeClass
-            .adaptiveDp
-    ) {
+    CompositionLocalProviderStaticAdaptiveDp(windowWidthSizeClass.adaptiveDp) {
         content()
     }
 
 }
 
 /**
- * Update [LocalAdp] key by actual [WindowWidthSizeClass].
+ * Update [LocalAdp] key by the given [WindowWidthSizeClass] `entry`.
  *
  * Unlike using [currentWindowSize], this only provides
  * three [AdaptiveDp] entry. For more info, check [adaptiveDp].
  *
  * @since 1.0.0
+ * @param windowWidthSizeClass An actual [WindowWidthSizeClass] entry.
  * @param compact Composable for [WindowWidthSizeClass.COMPACT]
  * @param medium Composable for [WindowWidthSizeClass.MEDIUM]
  * @param expanded Composable for [WindowWidthSizeClass.EXPANDED]
- * @see CompositionLocalProviderWindowWidthSizeStaticAdaptiveDp
  * @see currentWindowAdaptiveInfo
+ * @see WindowSizeClass
  */
 @Composable
 @NonSkippableComposable
-fun CompositionLocalProviderWindowWidthSizeAdaptiveDp(
+fun CompositionLocalProviderAdaptiveDp(
+    windowWidthSizeClass: WindowWidthSizeClass =
+        currentWindowAdaptiveInfo()
+            .windowSizeClass
+            .windowWidthSizeClass,
     compact: @Composable () -> Unit,
     medium: @Composable () -> Unit = { },
     expanded: @Composable () -> Unit = { }
 ) {
 
-    val windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass
-
-    CompositionLocalProviderAdaptiveDp(
-        windowSizeClass.windowWidthSizeClass.adaptiveDp
-    ) {
-        when (windowSizeClass.windowWidthSizeClass) {
+    CompositionLocalProviderAdaptiveDp(windowWidthSizeClass.adaptiveDp) {
+        when (windowWidthSizeClass) {
             WindowWidthSizeClass.COMPACT -> compact()
             WindowWidthSizeClass.MEDIUM -> medium()
             WindowWidthSizeClass.EXPANDED -> expanded()
@@ -208,31 +211,33 @@ fun CompositionLocalProviderWindowWidthSizeAdaptiveDp(
 }
 
 /**
- * Update [LocalStaticAdp] key by actual [WindowWidthSizeClass].
+ * Update [LocalStaticAdp] key by the given [WindowWidthSizeClass] `entry`.
  *
  * Unlike using [currentWindowSize], this only provides
  * three [AdaptiveDp] entry. For more info, check [adaptiveDp].
  *
  * @since 1.0.0
+ * @param windowWidthSizeClass An actual [WindowWidthSizeClass] entry.
  * @param compact Composable for [WindowWidthSizeClass.COMPACT]
  * @param medium Composable for [WindowWidthSizeClass.MEDIUM]
  * @param expanded Composable for [WindowWidthSizeClass.EXPANDED]
- * @see CompositionLocalProviderWindowWidthSizeStaticAdaptiveDp
  * @see currentWindowAdaptiveInfo
+ * @see WindowSizeClass
  */
 @Composable
-fun CompositionLocalProviderWindowWidthSizeStaticAdaptiveDp(
+@NonSkippableComposable
+fun CompositionLocalProviderStaticAdaptiveDp(
+    windowWidthSizeClass: WindowWidthSizeClass =
+        currentWindowAdaptiveInfo()
+            .windowSizeClass
+            .windowWidthSizeClass,
     compact: @Composable () -> Unit,
     medium: @Composable () -> Unit = { },
     expanded: @Composable () -> Unit = { }
 ) {
 
-    val windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass
-
-    CompositionLocalProviderStaticAdaptiveDp(
-        windowSizeClass.windowWidthSizeClass.adaptiveDp
-    ) {
-        when (windowSizeClass.windowWidthSizeClass) {
+    CompositionLocalProviderStaticAdaptiveDp(windowWidthSizeClass.adaptiveDp) {
+        when (windowWidthSizeClass) {
             WindowWidthSizeClass.COMPACT -> compact()
             WindowWidthSizeClass.MEDIUM -> medium()
             WindowWidthSizeClass.EXPANDED -> expanded()
@@ -242,60 +247,64 @@ fun CompositionLocalProviderWindowWidthSizeStaticAdaptiveDp(
 }
 
 /**
- * Update [LocalAdp] key based on actual window size `width`.
+ * Update [LocalAdp] key by the given [IntSize]
+ * and taken its `width` dimension.
  *
  * @since 1.0.0
+ * @param windowSize An [IntSize] instance.
  * @param content Composable inside the [CompositionLocalProvider]
- * @see CompositionLocalProviderWindowSizeStaticAdaptiveDp
  * @see currentWindowSize
  * @see widthAdaptiveDp
  */
 @Composable
-fun CompositionLocalProviderWindowSizeAdaptiveDp(
+@NonSkippableComposable
+fun CompositionLocalProviderAdaptiveDp(
+    windowSize: IntSize = currentWindowSize(),
     content: @Composable () -> Unit
 ) {
 
-    CompositionLocalProviderAdaptiveDp(
-        currentWindowSize().widthAdaptiveDp
-    ) {
+    CompositionLocalProviderAdaptiveDp(windowSize.widthAdaptiveDp) {
         content()
     }
 
 }
 
 /**
- * Update [LocalStaticAdp] key based on actual window size `width`.
+ * Update [LocalStaticAdp] key by the given [IntSize]
+ * and taken its `width` dimension.
  *
  * @since 1.0.0
+ * @param windowSize An [IntSize] instance.
  * @param content Composable inside the [CompositionLocalProvider]
- * @see CompositionLocalProviderWindowSizeAdaptiveDp
  * @see currentWindowSize
  * @see widthAdaptiveDp
  */
 @Composable
-fun CompositionLocalProviderWindowSizeStaticAdaptiveDp(
+@NonSkippableComposable
+fun CompositionLocalProviderStaticAdaptiveDp(
+    windowSize: IntSize = currentWindowSize(),
     content: @Composable () -> Unit
 ) {
 
-    CompositionLocalProviderStaticAdaptiveDp(
-        currentWindowSize().widthAdaptiveDp
-    ) {
+    CompositionLocalProviderStaticAdaptiveDp(windowSize.widthAdaptiveDp) {
         content()
     }
 
 }
 
 /**
- * Update [LocalAdp] key and show a specific `composable`
- * based on actual window size `width`.
+ * Update [LocalAdp] key by the given [IntSize]
+ * and taken its `width` dimension.
  *
  * @since 1.0.0
- * @see CompositionLocalProviderWindowSizeStaticAdaptiveDp
+ * @param windowSize An [IntSize] instance.
  * @see currentWindowSize
  * @see widthAdaptiveDp
  */
 @Composable
-fun CompositionLocalProviderWindowSizeAdaptiveDp(
+@NonSkippableComposable
+fun CompositionLocalProviderAdaptiveDp(
+    windowSize: IntSize = currentWindowSize(),
     sw300dp: @Composable () -> Unit,
     sw330dp: @Composable () -> Unit = { },
     sw360dp: @Composable () -> Unit = { },
@@ -325,11 +334,9 @@ fun CompositionLocalProviderWindowSizeAdaptiveDp(
     sw1080dp: @Composable () -> Unit = { }
 ) {
 
-    val width = currentWindowSize().width.dp
+    val width = windowSize.width.dp
 
-    CompositionLocalProviderAdaptiveDp(
-        currentWindowSize().widthAdaptiveDp
-    ) {
+    CompositionLocalProviderAdaptiveDp(windowSize.widthAdaptiveDp) {
         when {
             width <= 300.dp -> sw300dp()
             width <= 330.dp -> sw330dp()
@@ -364,16 +371,18 @@ fun CompositionLocalProviderWindowSizeAdaptiveDp(
 }
 
 /**
- * Update [LocalStaticAdp] key and show a specific `composable`
- * based on actual window size `width`.
+ * Update [LocalStaticAdp] key by the given [IntSize]
+ * and taken its `width` dimension.
  *
  * @since 1.0.0
- * @see CompositionLocalProviderWindowSizeAdaptiveDp
+ * @param windowSize An [IntSize] instance.
  * @see currentWindowSize
  * @see widthAdaptiveDp
  */
 @Composable
-fun CompositionLocalProviderWindowSizeStaticAdaptiveDp(
+@NonSkippableComposable
+fun CompositionLocalProviderStaticAdaptiveDp(
+    windowSize: IntSize = currentWindowSize(),
     sw300dp: @Composable () -> Unit,
     sw330dp: @Composable () -> Unit = { },
     sw360dp: @Composable () -> Unit = { },
@@ -403,11 +412,9 @@ fun CompositionLocalProviderWindowSizeStaticAdaptiveDp(
     sw1080dp: @Composable () -> Unit = { }
 ) {
 
-    val width = currentWindowSize().width.dp
+    val width = windowSize.width.dp
 
-    CompositionLocalProviderAdaptiveDp(
-        currentWindowSize().widthAdaptiveDp
-    ) {
+    CompositionLocalProviderStaticAdaptiveDp(windowSize.widthAdaptiveDp) {
         when {
             width <= 300.dp -> sw300dp()
             width <= 330.dp -> sw330dp()
@@ -444,16 +451,15 @@ fun CompositionLocalProviderWindowSizeStaticAdaptiveDp(
 
 /**
  * Update [LocalAdp] key by the given `adaptiveDp`
- * based on actual screen `width` obtained
+ * based on actual screen `width`, obtained
  * using [BoxWithConstraints] composable.
  *
  * @since 1.0.0
  * @param modifier Modifier to be applied to the layout.
  * @param contentAlignment The default alignment inside the [BoxWithConstraints].
  * @param propagateMinConstraints Whether the incoming min constraints should be passed to content.
- * @param content The content of the BoxWithConstraints.
+ * @param content The content of the [BoxWithConstraints].
  * @see BoxWithConstraintsStaticAdaptiveDp
- * @see CompositionLocalProviderAdaptiveDp
  * @see BoxWithConstraintsScope
  * @see maxWidthAdaptiveDp
  */
@@ -482,16 +488,15 @@ fun BoxWithConstraintsAdaptiveDp(
 
 /**
  * Update [LocalStaticAdp] key by the given `adaptiveDp`
- * based on actual screen `width` obtained
+ * based on actual screen `width`, obtained
  * using [BoxWithConstraints] composable.
  *
  * @since 1.0.0
  * @param modifier Modifier to be applied to the layout.
  * @param contentAlignment The default alignment inside the [BoxWithConstraints].
  * @param propagateMinConstraints Whether the incoming min constraints should be passed to content.
- * @param content The content of the BoxWithConstraints.
+ * @param content The content of the [BoxWithConstraints].
  * @see BoxWithConstraintsAdaptiveDp
- * @see CompositionLocalProviderStaticAdaptiveDp
  * @see BoxWithConstraintsScope
  * @see maxWidthAdaptiveDp
  */
@@ -527,7 +532,6 @@ fun BoxWithConstraintsStaticAdaptiveDp(
  * @param contentAlignment The default alignment inside the [BoxWithConstraints].
  * @param propagateMinConstraints Whether the incoming min constraints should be passed to content.
  * @see BoxWithConstraintsAdaptiveDp
- * @see CompositionLocalProviderAdaptiveDp
  * @see BoxWithConstraintsScope
  * @see maxWidthAdaptiveDp
  */
@@ -610,15 +614,13 @@ fun BoxWithConstraintsAdaptiveDp(
 }
 
 /**
- * Update [LocalAdp] key by the given `adaptiveDp` and show a specific `composable`
+ * Update [LocalStaticAdp] key by the given `adaptiveDp` and show a specific `composable`
  * based on actual screen `width`, obtained using [BoxWithConstraints] composable.
  *
  * @since 1.0.0
  * @param modifier Modifier to be applied to the layout.
  * @param contentAlignment The default alignment inside the [BoxWithConstraints].
  * @param propagateMinConstraints Whether the incoming min constraints should be passed to content.
- * @see BoxWithConstraintsAdaptiveDp
- * @see CompositionLocalProviderAdaptiveDp
  * @see BoxWithConstraintsScope
  * @see maxWidthAdaptiveDp
  */
@@ -663,7 +665,7 @@ fun BoxWithConstraintsStaticAdaptiveDp(
         propagateMinConstraints = propagateMinConstraints
     ) {
 
-        CompositionLocalProviderAdaptiveDp(maxWidthAdaptiveDp) {
+        CompositionLocalProviderStaticAdaptiveDp(maxWidthAdaptiveDp) {
             when {
                 maxWidth <= 300.dp -> sw300dp()
                 maxWidth <= 330.dp -> sw330dp()
@@ -700,6 +702,14 @@ fun BoxWithConstraintsStaticAdaptiveDp(
 
 }
 
+/**
+ * Load a dimension resource.
+ *
+ * @since 1.0.0
+ * @param adp An [AdaptiveDp][AdaptiveDpLegacy] `entry`.
+ * @return the dimension [Dp] associated with the resource
+ * @see dimensionResource
+ */
 @Composable
 @ReadOnlyComposable
 fun dimensionAdaptiveDpResource(adp: AdaptiveDpLegacy): Dp =
