@@ -32,18 +32,18 @@ android {
         compose = true
     }
 
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-            withJavadocJar()
-        }
-    }
+}
 
+tasks.register<Jar>("dokkaJavadocJar") {
+    dependsOn(tasks.dokkaJavadoc)
+    from(tasks.dokkaJavadoc.flatMap { it.outputDirectory })
+    archiveClassifier.set("javadoc")
 }
 
 afterEvaluate {
     publishing.publications.create("release", MavenPublication::class.java) {
         from(components.findByName("release"))
+        artifact(tasks["dokkaJavadocJar"])
         groupId = "io.github.simone-tugnetti"
         artifactId = "adaptive-dimensions"
         version = "1.0.0"
