@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.dokka)
+    `maven-publish`
 }
 
 android {
@@ -30,6 +32,22 @@ android {
         compose = true
     }
 
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
+
+}
+
+afterEvaluate {
+    publishing.publications.create("release", MavenPublication::class.java) {
+        from(components.findByName("release"))
+        groupId = "io.github.simone-tugnetti"
+        artifactId = "adaptive-dimensions"
+        version = "1.0.0"
+    }
 }
 
 dependencies {
