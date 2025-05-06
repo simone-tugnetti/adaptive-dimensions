@@ -143,7 +143,7 @@ data class Asp internal constructor(
     ) {
 
         /**
-         * Retrieve a `list` of all [TextUnit] values in this data model
+         * Retrieve a `list` of all [TextUnit] values in [From0To100] data model.
          *
          * @since 1.0.0
          * @return List of [TextUnit] values
@@ -277,7 +277,7 @@ data class Asp internal constructor(
     ) {
 
         /**
-         * Retrieve a `list` of all [TextUnit] values in this data model
+         * Retrieve a `list` of all [TextUnit] values in [From101To200] data model.
          *
          * @since 1.0.0
          * @return List of [TextUnit] values
@@ -411,7 +411,7 @@ data class Asp internal constructor(
     ) {
 
         /**
-         * Retrieve a `list` of all [TextUnit] values in this data model
+         * Retrieve a `list` of all [TextUnit] values in [From201To300] data model.
          *
          * @since 1.0.0
          * @return List of [TextUnit] values
@@ -545,7 +545,7 @@ data class Asp internal constructor(
     ) {
 
         /**
-         * Retrieve a `list` of all [TextUnit] values in this data model
+         * Retrieve a `list` of all [TextUnit] values in [From301To400] data model.
          *
          * @since 1.0.0
          * @return List of [TextUnit] values
@@ -679,7 +679,7 @@ data class Asp internal constructor(
     ) {
 
         /**
-         * Retrieve a `list` of all [TextUnit] values in this data model
+         * Retrieve a `list` of all [TextUnit] values in [From401To500] data model.
          *
          * @since 1.0.0
          * @return List of [TextUnit] values
@@ -813,7 +813,7 @@ data class Asp internal constructor(
     ) {
 
         /**
-         * Retrieve a `list` of all [TextUnit] values in this data model
+         * Retrieve a `list` of all [TextUnit] values in [From501To600] data model.
          *
          * @since 1.0.0
          * @return List of [TextUnit] values
