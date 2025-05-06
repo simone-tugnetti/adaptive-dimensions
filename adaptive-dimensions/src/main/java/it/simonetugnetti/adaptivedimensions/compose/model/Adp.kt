@@ -2,6 +2,7 @@ package it.simonetugnetti.adaptivedimensions.compose.model
 
 import androidx.compose.ui.unit.Dp
 import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveDp
+import kotlin.reflect.full.memberProperties
 
 /**
  * Data model used to store `adp` values for
@@ -139,7 +140,26 @@ data class Adp internal constructor(
         val _98adp: Dp,
         val _99adp: Dp,
         val _100adp: Dp
-    )
+    ) {
+
+        /**
+         * Retrieve a `list` of all [Dp] values in this data model
+         *
+         * @since 1.0.0
+         * @return List of [Dp] values
+         */
+        fun getAllAdps() = mutableListOf<Dp>().apply {
+
+            for (i in 0..100)
+                this@From0To100::class.memberProperties.find {
+                    it.name == "_${i}adp"
+                }?.let {
+                    add(it.getter.call(this@From0To100) as Dp)
+                }
+
+        }.toList()
+
+    }
 
     /**
      * Data model used to store `adp` values for
@@ -254,7 +274,26 @@ data class Adp internal constructor(
         val _198adp: Dp,
         val _199adp: Dp,
         val _200adp: Dp
-    )
+    ) {
+
+        /**
+         * Retrieve a `list` of all [Dp] values in this data model
+         *
+         * @since 1.0.0
+         * @return List of [Dp] values
+         */
+        fun getAllAdps() = mutableListOf<Dp>().apply {
+
+            for (i in 101..200)
+                this@From101To200::class.memberProperties.find {
+                    it.name == "_${i}adp"
+                }?.let {
+                    add(it.getter.call(this@From101To200) as Dp)
+                }
+
+        }.toList()
+
+    }
 
     /**
      * Data model used to store `adp` values for
@@ -369,7 +408,26 @@ data class Adp internal constructor(
         val _298adp: Dp,
         val _299adp: Dp,
         val _300adp: Dp
-    )
+    ) {
+
+        /**
+         * Retrieve a `list` of all [Dp] values in this data model
+         *
+         * @since 1.0.0
+         * @return List of [Dp] values
+         */
+        fun getAllAdps() = mutableListOf<Dp>().apply {
+
+            for (i in 201..300)
+                this@From201To300::class.memberProperties.find {
+                    it.name == "_${i}adp"
+                }?.let {
+                    add(it.getter.call(this@From201To300) as Dp)
+                }
+
+        }.toList()
+
+    }
 
     /**
      * Data model used to store `adp` values for
@@ -484,7 +542,26 @@ data class Adp internal constructor(
         val _398adp: Dp,
         val _399adp: Dp,
         val _400adp: Dp
-    )
+    ) {
+
+        /**
+         * Retrieve a `list` of all [Dp] values in this data model
+         *
+         * @since 1.0.0
+         * @return List of [Dp] values
+         */
+        fun getAllAdps() = mutableListOf<Dp>().apply {
+
+            for (i in 301..400)
+                this@From301To400::class.memberProperties.find {
+                    it.name == "_${i}adp"
+                }?.let {
+                    add(it.getter.call(this@From301To400) as Dp)
+                }
+
+        }.toList()
+
+    }
 
     /**
      * Data model used to store `adp` values for
@@ -599,7 +676,26 @@ data class Adp internal constructor(
         val _498adp: Dp,
         val _499adp: Dp,
         val _500adp: Dp
-    )
+    ) {
+
+        /**
+         * Retrieve a `list` of all [Dp] values in this data model
+         *
+         * @since 1.0.0
+         * @return List of [Dp] values
+         */
+        fun getAllAdps() = mutableListOf<Dp>().apply {
+
+            for (i in 401..500)
+                this@From401To500::class.memberProperties.find {
+                    it.name == "_${i}adp"
+                }?.let {
+                    add(it.getter.call(this@From401To500) as Dp)
+                }
+
+        }.toList()
+
+    }
 
     /**
      * Data model used to store `adp` values for
@@ -714,6 +810,25 @@ data class Adp internal constructor(
         val _598adp: Dp,
         val _599adp: Dp,
         val _600adp: Dp
-    )
+    ) {
+
+        /**
+         * Retrieve a `list` of all [Dp] values in this data model
+         *
+         * @since 1.0.0
+         * @return List of [Dp] values
+         */
+        fun getAllAdps() = mutableListOf<Dp>().apply {
+
+            for (i in 501..600)
+                this@From501To600::class.memberProperties.find {
+                    it.name == "_${i}adp"
+                }?.let {
+                    add(it.getter.call(this@From501To600) as Dp)
+                }
+
+        }.toList()
+
+    }
 
 }

@@ -2,6 +2,7 @@ package it.simonetugnetti.adaptivedimensions.compose.model
 
 import androidx.compose.ui.unit.TextUnit
 import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveSp
+import kotlin.reflect.full.memberProperties
 
 /**
  * Data model used to store `asp` values for
@@ -139,7 +140,26 @@ data class Asp internal constructor(
         val _98asp: TextUnit,
         val _99asp: TextUnit,
         val _100asp: TextUnit
-    )
+    ) {
+
+        /**
+         * Retrieve a `list` of all [TextUnit] values in this data model
+         *
+         * @since 1.0.0
+         * @return List of [TextUnit] values
+         */
+        fun getAllAsps() = mutableListOf<TextUnit>().apply {
+
+            for (i in 0..100)
+                this@From0To100::class.memberProperties.find {
+                    it.name == "_${i}asp"
+                }?.let {
+                    add(it.getter.call(this@From0To100) as TextUnit)
+                }
+
+        }.toList()
+
+    }
 
     /**
      * Data model used to store `asp` values for
@@ -254,7 +274,26 @@ data class Asp internal constructor(
         val _198asp: TextUnit,
         val _199asp: TextUnit,
         val _200asp: TextUnit
-    )
+    ) {
+
+        /**
+         * Retrieve a `list` of all [TextUnit] values in this data model
+         *
+         * @since 1.0.0
+         * @return List of [TextUnit] values
+         */
+        fun getAllAsps() = mutableListOf<TextUnit>().apply {
+
+            for (i in 101..200)
+                this@From101To200::class.memberProperties.find {
+                    it.name == "_${i}asp"
+                }?.let {
+                    add(it.getter.call(this@From101To200) as TextUnit)
+                }
+
+        }.toList()
+
+    }
 
     /**
      * Data model used to store `asp` values for
@@ -369,7 +408,26 @@ data class Asp internal constructor(
         val _298asp: TextUnit,
         val _299asp: TextUnit,
         val _300asp: TextUnit
-    )
+    ) {
+
+        /**
+         * Retrieve a `list` of all [TextUnit] values in this data model
+         *
+         * @since 1.0.0
+         * @return List of [TextUnit] values
+         */
+        fun getAllAsps() = mutableListOf<TextUnit>().apply {
+
+            for (i in 201..300)
+                this@From201To300::class.memberProperties.find {
+                    it.name == "_${i}asp"
+                }?.let {
+                    add(it.getter.call(this@From201To300) as TextUnit)
+                }
+
+        }.toList()
+
+    }
 
     /**
      * Data model used to store `asp` values for
@@ -484,7 +542,26 @@ data class Asp internal constructor(
         val _398asp: TextUnit,
         val _399asp: TextUnit,
         val _400asp: TextUnit
-    )
+    ) {
+
+        /**
+         * Retrieve a `list` of all [TextUnit] values in this data model
+         *
+         * @since 1.0.0
+         * @return List of [TextUnit] values
+         */
+        fun getAllAsps() = mutableListOf<TextUnit>().apply {
+
+            for (i in 301..400)
+                this@From301To400::class.memberProperties.find {
+                    it.name == "_${i}asp"
+                }?.let {
+                    add(it.getter.call(this@From301To400) as TextUnit)
+                }
+
+        }.toList()
+
+    }
 
     /**
      * Data model used to store `asp` values for
@@ -599,7 +676,26 @@ data class Asp internal constructor(
         val _498asp: TextUnit,
         val _499asp: TextUnit,
         val _500asp: TextUnit
-    )
+    ) {
+
+        /**
+         * Retrieve a `list` of all [TextUnit] values in this data model
+         *
+         * @since 1.0.0
+         * @return List of [TextUnit] values
+         */
+        fun getAllAsps() = mutableListOf<TextUnit>().apply {
+
+            for (i in 401..500)
+                this@From401To500::class.memberProperties.find {
+                    it.name == "_${i}asp"
+                }?.let {
+                    add(it.getter.call(this@From401To500) as TextUnit)
+                }
+
+        }.toList()
+
+    }
 
     /**
      * Data model used to store `asp` values for
@@ -714,6 +810,25 @@ data class Asp internal constructor(
         val _598asp: TextUnit,
         val _599asp: TextUnit,
         val _600asp: TextUnit
-    )
+    ) {
+
+        /**
+         * Retrieve a `list` of all [TextUnit] values in this data model
+         *
+         * @since 1.0.0
+         * @return List of [TextUnit] values
+         */
+        fun getAllAsps() = mutableListOf<TextUnit>().apply {
+
+            for (i in 501..600)
+                this@From501To600::class.memberProperties.find {
+                    it.name == "_${i}asp"
+                }?.let {
+                    add(it.getter.call(this@From501To600) as TextUnit)
+                }
+
+        }.toList()
+
+    }
 
 }
