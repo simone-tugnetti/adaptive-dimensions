@@ -43,14 +43,19 @@ import it.simonetugnetti.adaptivedimensions.compose.model.Adp
  *
  * These are just constant values, for a responsive dimensions
  * you have to call composable functions in
- * [composables][it.simonetugnetti.adaptivedimensions.compose.providers] package
+ * [providers.dynamic][it.simonetugnetti.adaptivedimensions.compose.providers.dynamic] or
+ * [providers.statics][it.simonetugnetti.adaptivedimensions.compose.providers.statics] packages
  * or extension variables in [utils][it.simonetugnetti.adaptivedimensions.compose.utils] package.
  *
- * @property adp Actual [Adp] reference selected for screen width.
  * @since 1.0.0
  * @see AdaptiveSp
  */
-enum class AdaptiveDp(val adp: Adp) {
+enum class AdaptiveDp(
+    /**
+     * Actual [Adp] reference selected for screen width.
+     */
+    val adp: Adp
+) {
     DEFAULT(adp_default),
     SW300(adp_sw300dp),
     SW330(adp_sw330dp),
@@ -100,7 +105,7 @@ enum class AdaptiveDp(val adp: Adp) {
          * ```
          *
          * @since 1.0.0
-         * @return list of [Adp] references.
+         * @return List of [Adp] references.
          */
         fun listOfAdps() = entries.map { it.adp }
 

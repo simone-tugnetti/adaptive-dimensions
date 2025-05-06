@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.sp
 import androidx.window.core.layout.WindowWidthSizeClass
 import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveSp
 import it.simonetugnetti.adaptivedimensions.compose.model.Asp
-import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveSp as AdaptiveSpLegacy
+import it.simonetugnetti.adaptivedimensions.resources.enums.AdaptiveSp as AdaptiveSpLegacy
 
 /**
  * Retrieve an [AdaptiveSp] entry based on [BoxWithConstraintsScope.maxWidth].
@@ -130,4 +130,4 @@ val WindowWidthSizeClass.adaptiveSp: AdaptiveSp
 @ReadOnlyComposable
 fun dimensionAdaptiveSpResource(asp: AdaptiveSpLegacy): TextUnit =
     runCatching { dimensionResource(asp.dimen).value.sp }
-        .getOrDefault(AdaptiveSp.DEFAULT.asp.zero)
+        .getOrDefault(AdaptiveSp.DEFAULT.asp.from0To100._0asp)

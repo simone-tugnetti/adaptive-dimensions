@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.window.core.layout.WindowWidthSizeClass
 import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveDp
 import it.simonetugnetti.adaptivedimensions.compose.model.Adp
-import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveDp as AdaptiveDpLegacy
+import it.simonetugnetti.adaptivedimensions.resources.enums.AdaptiveDp as AdaptiveDpLegacy
 
 /**
  * Retrieve an [AdaptiveDp] entry based on [BoxWithConstraintsScope.maxWidth].
@@ -129,4 +129,4 @@ val WindowWidthSizeClass.adaptiveDp: AdaptiveDp
 @ReadOnlyComposable
 fun dimensionAdaptiveDpResource(adp: AdaptiveDpLegacy): Dp =
     runCatching { dimensionResource(adp.dimen) }
-        .getOrDefault(AdaptiveDp.DEFAULT.adp.zero)
+        .getOrDefault(AdaptiveDp.DEFAULT.adp.from0To100._0adp)

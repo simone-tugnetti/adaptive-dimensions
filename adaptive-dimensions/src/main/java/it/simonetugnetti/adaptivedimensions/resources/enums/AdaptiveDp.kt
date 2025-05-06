@@ -1,10 +1,10 @@
-package it.simonetugnetti.adaptivedimensions.legacy.enums
+package it.simonetugnetti.adaptivedimensions.resources.enums
 
 import android.content.res.Resources
 import android.content.res.Resources.NotFoundException
 import androidx.annotation.DimenRes
 import it.simonetugnetti.adaptivedimensions.R
-import it.simonetugnetti.adaptivedimensions.legacy.utils.logAdpError
+import it.simonetugnetti.adaptivedimensions.resources.utils.logAdpError
 
 /**
  * Constant Enumeration of **Adaptive Dps**
@@ -28,11 +28,15 @@ import it.simonetugnetti.adaptivedimensions.legacy.utils.logAdpError
  *  AdaptiveDp._1adp.getDimensionPixelOffset(resources)
  * ```
  *
- * @property dimen Dimensional resource ID linked by the corresponding entry.
  * @since 1.0.0
  * @see AdaptiveSp
  */
-enum class AdaptiveDp(@DimenRes val dimen: Int) {
+enum class AdaptiveDp(
+    /**
+     * Dimensional resource ID linked by the corresponding entry.
+     */
+    @DimenRes val dimen: Int
+) {
     _0adp(R.dimen._0adp),
     _1adp(R.dimen._1adp),
     _2adp(R.dimen._2adp),

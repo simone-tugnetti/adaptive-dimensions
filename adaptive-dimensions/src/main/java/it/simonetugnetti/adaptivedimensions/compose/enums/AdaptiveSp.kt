@@ -43,14 +43,19 @@ import it.simonetugnetti.adaptivedimensions.compose.model.Asp
  *
  * These are just constant values, for a responsive dimensions
  * you have to call composable functions in
- * [composables][it.simonetugnetti.adaptivedimensions.compose.providers] package
+ * [providers.dynamic][it.simonetugnetti.adaptivedimensions.compose.providers.dynamic] or
+ * [providers.statics][it.simonetugnetti.adaptivedimensions.compose.providers.statics] packages
  * or extension variables in [utils][it.simonetugnetti.adaptivedimensions.compose.utils] package.
  *
- * @property asp Actual [Asp] reference selected for screen width.
  * @since 1.0.0
  * @see AdaptiveDp
  */
-enum class AdaptiveSp(val asp: Asp) {
+enum class AdaptiveSp(
+    /**
+     * Actual [Asp] reference selected for screen width.
+     */
+    val asp: Asp
+) {
     DEFAULT(asp_default),
     SW300(asp_sw300dp),
     SW330(asp_sw330dp),
@@ -100,7 +105,7 @@ enum class AdaptiveSp(val asp: Asp) {
          * ```
          *
          * @since 1.0.0
-         * @return list of [Asp] references.
+         * @return List of [Asp] references.
          */
         fun listOfAsps() = entries.map { it.asp }
 

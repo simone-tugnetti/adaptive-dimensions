@@ -1,11 +1,11 @@
-package it.simonetugnetti.adaptivedimensions.legacy.utils
+package it.simonetugnetti.adaptivedimensions.resources.utils
 
 import android.content.res.Resources
 import android.content.res.Resources.NotFoundException
 import android.util.Log
 import androidx.annotation.DimenRes
 import it.simonetugnetti.adaptivedimensions.R
-import it.simonetugnetti.adaptivedimensions.legacy.enums.AdaptiveSp
+import it.simonetugnetti.adaptivedimensions.resources.enums.AdaptiveSp
 
 /**
  * Retrieve an [AdaptiveSp] `entry` associated by the given
