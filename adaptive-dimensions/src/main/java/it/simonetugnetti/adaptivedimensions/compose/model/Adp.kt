@@ -25,6 +25,17 @@ data class Adp internal constructor(
     val from501To600: From501To600
 ) {
 
+    /**
+     * Data model used to store `adp` values for
+     * different devices screen width.
+     *
+     * For more info, check values in
+     * [adp][it.simonetugnetti.adaptivedimensions.compose.data.adp] package
+     *
+     * @constructor Adps values from zero to 100adp
+     * @since 1.0.0
+     * @see Adp
+     */
     @ConsistentCopyVisibility
     data class From0To100 internal constructor(
         val _0adp: Dp,
@@ -130,6 +141,17 @@ data class Adp internal constructor(
         val _100adp: Dp
     )
 
+    /**
+     * Data model used to store `adp` values for
+     * different devices screen width.
+     *
+     * For more info, check values in
+     * [adp][it.simonetugnetti.adaptivedimensions.compose.data.adp] package
+     *
+     * @constructor Adps values from 101adp to 200adp
+     * @since 1.0.0
+     * @see Adp
+     */
     @ConsistentCopyVisibility
     data class From101To200 internal constructor(
         val _101adp: Dp,
@@ -234,6 +256,17 @@ data class Adp internal constructor(
         val _200adp: Dp
     )
 
+    /**
+     * Data model used to store `adp` values for
+     * different devices screen width.
+     *
+     * For more info, check values in
+     * [adp][it.simonetugnetti.adaptivedimensions.compose.data.adp] package
+     *
+     * @constructor Adps values from 201adp to 300adp
+     * @since 1.0.0
+     * @see Adp
+     */
     @ConsistentCopyVisibility
     data class From201To300 internal constructor(
         val _201adp: Dp,
@@ -338,6 +371,17 @@ data class Adp internal constructor(
         val _300adp: Dp
     )
 
+    /**
+     * Data model used to store `adp` values for
+     * different devices screen width.
+     *
+     * For more info, check values in
+     * [adp][it.simonetugnetti.adaptivedimensions.compose.data.adp] package
+     *
+     * @constructor Adps values from 301adp to 400adp
+     * @since 1.0.0
+     * @see Adp
+     */
     @ConsistentCopyVisibility
     data class From301To400 internal constructor(
         val _301adp: Dp,
@@ -442,6 +486,17 @@ data class Adp internal constructor(
         val _400adp: Dp
     )
 
+    /**
+     * Data model used to store `adp` values for
+     * different devices screen width.
+     *
+     * For more info, check values in
+     * [adp][it.simonetugnetti.adaptivedimensions.compose.data.adp] package
+     *
+     * @constructor Adps values from 401adp to 500adp
+     * @since 1.0.0
+     * @see Adp
+     */
     @ConsistentCopyVisibility
     data class From401To500 internal constructor(
         val _401adp: Dp,
@@ -546,6 +601,17 @@ data class Adp internal constructor(
         val _500adp: Dp
     )
 
+    /**
+     * Data model used to store `adp` values for
+     * different devices screen width.
+     *
+     * For more info, check values in
+     * [adp][it.simonetugnetti.adaptivedimensions.compose.data.adp] package
+     *
+     * @constructor Adps values from 501adp to 600adp
+     * @since 1.0.0
+     * @see Adp
+     */
     @ConsistentCopyVisibility
     data class From501To600 internal constructor(
         val _501adp: Dp,

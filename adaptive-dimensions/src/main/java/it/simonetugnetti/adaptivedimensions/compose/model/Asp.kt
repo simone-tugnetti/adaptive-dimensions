@@ -25,6 +25,17 @@ data class Asp internal constructor(
     val from501To600: From501To600
 ) {
 
+    /**
+     * Data model used to store `asp` values for
+     * different devices screen width.
+     *
+     * For more info, check values in
+     * [asp][it.simonetugnetti.adaptivedimensions.compose.data.asp] package
+     *
+     * @constructor Asps values from zero to 100asp
+     * @since 1.0.0
+     * @see Asp
+     */
     @ConsistentCopyVisibility
     data class From0To100 internal constructor(
         val _0asp: TextUnit,
@@ -130,6 +141,17 @@ data class Asp internal constructor(
         val _100asp: TextUnit
     )
 
+    /**
+     * Data model used to store `asp` values for
+     * different devices screen width.
+     *
+     * For more info, check values in
+     * [asp][it.simonetugnetti.adaptivedimensions.compose.data.asp] package
+     *
+     * @constructor Asps values from 101asp to 200asp
+     * @since 1.0.0
+     * @see Asp
+     */
     @ConsistentCopyVisibility
     data class From101To200 internal constructor(
         val _101asp: TextUnit,
@@ -234,6 +256,17 @@ data class Asp internal constructor(
         val _200asp: TextUnit
     )
 
+    /**
+     * Data model used to store `asp` values for
+     * different devices screen width.
+     *
+     * For more info, check values in
+     * [asp][it.simonetugnetti.adaptivedimensions.compose.data.asp] package
+     *
+     * @constructor Asps values from 201asp to 300asp
+     * @since 1.0.0
+     * @see Asp
+     */
     @ConsistentCopyVisibility
     data class From201To300 internal constructor(
         val _201asp: TextUnit,
@@ -338,6 +371,17 @@ data class Asp internal constructor(
         val _300asp: TextUnit
     )
 
+    /**
+     * Data model used to store `asp` values for
+     * different devices screen width.
+     *
+     * For more info, check values in
+     * [asp][it.simonetugnetti.adaptivedimensions.compose.data.asp] package
+     *
+     * @constructor Asps values from 301asp to 400asp
+     * @since 1.0.0
+     * @see Asp
+     */
     @ConsistentCopyVisibility
     data class From301To400 internal constructor(
         val _301asp: TextUnit,
@@ -442,6 +486,17 @@ data class Asp internal constructor(
         val _400asp: TextUnit
     )
 
+    /**
+     * Data model used to store `asp` values for
+     * different devices screen width.
+     *
+     * For more info, check values in
+     * [asp][it.simonetugnetti.adaptivedimensions.compose.data.asp] package
+     *
+     * @constructor Asps values from 401asp to 500asp
+     * @since 1.0.0
+     * @see Asp
+     */
     @ConsistentCopyVisibility
     data class From401To500 internal constructor(
         val _401asp: TextUnit,
@@ -546,6 +601,17 @@ data class Asp internal constructor(
         val _500asp: TextUnit
     )
 
+    /**
+     * Data model used to store `asp` values for
+     * different devices screen width.
+     *
+     * For more info, check values in
+     * [asp][it.simonetugnetti.adaptivedimensions.compose.data.asp] package
+     *
+     * @constructor Asps values from 501asp to 600asp
+     * @since 1.0.0
+     * @see Asp
+     */
     @ConsistentCopyVisibility
     data class From501To600 internal constructor(
         val _501asp: TextUnit,
