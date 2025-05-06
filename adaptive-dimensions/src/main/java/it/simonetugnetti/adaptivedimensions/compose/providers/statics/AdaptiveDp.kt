@@ -124,7 +124,7 @@ fun CompositionLocalProviderStaticAdaptiveDp(
  */
 @Composable
 @NonSkippableComposable
-fun CompositionLocalProviderStaticAdaptiveDp(
+fun CompositionLocalProviderStaticAdaptiveDpByWindowWidthSizeClass(
     windowWidthSizeClass: WindowWidthSizeClass =
         currentWindowAdaptiveInfo()
             .windowSizeClass
@@ -154,7 +154,7 @@ fun CompositionLocalProviderStaticAdaptiveDp(
  */
 @Composable
 @NonSkippableComposable
-fun CompositionLocalProviderStaticAdaptiveDp(
+fun CompositionLocalProviderStaticAdaptiveDpByWindowWidthSizeClass(
     windowWidthSizeClass: WindowWidthSizeClass =
         currentWindowAdaptiveInfo()
             .windowSizeClass
@@ -186,7 +186,7 @@ fun CompositionLocalProviderStaticAdaptiveDp(
  */
 @Composable
 @NonSkippableComposable
-fun CompositionLocalProviderStaticAdaptiveDp(
+fun CompositionLocalProviderStaticAdaptiveDpByWindowSize(
     windowSize: IntSize = currentWindowSize(),
     content: @Composable () -> Unit
 ) {
@@ -208,7 +208,7 @@ fun CompositionLocalProviderStaticAdaptiveDp(
  */
 @Composable
 @NonSkippableComposable
-fun CompositionLocalProviderStaticAdaptiveDp(
+fun CompositionLocalProviderStaticAdaptiveDpByWindowSize(
     windowSize: IntSize = currentWindowSize(),
     sw300dp: @Composable () -> Unit,
     sw330dp: @Composable () -> Unit = { },
