@@ -11,7 +11,7 @@ import kotlin.reflect.full.memberProperties
  * For more info, check values in
  * [adp][it.simonetugnetti.adaptivedimensions.compose.data.adp] package
  *
- * @constructor Adps values from zero to 600adp
+ * @constructor Adps values from zero to 800adp
  * @since 1.0.0
  * @see Asp
  * @see AdaptiveDp
@@ -23,7 +23,9 @@ data class Adp internal constructor(
     val from201To300: From201To300,
     val from301To400: From301To400,
     val from401To500: From401To500,
-    val from501To600: From501To600
+    val from501To600: From501To600,
+    val from601To700: From601To700,
+    val from701To800: From701To800
 ) {
 
     /**
@@ -825,6 +827,274 @@ data class Adp internal constructor(
                     it.name == "_${i}adp"
                 }?.let {
                     add(it.getter.call(this@From501To600) as Dp)
+                }
+
+        }.toList()
+
+    }
+
+    /**
+     * Data model used to store `adp` values for
+     * different devices screen width.
+     *
+     * For more info, check values in
+     * [adp][it.simonetugnetti.adaptivedimensions.compose.data.adp] package
+     *
+     * @constructor Adps values from 601adp to 700adp
+     * @since 1.0.0
+     * @see Adp
+     */
+    @ConsistentCopyVisibility
+    data class From601To700 internal constructor(
+        val _601adp: Dp,
+        val _602adp: Dp,
+        val _603adp: Dp,
+        val _604adp: Dp,
+        val _605adp: Dp,
+        val _606adp: Dp,
+        val _607adp: Dp,
+        val _608adp: Dp,
+        val _609adp: Dp,
+        val _610adp: Dp,
+        val _611adp: Dp,
+        val _612adp: Dp,
+        val _613adp: Dp,
+        val _614adp: Dp,
+        val _615adp: Dp,
+        val _616adp: Dp,
+        val _617adp: Dp,
+        val _618adp: Dp,
+        val _619adp: Dp,
+        val _620adp: Dp,
+        val _621adp: Dp,
+        val _622adp: Dp,
+        val _623adp: Dp,
+        val _624adp: Dp,
+        val _625adp: Dp,
+        val _626adp: Dp,
+        val _627adp: Dp,
+        val _628adp: Dp,
+        val _629adp: Dp,
+        val _630adp: Dp,
+        val _631adp: Dp,
+        val _632adp: Dp,
+        val _633adp: Dp,
+        val _634adp: Dp,
+        val _635adp: Dp,
+        val _636adp: Dp,
+        val _637adp: Dp,
+        val _638adp: Dp,
+        val _639adp: Dp,
+        val _640adp: Dp,
+        val _641adp: Dp,
+        val _642adp: Dp,
+        val _643adp: Dp,
+        val _644adp: Dp,
+        val _645adp: Dp,
+        val _646adp: Dp,
+        val _647adp: Dp,
+        val _648adp: Dp,
+        val _649adp: Dp,
+        val _650adp: Dp,
+        val _651adp: Dp,
+        val _652adp: Dp,
+        val _653adp: Dp,
+        val _654adp: Dp,
+        val _655adp: Dp,
+        val _656adp: Dp,
+        val _657adp: Dp,
+        val _658adp: Dp,
+        val _659adp: Dp,
+        val _660adp: Dp,
+        val _661adp: Dp,
+        val _662adp: Dp,
+        val _663adp: Dp,
+        val _664adp: Dp,
+        val _665adp: Dp,
+        val _666adp: Dp,
+        val _667adp: Dp,
+        val _668adp: Dp,
+        val _669adp: Dp,
+        val _670adp: Dp,
+        val _671adp: Dp,
+        val _672adp: Dp,
+        val _673adp: Dp,
+        val _674adp: Dp,
+        val _675adp: Dp,
+        val _676adp: Dp,
+        val _677adp: Dp,
+        val _678adp: Dp,
+        val _679adp: Dp,
+        val _680adp: Dp,
+        val _681adp: Dp,
+        val _682adp: Dp,
+        val _683adp: Dp,
+        val _684adp: Dp,
+        val _685adp: Dp,
+        val _686adp: Dp,
+        val _687adp: Dp,
+        val _688adp: Dp,
+        val _689adp: Dp,
+        val _690adp: Dp,
+        val _691adp: Dp,
+        val _692adp: Dp,
+        val _693adp: Dp,
+        val _694adp: Dp,
+        val _695adp: Dp,
+        val _696adp: Dp,
+        val _697adp: Dp,
+        val _698adp: Dp,
+        val _699adp: Dp,
+        val _700adp: Dp
+    ) {
+
+        /**
+         * Retrieve a `list` of all [Dp] values in [From601To700] data model
+         *
+         * @since 1.0.0
+         * @return List of [Dp] values
+         */
+        fun getAllAdps() = mutableListOf<Dp>().apply {
+
+            for (i in 601..700)
+                this@From601To700::class.memberProperties.find {
+                    it.name == "_${i}adp"
+                }?.let {
+                    add(it.getter.call(this@From601To700) as Dp)
+                }
+
+        }.toList()
+
+    }
+
+    /**
+     * Data model used to store `adp` values for
+     * different devices screen width.
+     *
+     * For more info, check values in
+     * [adp][it.simonetugnetti.adaptivedimensions.compose.data.adp] package
+     *
+     * @constructor Adps values from 701adp to 800adp
+     * @since 1.0.0
+     * @see Adp
+     */
+    @ConsistentCopyVisibility
+    data class From701To800 internal constructor(
+        val _701adp: Dp,
+        val _702adp: Dp,
+        val _703adp: Dp,
+        val _704adp: Dp,
+        val _705adp: Dp,
+        val _706adp: Dp,
+        val _707adp: Dp,
+        val _708adp: Dp,
+        val _709adp: Dp,
+        val _710adp: Dp,
+        val _711adp: Dp,
+        val _712adp: Dp,
+        val _713adp: Dp,
+        val _714adp: Dp,
+        val _715adp: Dp,
+        val _716adp: Dp,
+        val _717adp: Dp,
+        val _718adp: Dp,
+        val _719adp: Dp,
+        val _720adp: Dp,
+        val _721adp: Dp,
+        val _722adp: Dp,
+        val _723adp: Dp,
+        val _724adp: Dp,
+        val _725adp: Dp,
+        val _726adp: Dp,
+        val _727adp: Dp,
+        val _728adp: Dp,
+        val _729adp: Dp,
+        val _730adp: Dp,
+        val _731adp: Dp,
+        val _732adp: Dp,
+        val _733adp: Dp,
+        val _734adp: Dp,
+        val _735adp: Dp,
+        val _736adp: Dp,
+        val _737adp: Dp,
+        val _738adp: Dp,
+        val _739adp: Dp,
+        val _740adp: Dp,
+        val _741adp: Dp,
+        val _742adp: Dp,
+        val _743adp: Dp,
+        val _744adp: Dp,
+        val _745adp: Dp,
+        val _746adp: Dp,
+        val _747adp: Dp,
+        val _748adp: Dp,
+        val _749adp: Dp,
+        val _750adp: Dp,
+        val _751adp: Dp,
+        val _752adp: Dp,
+        val _753adp: Dp,
+        val _754adp: Dp,
+        val _755adp: Dp,
+        val _756adp: Dp,
+        val _757adp: Dp,
+        val _758adp: Dp,
+        val _759adp: Dp,
+        val _760adp: Dp,
+        val _761adp: Dp,
+        val _762adp: Dp,
+        val _763adp: Dp,
+        val _764adp: Dp,
+        val _765adp: Dp,
+        val _766adp: Dp,
+        val _767adp: Dp,
+        val _768adp: Dp,
+        val _769adp: Dp,
+        val _770adp: Dp,
+        val _771adp: Dp,
+        val _772adp: Dp,
+        val _773adp: Dp,
+        val _774adp: Dp,
+        val _775adp: Dp,
+        val _776adp: Dp,
+        val _777adp: Dp,
+        val _778adp: Dp,
+        val _779adp: Dp,
+        val _780adp: Dp,
+        val _781adp: Dp,
+        val _782adp: Dp,
+        val _783adp: Dp,
+        val _784adp: Dp,
+        val _785adp: Dp,
+        val _786adp: Dp,
+        val _787adp: Dp,
+        val _788adp: Dp,
+        val _789adp: Dp,
+        val _790adp: Dp,
+        val _791adp: Dp,
+        val _792adp: Dp,
+        val _793adp: Dp,
+        val _794adp: Dp,
+        val _795adp: Dp,
+        val _796adp: Dp,
+        val _797adp: Dp,
+        val _798adp: Dp,
+        val _799adp: Dp,
+        val _800adp: Dp
+    ) {
+
+        /**
+         * Retrieve a `list` of all [Dp] values in [From701To800] data model
+         *
+         * @since 1.0.0
+         * @return List of [Dp] values
+         */
+        fun getAllAdps() = mutableListOf<Dp>().apply {
+
+            for (i in 701..800)
+                this@From701To800::class.memberProperties.find {
+                    it.name == "_${i}adp"
+                }?.let {
+                    add(it.getter.call(this@From701To800) as Dp)
                 }
 
         }.toList()

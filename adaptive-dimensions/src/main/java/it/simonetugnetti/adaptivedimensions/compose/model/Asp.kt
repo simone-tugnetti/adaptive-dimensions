@@ -23,7 +23,9 @@ data class Asp internal constructor(
     val from201To300: From201To300,
     val from301To400: From301To400,
     val from401To500: From401To500,
-    val from501To600: From501To600
+    val from501To600: From501To600,
+    val from601To700: From601To700,
+    val from701To800: From701To800
 ) {
 
     /**
@@ -825,6 +827,274 @@ data class Asp internal constructor(
                     it.name == "_${i}asp"
                 }?.let {
                     add(it.getter.call(this@From501To600) as TextUnit)
+                }
+
+        }.toList()
+
+    }
+
+    /**
+     * Data model used to store `asp` values for
+     * different devices screen width.
+     *
+     * For more info, check values in
+     * [asp][it.simonetugnetti.adaptivedimensions.compose.data.asp] package
+     *
+     * @constructor Adps values from 601asp to 700asp
+     * @since 1.0.0
+     * @see Asp
+     */
+    @ConsistentCopyVisibility
+    data class From601To700 internal constructor(
+        val _601asp: TextUnit,
+        val _602asp: TextUnit,
+        val _603asp: TextUnit,
+        val _604asp: TextUnit,
+        val _605asp: TextUnit,
+        val _606asp: TextUnit,
+        val _607asp: TextUnit,
+        val _608asp: TextUnit,
+        val _609asp: TextUnit,
+        val _610asp: TextUnit,
+        val _611asp: TextUnit,
+        val _612asp: TextUnit,
+        val _613asp: TextUnit,
+        val _614asp: TextUnit,
+        val _615asp: TextUnit,
+        val _616asp: TextUnit,
+        val _617asp: TextUnit,
+        val _618asp: TextUnit,
+        val _619asp: TextUnit,
+        val _620asp: TextUnit,
+        val _621asp: TextUnit,
+        val _622asp: TextUnit,
+        val _623asp: TextUnit,
+        val _624asp: TextUnit,
+        val _625asp: TextUnit,
+        val _626asp: TextUnit,
+        val _627asp: TextUnit,
+        val _628asp: TextUnit,
+        val _629asp: TextUnit,
+        val _630asp: TextUnit,
+        val _631asp: TextUnit,
+        val _632asp: TextUnit,
+        val _633asp: TextUnit,
+        val _634asp: TextUnit,
+        val _635asp: TextUnit,
+        val _636asp: TextUnit,
+        val _637asp: TextUnit,
+        val _638asp: TextUnit,
+        val _639asp: TextUnit,
+        val _640asp: TextUnit,
+        val _641asp: TextUnit,
+        val _642asp: TextUnit,
+        val _643asp: TextUnit,
+        val _644asp: TextUnit,
+        val _645asp: TextUnit,
+        val _646asp: TextUnit,
+        val _647asp: TextUnit,
+        val _648asp: TextUnit,
+        val _649asp: TextUnit,
+        val _650asp: TextUnit,
+        val _651asp: TextUnit,
+        val _652asp: TextUnit,
+        val _653asp: TextUnit,
+        val _654asp: TextUnit,
+        val _655asp: TextUnit,
+        val _656asp: TextUnit,
+        val _657asp: TextUnit,
+        val _658asp: TextUnit,
+        val _659asp: TextUnit,
+        val _660asp: TextUnit,
+        val _661asp: TextUnit,
+        val _662asp: TextUnit,
+        val _663asp: TextUnit,
+        val _664asp: TextUnit,
+        val _665asp: TextUnit,
+        val _666asp: TextUnit,
+        val _667asp: TextUnit,
+        val _668asp: TextUnit,
+        val _669asp: TextUnit,
+        val _670asp: TextUnit,
+        val _671asp: TextUnit,
+        val _672asp: TextUnit,
+        val _673asp: TextUnit,
+        val _674asp: TextUnit,
+        val _675asp: TextUnit,
+        val _676asp: TextUnit,
+        val _677asp: TextUnit,
+        val _678asp: TextUnit,
+        val _679asp: TextUnit,
+        val _680asp: TextUnit,
+        val _681asp: TextUnit,
+        val _682asp: TextUnit,
+        val _683asp: TextUnit,
+        val _684asp: TextUnit,
+        val _685asp: TextUnit,
+        val _686asp: TextUnit,
+        val _687asp: TextUnit,
+        val _688asp: TextUnit,
+        val _689asp: TextUnit,
+        val _690asp: TextUnit,
+        val _691asp: TextUnit,
+        val _692asp: TextUnit,
+        val _693asp: TextUnit,
+        val _694asp: TextUnit,
+        val _695asp: TextUnit,
+        val _696asp: TextUnit,
+        val _697asp: TextUnit,
+        val _698asp: TextUnit,
+        val _699asp: TextUnit,
+        val _700asp: TextUnit
+    ) {
+
+        /**
+         * Retrieve a `list` of all [TextUnit] values in [From601To700] data model
+         *
+         * @since 1.0.0
+         * @return List of [TextUnit] values
+         */
+        fun getAllAdps() = mutableListOf<TextUnit>().apply {
+
+            for (i in 601..700)
+                this@From601To700::class.memberProperties.find {
+                    it.name == "_${i}asp"
+                }?.let {
+                    add(it.getter.call(this@From601To700) as TextUnit)
+                }
+
+        }.toList()
+
+    }
+
+    /**
+     * Data model used to store `asp` values for
+     * different devices screen width.
+     *
+     * For more info, check values in
+     * [asp][it.simonetugnetti.adaptivedimensions.compose.data.asp] package
+     *
+     * @constructor Adps values from 701asp to 800asp
+     * @since 1.0.0
+     * @see Asp
+     */
+    @ConsistentCopyVisibility
+    data class From701To800 internal constructor(
+        val _701asp: TextUnit,
+        val _702asp: TextUnit,
+        val _703asp: TextUnit,
+        val _704asp: TextUnit,
+        val _705asp: TextUnit,
+        val _706asp: TextUnit,
+        val _707asp: TextUnit,
+        val _708asp: TextUnit,
+        val _709asp: TextUnit,
+        val _710asp: TextUnit,
+        val _711asp: TextUnit,
+        val _712asp: TextUnit,
+        val _713asp: TextUnit,
+        val _714asp: TextUnit,
+        val _715asp: TextUnit,
+        val _716asp: TextUnit,
+        val _717asp: TextUnit,
+        val _718asp: TextUnit,
+        val _719asp: TextUnit,
+        val _720asp: TextUnit,
+        val _721asp: TextUnit,
+        val _722asp: TextUnit,
+        val _723asp: TextUnit,
+        val _724asp: TextUnit,
+        val _725asp: TextUnit,
+        val _726asp: TextUnit,
+        val _727asp: TextUnit,
+        val _728asp: TextUnit,
+        val _729asp: TextUnit,
+        val _730asp: TextUnit,
+        val _731asp: TextUnit,
+        val _732asp: TextUnit,
+        val _733asp: TextUnit,
+        val _734asp: TextUnit,
+        val _735asp: TextUnit,
+        val _736asp: TextUnit,
+        val _737asp: TextUnit,
+        val _738asp: TextUnit,
+        val _739asp: TextUnit,
+        val _740asp: TextUnit,
+        val _741asp: TextUnit,
+        val _742asp: TextUnit,
+        val _743asp: TextUnit,
+        val _744asp: TextUnit,
+        val _745asp: TextUnit,
+        val _746asp: TextUnit,
+        val _747asp: TextUnit,
+        val _748asp: TextUnit,
+        val _749asp: TextUnit,
+        val _750asp: TextUnit,
+        val _751asp: TextUnit,
+        val _752asp: TextUnit,
+        val _753asp: TextUnit,
+        val _754asp: TextUnit,
+        val _755asp: TextUnit,
+        val _756asp: TextUnit,
+        val _757asp: TextUnit,
+        val _758asp: TextUnit,
+        val _759asp: TextUnit,
+        val _760asp: TextUnit,
+        val _761asp: TextUnit,
+        val _762asp: TextUnit,
+        val _763asp: TextUnit,
+        val _764asp: TextUnit,
+        val _765asp: TextUnit,
+        val _766asp: TextUnit,
+        val _767asp: TextUnit,
+        val _768asp: TextUnit,
+        val _769asp: TextUnit,
+        val _770asp: TextUnit,
+        val _771asp: TextUnit,
+        val _772asp: TextUnit,
+        val _773asp: TextUnit,
+        val _774asp: TextUnit,
+        val _775asp: TextUnit,
+        val _776asp: TextUnit,
+        val _777asp: TextUnit,
+        val _778asp: TextUnit,
+        val _779asp: TextUnit,
+        val _780asp: TextUnit,
+        val _781asp: TextUnit,
+        val _782asp: TextUnit,
+        val _783asp: TextUnit,
+        val _784asp: TextUnit,
+        val _785asp: TextUnit,
+        val _786asp: TextUnit,
+        val _787asp: TextUnit,
+        val _788asp: TextUnit,
+        val _789asp: TextUnit,
+        val _790asp: TextUnit,
+        val _791asp: TextUnit,
+        val _792asp: TextUnit,
+        val _793asp: TextUnit,
+        val _794asp: TextUnit,
+        val _795asp: TextUnit,
+        val _796asp: TextUnit,
+        val _797asp: TextUnit,
+        val _798asp: TextUnit,
+        val _799asp: TextUnit,
+        val _800asp: TextUnit
+    ) {
+
+        /**
+         * Retrieve a `list` of all [TextUnit] values in [From701To800] data model
+         *
+         * @since 1.0.0
+         * @return List of [TextUnit] values
+         */
+        fun getAllAdps() = mutableListOf<TextUnit>().apply {
+
+            for (i in 701..800)
+                this@From701To800::class.memberProperties.find {
+                    it.name == "_${i}asp"
+                }?.let {
+                    add(it.getter.call(this@From701To800) as TextUnit)
                 }
 
         }.toList()
