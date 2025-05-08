@@ -32,6 +32,10 @@ android {
         compose = true
     }
 
+    publishing {
+        singleVariant("release") {}
+    }
+
 }
 
 tasks.register<Jar>("dokkaJavadocJar") {
