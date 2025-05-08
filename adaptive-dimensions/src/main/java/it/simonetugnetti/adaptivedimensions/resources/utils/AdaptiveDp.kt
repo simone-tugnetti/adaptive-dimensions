@@ -113,7 +113,7 @@ fun Resources.getAdaptiveDpDimensionPixelSize(adp: AdaptiveDp) =
  * stored in an array resource reference.
  *
  * ```
- * // [R. dimen._1adp, ... , R. dimen._600adp]
+ * // [R. dimen._1adp, ... , R. dimen._800adp]
  * resources.getListOfAdaptiveDpDimenRes()
  * ```
  *
@@ -150,7 +150,7 @@ fun Resources.getListOfAdaptiveDpDimenRes() =
  * /*
  *   [getAdaptiveDpDimension(AdaptiveDp._1adp),
  *    ... ,
- *    getAdaptiveDpDimension(AdaptiveDp._600adp)]
+ *    getAdaptiveDpDimension(AdaptiveDp._800adp)]
  * */
  * resources.getListOfAdaptiveDpDimension()
  * ```
@@ -177,7 +177,7 @@ fun Resources.getListOfAdaptiveDpDimension() =
  * /*
  *   [getAdaptiveDpExactDimension(AdaptiveDp._1adp),
  *    ... ,
- *    getAdaptiveDpExactDimension(AdaptiveDp._600adp)]
+ *    getAdaptiveDpExactDimension(AdaptiveDp._800adp)]
  * */
  * resources.getListOfAdaptiveDpExactDimension()
  * ```
@@ -204,7 +204,7 @@ fun Resources.getListOfAdaptiveDpExactDimension() =
  * /*
  *   [getAdaptiveDpDimensionPixelOffset(AdaptiveDp._1adp),
  *    ... ,
- *    getAdaptiveDpDimensionPixelOffset(AdaptiveDp._600adp)]
+ *    getAdaptiveDpDimensionPixelOffset(AdaptiveDp._800adp)]
  * */
  * resources.getListOfAdaptiveDpDimensionPixelOffset()
  * ```
@@ -231,7 +231,7 @@ fun Resources.getListOfAdaptiveDpDimensionPixelOffset() =
  * /*
  *   [getAdaptiveDpDimensionPixelSize(AdaptiveDp._1adp),
  *    ... ,
- *    getAdaptiveDpDimensionPixelSize(AdaptiveDp._600adp)]
+ *    getAdaptiveDpDimensionPixelSize(AdaptiveDp._800adp)]
  * */
  * resources.getListOfAdaptiveDpDimensionPixelSize()
  * ```

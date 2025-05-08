@@ -113,7 +113,7 @@ fun Resources.getAdaptiveSpDimensionPixelSize(asp: AdaptiveSp) =
  * stored in an array resource reference.
  *
  * ```
- * // [R. dimen._1asp, ... , R. dimen._600asp]
+ * // [R. dimen._1asp, ... , R. dimen._800asp]
  * resources.getListOfAdaptiveSpDimenRes()
  * ```
  *
@@ -150,7 +150,7 @@ fun Resources.getListOfAdaptiveSpDimenRes() =
  * /*
  *   [getAdaptiveSpDimension(AdaptiveSp._1asp),
  *    ... ,
- *    getAdaptiveSpDimension(AdaptiveSp._600asp)]
+ *    getAdaptiveSpDimension(AdaptiveSp._800asp)]
  * */
  * resources.getListOfAdaptiveSpDimension()
  * ```
@@ -177,7 +177,7 @@ fun Resources.getListOfAdaptiveSpDimension() =
  * /*
  *   [getAdaptiveSpExactDimension(AdaptiveSp._1asp),
  *    ... ,
- *    getAdaptiveSpExactDimension(AdaptiveSp._600asp)]
+ *    getAdaptiveSpExactDimension(AdaptiveSp._800asp)]
  * */
  * resources.getListOfAdaptiveSpExactDimension()
  * ```
@@ -204,7 +204,7 @@ fun Resources.getListOfAdaptiveSpExactDimension() =
  * /*
  *   [getAdaptiveSpDimensionPixelOffset(AdaptiveSp._1asp),
  *    ... ,
- *    getAdaptiveSpDimensionPixelOffset(AdaptiveSp._600asp)]
+ *    getAdaptiveSpDimensionPixelOffset(AdaptiveSp._800asp)]
  * */
  * resources.getListOfAdaptiveSpDimensionPixelOffset()
  * ```
@@ -231,7 +231,7 @@ fun Resources.getListOfAdaptiveSpDimensionPixelOffset() =
  * /*
  *   [getAdaptiveSpDimensionPixelSize(AdaptiveSp._1asp),
  *    ... ,
- *    getAdaptiveSpDimensionPixelSize(AdaptiveSp._600asp)]
+ *    getAdaptiveSpDimensionPixelSize(AdaptiveSp._800asp)]
  * */
  * resources.getListOfAdaptiveSpDimensionPixelSize()
  * ```
