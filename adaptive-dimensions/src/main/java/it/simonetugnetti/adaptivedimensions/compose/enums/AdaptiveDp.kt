@@ -100,7 +100,7 @@ enum class AdaptiveDp(
          * all [Adp] references in [AdaptiveDp].
          *
          * ```
-         * // [adp_default, ... , adp_sw600dp]
+         * // [adp_default, ... , adp_sw1080dp]
          * AdaptiveDp.listOfAdps()
          * ```
          *

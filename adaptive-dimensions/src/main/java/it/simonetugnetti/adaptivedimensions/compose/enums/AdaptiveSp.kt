@@ -100,7 +100,7 @@ enum class AdaptiveSp(
          * all [Asp] references in [AdaptiveSp].
          *
          * ```
-         * // [asp_default, ... , asp_sw600dp]
+         * // [asp_default, ... , asp_sw1080dp]
          * AdaptiveSp.listOfAsps()
          * ```
          *
