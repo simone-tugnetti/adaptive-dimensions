@@ -15,7 +15,7 @@ application developers to create responsive layouts with the same design for eve
 - **Functionality**: Support for both Android Native and KMP development.
 - **Compatibility**: Support for various devices, such as Smartphones, Tablets, Desktop and Watches.
 - **Lightweight**: Total size of 1Mb and depends only on Kotlin, Compose Fundamentals, Material and Size Unit.
-- **Modern**: Kotlin-first and interoperates with modern libraries including Compose, Material3 Adaptive and Dokka.
+- **Modern**: Made in Kotlin-first and interoperates with modern libraries including Compose, Material3 Adaptive and Dokka.
 
 <br>
 
@@ -57,6 +57,12 @@ dependencies {
 <br>
 
 ## Usages
+
+TODO()
+
+<br>
+
+## Examples
 
 TODO()
 
