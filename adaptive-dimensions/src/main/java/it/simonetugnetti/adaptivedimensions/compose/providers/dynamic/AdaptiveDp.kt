@@ -25,6 +25,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material3.MaterialTheme as Material3Theme
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.material3.adaptive.currentWindowSize
+import androidx.compose.material3.adaptive.currentWindowDpSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocal
 import androidx.compose.runtime.CompositionLocalProvider
@@ -35,6 +36,7 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.UiComposable
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.window.core.layout.WindowSizeClass
@@ -131,7 +133,7 @@ fun CompositionLocalProviderAdaptiveDp(
 /**
  * Update [LocalAdp] key by the given [WindowWidthSizeClass] `entry`.
  *
- * Unlike using [currentWindowSize], this only provides
+ * Unlike using [currentWindowSize] and [currentWindowDpSize], this only provides
  * three [AdaptiveDp] entries. For more info, check [adaptiveDp].
  *
  * @since 1.0.0
@@ -159,7 +161,7 @@ fun CompositionLocalProviderAdaptiveDpByWindowWidthSizeClass(
 /**
  * Update [LocalAdp] key by the given [WindowWidthSizeClass] `entry`.
  *
- * Unlike using [currentWindowSize], this only provides
+ * Unlike using [currentWindowSize] and [currentWindowDpSize], this only provides
  * three [AdaptiveDp] entries. For more info, check [adaptiveDp].
  *
  * @since 1.0.0
@@ -200,7 +202,7 @@ fun CompositionLocalProviderAdaptiveDpByWindowWidthSizeClass(
  * @param windowSize An [IntSize] instance.
  * @param content Composable inside the [CompositionLocalProvider]
  * @see currentWindowSize
- * @see widthAdaptiveDp
+ * @see IntSize.widthAdaptiveDp
  */
 @Composable
 @NonSkippableComposable
@@ -209,7 +211,9 @@ fun CompositionLocalProviderAdaptiveDpByWindowSize(
     content: @Composable () -> Unit
 ) {
 
-    CompositionLocalProviderAdaptiveDp(windowSize.widthAdaptiveDp) {
+    val resources = LocalContext.current.resources
+
+    CompositionLocalProviderAdaptiveDp(windowSize.widthAdaptiveDp(resources)) {
         content()
     }
 
@@ -222,7 +226,7 @@ fun CompositionLocalProviderAdaptiveDpByWindowSize(
  * @since 1.0.0
  * @param windowSize An [IntSize] instance.
  * @see currentWindowSize
- * @see widthAdaptiveDp
+ * @see IntSize.widthAdaptiveDp
  */
 @Composable
 @NonSkippableComposable
@@ -257,37 +261,40 @@ fun CompositionLocalProviderAdaptiveDpByWindowSize(
     sw1080dp: @Composable () -> Unit = { }
 ) {
 
-    val width = windowSize.width.dp
+    val resources = LocalContext.current.resources
 
-    CompositionLocalProviderAdaptiveDp(windowSize.widthAdaptiveDp) {
+    val widthByDensity = windowSize.width / resources.displayMetrics.density
+
+    CompositionLocalProviderAdaptiveDp(windowSize.widthAdaptiveDp(resources)) {
         when {
-            width <= 300.dp -> sw300dp()
-            width <= 330.dp -> sw330dp()
-            width <= 360.dp -> sw360dp()
-            width <= 390.dp -> sw390dp()
-            width <= 420.dp -> sw420dp()
-            width <= 450.dp -> sw450dp()
-            width <= 480.dp -> sw480dp()
-            width <= 510.dp -> sw510dp()
-            width <= 540.dp -> sw540dp()
-            width <= 570.dp -> sw570dp()
-            width <= 600.dp -> sw600dp()
-            width <= 630.dp -> sw630dp()
-            width <= 660.dp -> sw660dp()
-            width <= 690.dp -> sw690dp()
-            width <= 720.dp -> sw720dp()
-            width <= 750.dp -> sw750dp()
-            width <= 780.dp -> sw780dp()
-            width <= 810.dp -> sw810dp()
-            width <= 840.dp -> sw840dp()
-            width <= 870.dp -> sw870dp()
-            width <= 900.dp -> sw900dp()
-            width <= 930.dp -> sw930dp()
-            width <= 960.dp -> sw960dp()
-            width <= 990.dp -> sw990dp()
-            width <= 1020.dp -> sw1020dp()
-            width <= 1050.dp -> sw1050dp()
-            width <= 1080.dp -> sw1080dp()
+            widthByDensity <= 300 -> sw300dp()
+            widthByDensity <= 330 -> sw330dp()
+            widthByDensity <= 360 -> sw360dp()
+            widthByDensity <= 390 -> sw390dp()
+            widthByDensity <= 420 -> sw420dp()
+            widthByDensity <= 450 -> sw450dp()
+            widthByDensity <= 480 -> sw480dp()
+            widthByDensity <= 510 -> sw510dp()
+            widthByDensity <= 540 -> sw540dp()
+            widthByDensity <= 570 -> sw570dp()
+            widthByDensity <= 600 -> sw600dp()
+            widthByDensity <= 630 -> sw630dp()
+            widthByDensity <= 660 -> sw660dp()
+            widthByDensity <= 690 -> sw690dp()
+            widthByDensity <= 720 -> sw720dp()
+            widthByDensity <= 750 -> sw750dp()
+            widthByDensity <= 780 -> sw780dp()
+            widthByDensity <= 810 -> sw810dp()
+            widthByDensity <= 840 -> sw840dp()
+            widthByDensity <= 870 -> sw870dp()
+            widthByDensity <= 900 -> sw900dp()
+            widthByDensity <= 930 -> sw930dp()
+            widthByDensity <= 960 -> sw960dp()
+            widthByDensity <= 990 -> sw990dp()
+            widthByDensity <= 1020 -> sw1020dp()
+            widthByDensity <= 1050 -> sw1050dp()
+            widthByDensity <= 1080 -> sw1080dp()
+            widthByDensity > 1080 -> sw1080dp()
         }
     }
 
@@ -412,6 +419,7 @@ fun BoxWithConstraintsAdaptiveDp(
                 maxWidth <= 1020.dp -> sw1020dp()
                 maxWidth <= 1050.dp -> sw1050dp()
                 maxWidth <= 1080.dp -> sw1080dp()
+                maxWidth > 1080.dp -> sw1080dp()
                 else -> Unit
             }
         }

@@ -18,13 +18,16 @@
 
 package it.simonetugnetti.adaptivedimensions.compose.utils
 
+import android.content.res.Resources
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.BoxWithConstraintsScope
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.material3.adaptive.currentWindowSize
+import androidx.compose.material3.adaptive.currentWindowDpSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
@@ -71,6 +74,7 @@ val BoxWithConstraintsScope.maxWidthAdaptiveSp: AdaptiveSp
         maxWidth <= 1020.dp -> AdaptiveSp.SW1020
         maxWidth <= 1050.dp -> AdaptiveSp.SW1050
         maxWidth <= 1080.dp -> AdaptiveSp.SW1080
+        maxWidth > 1080.dp -> AdaptiveSp.SW1080
         else -> AdaptiveSp.DEFAULT
     }
 
@@ -78,39 +82,87 @@ val BoxWithConstraintsScope.maxWidthAdaptiveSp: AdaptiveSp
  * Retrieve an [AdaptiveSp] entry based on [IntSize.width].
  *
  * @since 1.0.0
+ * @param resources Instance of Resources used for retrieve display metrics
  * @see Asp
  * @see currentWindowSize
- * @see widthAdaptiveDp
+ * @see IntSize.widthAdaptiveDp
  */
-val IntSize.widthAdaptiveSp: AdaptiveSp
+fun IntSize.widthAdaptiveSp(resources: Resources): AdaptiveSp {
+
+    val widthByDensity = width / resources.displayMetrics.density
+
+    return when {
+        widthByDensity <= 300 -> AdaptiveSp.SW300
+        widthByDensity <= 330 -> AdaptiveSp.SW330
+        widthByDensity <= 360 -> AdaptiveSp.SW360
+        widthByDensity <= 390 -> AdaptiveSp.SW390
+        widthByDensity <= 420 -> AdaptiveSp.SW420
+        widthByDensity <= 450 -> AdaptiveSp.SW450
+        widthByDensity <= 480 -> AdaptiveSp.SW480
+        widthByDensity <= 510 -> AdaptiveSp.SW510
+        widthByDensity <= 540 -> AdaptiveSp.SW540
+        widthByDensity <= 570 -> AdaptiveSp.SW570
+        widthByDensity <= 600 -> AdaptiveSp.SW600
+        widthByDensity <= 630 -> AdaptiveSp.SW630
+        widthByDensity <= 660 -> AdaptiveSp.SW660
+        widthByDensity <= 690 -> AdaptiveSp.SW690
+        widthByDensity <= 720 -> AdaptiveSp.SW720
+        widthByDensity <= 750 -> AdaptiveSp.SW750
+        widthByDensity <= 780 -> AdaptiveSp.SW780
+        widthByDensity <= 810 -> AdaptiveSp.SW810
+        widthByDensity <= 840 -> AdaptiveSp.SW840
+        widthByDensity <= 870 -> AdaptiveSp.SW870
+        widthByDensity <= 900 -> AdaptiveSp.SW900
+        widthByDensity <= 930 -> AdaptiveSp.SW930
+        widthByDensity <= 960 -> AdaptiveSp.SW960
+        widthByDensity <= 990 -> AdaptiveSp.SW990
+        widthByDensity <= 1020 -> AdaptiveSp.SW1020
+        widthByDensity <= 1050 -> AdaptiveSp.SW1050
+        widthByDensity <= 1080 -> AdaptiveSp.SW1080
+        widthByDensity > 1080 -> AdaptiveSp.SW1080
+        else -> AdaptiveSp.DEFAULT
+    }
+
+}
+
+/**
+ * Retrieve an [AdaptiveSp] entry based on [DpSize.width].
+ *
+ * @since 1.0.0
+ * @see Asp
+ * @see currentWindowDpSize
+ * @see DpSize.widthAdaptiveDp
+ */
+val DpSize.widthAdaptiveSp: AdaptiveSp
     get() = when {
-        width.dp <= 300.dp -> AdaptiveSp.SW300
-        width.dp <= 330.dp -> AdaptiveSp.SW330
-        width.dp <= 360.dp -> AdaptiveSp.SW360
-        width.dp <= 390.dp -> AdaptiveSp.SW390
-        width.dp <= 420.dp -> AdaptiveSp.SW420
-        width.dp <= 450.dp -> AdaptiveSp.SW450
-        width.dp <= 480.dp -> AdaptiveSp.SW480
-        width.dp <= 510.dp -> AdaptiveSp.SW510
-        width.dp <= 540.dp -> AdaptiveSp.SW540
-        width.dp <= 570.dp -> AdaptiveSp.SW570
-        width.dp <= 600.dp -> AdaptiveSp.SW600
-        width.dp <= 630.dp -> AdaptiveSp.SW630
-        width.dp <= 660.dp -> AdaptiveSp.SW660
-        width.dp <= 690.dp -> AdaptiveSp.SW690
-        width.dp <= 720.dp -> AdaptiveSp.SW720
-        width.dp <= 750.dp -> AdaptiveSp.SW750
-        width.dp <= 780.dp -> AdaptiveSp.SW780
-        width.dp <= 810.dp -> AdaptiveSp.SW810
-        width.dp <= 840.dp -> AdaptiveSp.SW840
-        width.dp <= 870.dp -> AdaptiveSp.SW870
-        width.dp <= 900.dp -> AdaptiveSp.SW900
-        width.dp <= 930.dp -> AdaptiveSp.SW930
-        width.dp <= 960.dp -> AdaptiveSp.SW960
-        width.dp <= 990.dp -> AdaptiveSp.SW990
-        width.dp <= 1020.dp -> AdaptiveSp.SW1020
-        width.dp <= 1050.dp -> AdaptiveSp.SW1050
-        width.dp <= 1080.dp -> AdaptiveSp.SW1080
+        width <= 300.dp -> AdaptiveSp.SW300
+        width <= 330.dp -> AdaptiveSp.SW330
+        width <= 360.dp -> AdaptiveSp.SW360
+        width <= 390.dp -> AdaptiveSp.SW390
+        width <= 420.dp -> AdaptiveSp.SW420
+        width <= 450.dp -> AdaptiveSp.SW450
+        width <= 480.dp -> AdaptiveSp.SW480
+        width <= 510.dp -> AdaptiveSp.SW510
+        width <= 540.dp -> AdaptiveSp.SW540
+        width <= 570.dp -> AdaptiveSp.SW570
+        width <= 600.dp -> AdaptiveSp.SW600
+        width <= 630.dp -> AdaptiveSp.SW630
+        width <= 660.dp -> AdaptiveSp.SW660
+        width <= 690.dp -> AdaptiveSp.SW690
+        width <= 720.dp -> AdaptiveSp.SW720
+        width <= 750.dp -> AdaptiveSp.SW750
+        width <= 780.dp -> AdaptiveSp.SW780
+        width <= 810.dp -> AdaptiveSp.SW810
+        width <= 840.dp -> AdaptiveSp.SW840
+        width <= 870.dp -> AdaptiveSp.SW870
+        width <= 900.dp -> AdaptiveSp.SW900
+        width <= 930.dp -> AdaptiveSp.SW930
+        width <= 960.dp -> AdaptiveSp.SW960
+        width <= 990.dp -> AdaptiveSp.SW990
+        width <= 1020.dp -> AdaptiveSp.SW1020
+        width <= 1050.dp -> AdaptiveSp.SW1050
+        width <= 1080.dp -> AdaptiveSp.SW1080
+        width > 1080.dp -> AdaptiveSp.SW1080
         else -> AdaptiveSp.DEFAULT
     }
 

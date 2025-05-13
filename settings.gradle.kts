@@ -23,6 +23,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AdaptiveDimensions"
+rootProject.name = "adaptive-dimensions"
 include(":adaptive-dimensions")
  
