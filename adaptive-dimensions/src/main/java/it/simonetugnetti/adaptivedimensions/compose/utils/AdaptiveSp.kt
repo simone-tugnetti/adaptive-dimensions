@@ -37,6 +37,7 @@ import it.simonetugnetti.adaptivedimensions.compose.enums.AdaptiveSp
 import it.simonetugnetti.adaptivedimensions.compose.model.Asp
 import it.simonetugnetti.adaptivedimensions.resources.enums.AdaptiveSp as AdaptiveSpLegacy
 
+
 /**
  * Retrieve an [AdaptiveSp] entry based on [BoxWithConstraintsScope.maxWidth].
  *
@@ -77,6 +78,7 @@ val BoxWithConstraintsScope.maxWidthAdaptiveSp: AdaptiveSp
         maxWidth > 1080.dp -> AdaptiveSp.SW1080
         else -> AdaptiveSp.DEFAULT
     }
+
 
 /**
  * Retrieve an [AdaptiveSp] entry based on [IntSize.width].
@@ -125,6 +127,7 @@ fun IntSize.widthAdaptiveSp(resources: Resources): AdaptiveSp {
 
 }
 
+
 /**
  * Retrieve an [AdaptiveSp] entry based on [DpSize.width].
  *
@@ -166,6 +169,7 @@ val DpSize.widthAdaptiveSp: AdaptiveSp
         else -> AdaptiveSp.DEFAULT
     }
 
+
 /**
  * Retrieve an [AdaptiveSp] entry based on [WindowWidthSizeClass] entry.
  *
@@ -187,6 +191,7 @@ val WindowWidthSizeClass.adaptiveSp: AdaptiveSp
         WindowWidthSizeClass.EXPANDED -> AdaptiveSp.SW840
         else -> AdaptiveSp.DEFAULT
     }
+
 
 /**
  * Load a dimension resource.

@@ -857,6 +857,7 @@ enum class AdaptiveSp(
     _799asp(R.dimen._799asp),
     _800asp(R.dimen._800asp);
 
+
     /**
      * Retrieve the `float` Dimension given
      * the specific [AdaptiveSp] entry and based
@@ -876,6 +877,7 @@ enum class AdaptiveSp(
             logAspError("Resource not Found", e)
             0f
         }
+
 
     /**
      * Retrieve the `integer` Exact Dimension given
@@ -897,6 +899,7 @@ enum class AdaptiveSp(
             0
         }
 
+
     /**
      * Retrieve the `integer` Pixel Offset Dimension given
      * the specific [AdaptiveSp] Entry and based
@@ -916,6 +919,7 @@ enum class AdaptiveSp(
             logAspError("Resource not Found", e)
             0
         }
+
 
     /**
      * Retrieve the `integer` Pixel Size Dimension given
@@ -937,7 +941,9 @@ enum class AdaptiveSp(
             0
         }
 
+
     companion object {
+
 
         /**
          * Retrieve the size of [AdaptiveSp] entries.
@@ -946,6 +952,7 @@ enum class AdaptiveSp(
          * @return Size of the entries.
          */
         fun size() = entries.size
+
 
         /**
          * Retrieve a list that contains
@@ -960,6 +967,7 @@ enum class AdaptiveSp(
          * @return list of `asp` dimension resource IDs.
          */
         fun listOfDimenRes() = entries.map { it.dimen }
+
 
     }
 

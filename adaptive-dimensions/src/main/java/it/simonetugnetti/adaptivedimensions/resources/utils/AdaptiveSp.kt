@@ -25,6 +25,7 @@ import androidx.annotation.DimenRes
 import it.simonetugnetti.adaptivedimensions.R
 import it.simonetugnetti.adaptivedimensions.resources.enums.AdaptiveSp
 
+
 /**
  * Retrieve an [AdaptiveSp] `entry` associated by the given
  * dimensional resource ID.
@@ -44,6 +45,7 @@ import it.simonetugnetti.adaptivedimensions.resources.enums.AdaptiveSp
 fun @receiver:DimenRes Int.asAdaptiveSp() =
     AdaptiveSp.entries.find { it.dimen == this } ?: AdaptiveSp._0asp
 
+
 /**
  * Retrieve an `asp` dimensional for the resource ID.
  *
@@ -62,6 +64,7 @@ fun Resources.getAdaptiveSpDimension(asp: AdaptiveSp) =
         logAspError("Resource not Found", e)
         0f
     }
+
 
 /**
  * Retrieve an `asp` exact dimensional for the resource ID.
@@ -86,6 +89,7 @@ fun Resources.getAdaptiveSpExactDimension(asp: AdaptiveSp) =
         0
     }
 
+
 /**
  * Retrieve an `asp` dimensional for the resource ID
  * for use as an offset in raw pixels.
@@ -106,6 +110,7 @@ fun Resources.getAdaptiveSpDimensionPixelOffset(asp: AdaptiveSp) =
         0
     }
 
+
 /**
  * Retrieve an `asp` dimensional for the resource ID
  * for use as a size in raw pixels.
@@ -125,6 +130,7 @@ fun Resources.getAdaptiveSpDimensionPixelSize(asp: AdaptiveSp) =
         logAspError("Resource not Found", e)
         0
     }
+
 
 /**
  * Retrieve a `list` of all `asp` dimensional resources IDs
@@ -160,6 +166,7 @@ fun Resources.getListOfAdaptiveSpDimenRes() =
         listOf()
     }
 
+
 /**
  * Retrieve a `list` of all `asp` dimensional for the resource IDs
  * stored in an array resource reference.
@@ -186,6 +193,7 @@ fun Resources.getListOfAdaptiveSpDimension() =
             add(getAdaptiveSpDimension(it.asAdaptiveSp()))
         }
     }.toList()
+
 
 /**
  * Retrieve a `list` of all `asp` exact dimensional
@@ -214,6 +222,7 @@ fun Resources.getListOfAdaptiveSpExactDimension() =
         }
     }.toList()
 
+
 /**
  * Retrieve a `list` of all `asp` dimensional for the resource IDs,
  * for use as an offset in raw pixels, stored in an array resource reference.
@@ -241,6 +250,7 @@ fun Resources.getListOfAdaptiveSpDimensionPixelOffset() =
         }
     }.toList()
 
+
 /**
  * Retrieve a `list` of all `asp` dimensional for the resource IDs,
  * for use as a size in raw pixels, stored in an array resource reference
@@ -267,6 +277,7 @@ fun Resources.getListOfAdaptiveSpDimensionPixelSize() =
             add(getAdaptiveSpDimensionPixelSize(it.asAdaptiveSp()))
         }
     }.toList()
+
 
 /**
  * Default Log Error for [AdaptiveSp] structure.

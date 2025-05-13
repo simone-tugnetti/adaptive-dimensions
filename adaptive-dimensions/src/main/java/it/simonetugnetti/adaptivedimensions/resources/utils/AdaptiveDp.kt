@@ -25,6 +25,7 @@ import androidx.annotation.DimenRes
 import it.simonetugnetti.adaptivedimensions.R
 import it.simonetugnetti.adaptivedimensions.resources.enums.AdaptiveDp
 
+
 /**
  * Retrieve an [AdaptiveDp] `entry` associated by the given
  * dimension resource ID.
@@ -44,6 +45,7 @@ import it.simonetugnetti.adaptivedimensions.resources.enums.AdaptiveDp
 fun @receiver:DimenRes Int.asAdaptiveDp() =
     AdaptiveDp.entries.find { it.dimen == this } ?: AdaptiveDp._0adp
 
+
 /**
  * Retrieve an `adp` dimensional for the resource ID.
  *
@@ -62,6 +64,7 @@ fun Resources.getAdaptiveDpDimension(adp: AdaptiveDp) =
         logAdpError("Resource not Found", e)
         0f
     }
+
 
 /**
  * Retrieve an `adp` exact dimensional for the resource ID.
@@ -86,6 +89,7 @@ fun Resources.getAdaptiveDpExactDimension(adp: AdaptiveDp) =
         0
     }
 
+
 /**
  * Retrieve an `adp` dimensional for the resource ID
  * for use as an offset in raw pixels.
@@ -106,6 +110,7 @@ fun Resources.getAdaptiveDpDimensionPixelOffset(adp: AdaptiveDp) =
         0
     }
 
+
 /**
  * Retrieve an `adp` dimensional for the resource ID
  * for use as a size in raw pixels.
@@ -125,6 +130,7 @@ fun Resources.getAdaptiveDpDimensionPixelSize(adp: AdaptiveDp) =
         logAdpError("Resource not Found", e)
         0
     }
+
 
 /**
  * Retrieve a `list` of all `adp` dimensional resources IDs
@@ -160,6 +166,7 @@ fun Resources.getListOfAdaptiveDpDimenRes() =
         listOf()
     }
 
+
 /**
  * Retrieve a `list` of all `adp` dimensional for the resource IDs
  * stored in an array resource reference.
@@ -186,6 +193,7 @@ fun Resources.getListOfAdaptiveDpDimension() =
             add(getAdaptiveDpDimension(it.asAdaptiveDp()))
         }
     }.toList()
+
 
 /**
  * Retrieve a `list` of all `adp` exact dimensional
@@ -214,6 +222,7 @@ fun Resources.getListOfAdaptiveDpExactDimension() =
         }
     }.toList()
 
+
 /**
  * Retrieve a `list` of all `adp` dimensional for the resource IDs,
  * for use as an offset in raw pixels, stored in an array resource reference.
@@ -241,6 +250,7 @@ fun Resources.getListOfAdaptiveDpDimensionPixelOffset() =
         }
     }.toList()
 
+
 /**
  * Retrieve a `list` of all `adp` dimensional for the resource IDs,
  * for use as a size in raw pixels, stored in an array resource reference.
@@ -267,6 +277,7 @@ fun Resources.getListOfAdaptiveDpDimensionPixelSize() =
             add(getAdaptiveDpDimensionPixelSize(it.asAdaptiveDp()))
         }
     }.toList()
+
 
 /**
  * Default Log Error for [AdaptiveDp] structure.

@@ -857,6 +857,7 @@ enum class AdaptiveDp(
     _799adp(R.dimen._799adp),
     _800adp(R.dimen._800adp);
 
+
     /**
      * Retrieve the `float` Dimension given
      * the specific [AdaptiveDp] entry and based
@@ -876,6 +877,7 @@ enum class AdaptiveDp(
             logAdpError("Resource not Found", e)
             0f
         }
+
 
     /**
      * Retrieve the `integer` Exact Dimension given
@@ -897,6 +899,7 @@ enum class AdaptiveDp(
             0
         }
 
+
     /**
      * Retrieve the `integer` Pixel Offset Dimension given
      * the specific [AdaptiveDp] Entry and based
@@ -916,6 +919,7 @@ enum class AdaptiveDp(
             logAdpError("Resource not Found", e)
             0
         }
+
 
     /**
      * Retrieve the `integer` Pixel Size Dimension given
@@ -937,7 +941,9 @@ enum class AdaptiveDp(
             0
         }
 
+
     companion object {
+
 
         /**
          * Retrieve the size of [AdaptiveDp] entries.
@@ -946,6 +952,7 @@ enum class AdaptiveDp(
          * @return Size of the entries.
          */
         fun size() = entries.size
+
 
         /**
          * Retrieve a list that contains
@@ -960,6 +967,7 @@ enum class AdaptiveDp(
          * @return list of `adp` dimension resource IDs.
          */
         fun listOfDimenRes() = entries.map { it.dimen }
+
 
     }
 

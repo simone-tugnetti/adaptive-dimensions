@@ -22,6 +22,7 @@ import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.BoxWithConstraintsScope
 //noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.adaptive.ExperimentalMaterial3AdaptiveApi
 import androidx.compose.material3.MaterialTheme as Material3Theme
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.material3.adaptive.currentWindowSize
@@ -38,6 +39,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.UiComposable
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.IntSize
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.window.core.layout.WindowSizeClass
 import androidx.window.core.layout.WindowWidthSizeClass
@@ -49,6 +51,7 @@ import it.simonetugnetti.adaptivedimensions.compose.providers.dynamic.LocalAdp
 import it.simonetugnetti.adaptivedimensions.compose.utils.adaptiveDp
 import it.simonetugnetti.adaptivedimensions.compose.utils.maxWidthAdaptiveDp
 import it.simonetugnetti.adaptivedimensions.compose.utils.widthAdaptiveDp
+
 
 /**
  * Retrieve the [CompositionLocal] `key` of [Adp]
@@ -77,6 +80,7 @@ import it.simonetugnetti.adaptivedimensions.compose.utils.widthAdaptiveDp
  */
 val LocalStaticAdp = staticCompositionLocalOf { AdaptiveDp.DEFAULT.adp }
 
+
 /**
  * Retrieve the current value of [LocalStaticAdp] called directly
  * in [MaterialTheme].
@@ -94,6 +98,7 @@ val MaterialTheme.staticAdp: Adp
     @ReadOnlyComposable
     get() = LocalStaticAdp.current
 
+
 /**
  * Retrieve the current value of [LocalStaticAdp] called directly
  * in [MaterialTheme][Material3Theme].
@@ -110,6 +115,7 @@ val Material3Theme.staticAdp: Adp
     @Composable
     @ReadOnlyComposable
     get() = LocalStaticAdp.current
+
 
 /**
  * Update [LocalStaticAdp] key by the given `adaptiveDp`.
@@ -129,6 +135,7 @@ fun CompositionLocalProviderStaticAdaptiveDp(
         content()
     }
 }
+
 
 /**
  * Update [LocalStaticAdp] key by the given [WindowWidthSizeClass] `entry`.
@@ -157,6 +164,7 @@ fun CompositionLocalProviderStaticAdaptiveDpByWindowWidthSizeClass(
     }
 
 }
+
 
 /**
  * Update [LocalStaticAdp] key by the given [WindowWidthSizeClass] `entry`.
@@ -194,6 +202,7 @@ fun CompositionLocalProviderStaticAdaptiveDpByWindowWidthSizeClass(
 
 }
 
+
 /**
  * Update [LocalStaticAdp] key by the given [IntSize]
  * and taken its `width` dimension.
@@ -218,6 +227,7 @@ fun CompositionLocalProviderStaticAdaptiveDpByWindowSize(
     }
 
 }
+
 
 /**
  * Update [LocalStaticAdp] key by the given [IntSize]
@@ -301,6 +311,114 @@ fun CompositionLocalProviderStaticAdaptiveDpByWindowSize(
 
 }
 
+
+/**
+ * Update [LocalStaticAdp] key by the given [DpSize]
+ * and taken its `width` dimension.
+ *
+ * @since 1.0.0
+ * @param windowDpSize An [DpSize] instance.
+ * @param content Composable inside the [CompositionLocalProvider]
+ * @see currentWindowDpSize
+ * @see DpSize.widthAdaptiveDp
+ */
+@OptIn(ExperimentalMaterial3AdaptiveApi::class)
+@Composable
+@NonSkippableComposable
+fun CompositionLocalProviderStaticAdaptiveDpByWindowDpSize(
+    windowDpSize: DpSize = currentWindowDpSize(),
+    content: @Composable () -> Unit
+) {
+
+    CompositionLocalProviderStaticAdaptiveDp(windowDpSize.widthAdaptiveDp) {
+        content()
+    }
+
+}
+
+
+/**
+ * Update [LocalStaticAdp] key by the given [DpSize]
+ * and taken its `width` dimension.
+ *
+ * @since 1.0.0
+ * @param windowDpSize An [DpSize] instance.
+ * @see currentWindowDpSize
+ * @see DpSize.widthAdaptiveDp
+ */
+@OptIn(ExperimentalMaterial3AdaptiveApi::class)
+@Composable
+@NonSkippableComposable
+fun CompositionLocalProviderStaticAdaptiveDpByWindowDpSize(
+    windowDpSize: DpSize = currentWindowDpSize(),
+    sw300dp: @Composable () -> Unit,
+    sw330dp: @Composable () -> Unit = { },
+    sw360dp: @Composable () -> Unit = { },
+    sw390dp: @Composable () -> Unit = { },
+    sw420dp: @Composable () -> Unit = { },
+    sw450dp: @Composable () -> Unit = { },
+    sw480dp: @Composable () -> Unit = { },
+    sw510dp: @Composable () -> Unit = { },
+    sw540dp: @Composable () -> Unit = { },
+    sw570dp: @Composable () -> Unit = { },
+    sw600dp: @Composable () -> Unit = { },
+    sw630dp: @Composable () -> Unit = { },
+    sw660dp: @Composable () -> Unit = { },
+    sw690dp: @Composable () -> Unit = { },
+    sw720dp: @Composable () -> Unit = { },
+    sw750dp: @Composable () -> Unit = { },
+    sw780dp: @Composable () -> Unit = { },
+    sw810dp: @Composable () -> Unit = { },
+    sw840dp: @Composable () -> Unit = { },
+    sw870dp: @Composable () -> Unit = { },
+    sw900dp: @Composable () -> Unit = { },
+    sw930dp: @Composable () -> Unit = { },
+    sw960dp: @Composable () -> Unit = { },
+    sw990dp: @Composable () -> Unit = { },
+    sw1020dp: @Composable () -> Unit = { },
+    sw1050dp: @Composable () -> Unit = { },
+    sw1080dp: @Composable () -> Unit = { }
+) {
+
+    val width = windowDpSize.width
+
+    CompositionLocalProviderStaticAdaptiveDp(windowDpSize.widthAdaptiveDp) {
+        when {
+            width <= 300.dp -> sw300dp()
+            width <= 330.dp -> sw330dp()
+            width <= 360.dp -> sw360dp()
+            width <= 390.dp -> sw390dp()
+            width <= 420.dp -> sw420dp()
+            width <= 450.dp -> sw450dp()
+            width <= 480.dp -> sw480dp()
+            width <= 510.dp -> sw510dp()
+            width <= 540.dp -> sw540dp()
+            width <= 570.dp -> sw570dp()
+            width <= 600.dp -> sw600dp()
+            width <= 630.dp -> sw630dp()
+            width <= 660.dp -> sw660dp()
+            width <= 690.dp -> sw690dp()
+            width <= 720.dp -> sw720dp()
+            width <= 750.dp -> sw750dp()
+            width <= 780.dp -> sw780dp()
+            width <= 810.dp -> sw810dp()
+            width <= 840.dp -> sw840dp()
+            width <= 870.dp -> sw870dp()
+            width <= 900.dp -> sw900dp()
+            width <= 930.dp -> sw930dp()
+            width <= 960.dp -> sw960dp()
+            width <= 990.dp -> sw990dp()
+            width <= 1020.dp -> sw1020dp()
+            width <= 1050.dp -> sw1050dp()
+            width <= 1080.dp -> sw1080dp()
+            width > 1080.dp -> sw1080dp()
+            else -> Unit
+        }
+    }
+
+}
+
+
 /**
  * Update [LocalStaticAdp] key by the given `adaptiveDp`
  * based on actual screen `width`, obtained
@@ -337,6 +455,7 @@ fun BoxWithConstraintsStaticAdaptiveDp(
     }
 
 }
+
 
 /**
  * Update [LocalStaticAdp] key by the given `adaptiveDp` and show a specific `composable`
