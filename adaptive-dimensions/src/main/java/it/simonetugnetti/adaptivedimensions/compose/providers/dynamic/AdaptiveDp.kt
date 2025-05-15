@@ -152,7 +152,8 @@ fun CompositionLocalProviderAdaptiveDp(
  * @param windowSizeClass An actual [WindowSizeClass] instance.
  * @param content Composable inside the [CompositionLocalProvider]
  * @see currentWindowAdaptiveInfo
- * @see WindowSizeClass
+ * @see WindowWidthSizeClass
+ * @see WindowHeightSizeClass
  */
 @Composable
 @NonSkippableComposable
@@ -186,7 +187,8 @@ fun CompositionLocalProviderAdaptiveDpByWindowSizeClass(
  * @param medium Composable for `MEDIUM` size.
  * @param expanded Composable for `EXPANDED` size.
  * @see currentWindowAdaptiveInfo
- * @see WindowSizeClass
+ * @see WindowWidthSizeClass
+ * @see WindowHeightSizeClass
  */
 @Composable
 @NonSkippableComposable
@@ -207,6 +209,7 @@ fun CompositionLocalProviderAdaptiveDpByWindowSizeClass(
         if (isPortrait) windowWidthSizeClass.adaptiveDp
         else windowHeightSizeClass.adaptiveDp
     ) {
+
         if (isPortrait)
             when (windowWidthSizeClass) {
                 WindowWidthSizeClass.COMPACT -> compact()
@@ -218,6 +221,7 @@ fun CompositionLocalProviderAdaptiveDpByWindowSizeClass(
             WindowHeightSizeClass.MEDIUM -> medium()
             WindowHeightSizeClass.EXPANDED -> expanded()
         }
+
     }
 
 }
@@ -427,6 +431,7 @@ fun CompositionLocalProviderAdaptiveDpByWindowDpSize(
         if (isPortrait) windowDpSize.widthAdaptiveDp
         else windowDpSize.heightAdaptiveDp
     ) {
+
         when {
             (if (isPortrait) width else height) <= 300.dp -> sw300dp()
             (if (isPortrait) width else height) <= 330.dp -> sw330dp()
@@ -457,6 +462,7 @@ fun CompositionLocalProviderAdaptiveDpByWindowDpSize(
             (if (isPortrait) width else height) <= 1080.dp -> sw1080dp()
             (if (isPortrait) width else height) > 1080.dp -> sw1080dp()
         }
+
     }
 
 }
@@ -569,6 +575,7 @@ fun BoxWithConstraintsAdaptiveDp(
             if (isPortrait) maxWidthAdaptiveDp
             else maxHeightAdaptiveDp
         ) {
+
             when {
                 (if (isPortrait) maxWidth else maxHeight) <= 300.dp -> sw300dp()
                 (if (isPortrait) maxWidth else maxHeight) <= 330.dp -> sw330dp()
@@ -599,6 +606,7 @@ fun BoxWithConstraintsAdaptiveDp(
                 (if (isPortrait) maxWidth else maxHeight) <= 1080.dp -> sw1080dp()
                 (if (isPortrait) maxWidth else maxHeight) > 1080.dp -> sw1080dp()
             }
+
         }
 
     }
