@@ -13,7 +13,7 @@ application developers to create responsive layouts with the same design for eve
 ## Feautures
 
 - **Functionality**: Support for both Android Native and KMP development.
-- **Compatibility**: Support for various devices, such as Smartphones, Tablets, Desktop and Watches.
+- **Compatibility**: Support for various devices, such as Smartphones, Tablets and Desktop.
 - **Versatile**: Support for both portrait and landscape mode.
 - **Lightweight**: Less than 5Mb size and depends only on Kotlin, Compose Fundamentals, Material and Size Unit.
 - **Modern**: Made in Kotlin-first and interoperates with modern libraries including Compose, Material3 Adaptive and Dokka.
