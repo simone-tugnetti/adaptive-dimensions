@@ -26,11 +26,11 @@ Place this code to your `build.gradle` file and then sync the project:
 ```kotlin
 dependencies {
     implementation("io.github.simone-tugnetti:adaptive-dimensions:1.0.0")
-
-    // If you will be using Compose, be sure to also include the following dependency
-    implementation("androidx.compose.material3.adaptive:adaptive:1.1.0")
 }
 ```
+
+If you planning to use Compose Adaptive Dimensions, be sure to also include 
+[Compose Material3 Adaptive](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive) dependecy.
 
 <br>
 
@@ -46,6 +46,9 @@ Here you can find documentation on how to use this library by `Resources` and `C
     - [`AdaptiveDp`](#adaptivedp)
     - [`AdaptiveSp`](#adaptivesp)
 - [Compose](#compose)
+    - [`CompositionLocalProviders`](#compositionlocalproviders)
+        - [`AdaptiveDp`](#adaptivedp-1)
+        - [`AdaptiveSp`](#adaptivesp-1)
 
 <br>
 
@@ -146,7 +149,103 @@ and [utils](adaptive-dimensions/src/main/java/it/simonetugnetti/adaptivedimensio
 
 #### Compose
 
+Unlike using [Resource](#resources) references, the Adaptive Compose version of this library uses [`Dp`](https://developer.android.com/reference/kotlin/androidx/compose/ui/unit/Dp) 
+and [`TextUnit`](https://developer.android.com/reference/kotlin/androidx/compose/ui/unit/TextUnit) for specify unit sizes, 
+stored in [`Adp`](adaptive-dimensions/src/main/java/it/simonetugnetti/adaptivedimensions/compose/model/Adp.kt) 
+and [`Asp`](adaptive-dimensions/src/main/java/it/simonetugnetti/adaptivedimensions/compose/model/Asp.kt) data classes.<br>
+It also use the last version of the official [Material3 Adaptive](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive) 
+library for retrieve at every re-composition the actual width, height, or 
+[`WindowSizeClasses`](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes) of device screen size.
 
+For more info about the unit sizes based on device screen width, 
+please check the Compose [`data`](adaptive-dimensions/src/main/java/it/simonetugnetti/adaptivedimensions/compose/data) package 
+and the [`enums`](adaptive-dimensions/src/main/java/it/simonetugnetti/adaptivedimensions/compose/enums).
+
+##### [`CompositionLocalProviders`](adaptive-dimensions/src/main/java/it/simonetugnetti/adaptivedimensions/compose/providers)
+
+You can access for responsive size units by calling the `CompositionLocalProviders` for `AdaptiveDp`, based on `Dp` sizes, and `AdaptiveSp`, based on `TextUnit` sizes.
+
+###### `AdaptiveDp`
+
+You can use [`LocalAdp`](adaptive-dimensions/src/main/java/it/simonetugnetti/adaptivedimensions/compose/providers/dynamic/AdaptiveDp.kt), that use `compositionLocalOf`,
+and [`LocalStaticAdp`](adaptive-dimensions/src/main/java/it/simonetugnetti/adaptivedimensions/compose/providers/statics/AdaptiveDp.kt), that use `staticCompositionLocalOf`, 
+keys for retrieve actual [`Adp`](adaptive-dimensions/src/main/java/it/simonetugnetti/adaptivedimensions/compose/model/Adp.kt) data class based on screen width.<br>
+For update this keys, you need to provides new values every time the screen changes 
+by calling [`CompositionLocalProvider`](https://developer.android.com/develop/ui/compose/compositionlocal) and this library just does it for you :fire:.
+
+```kotlin
+
+// Here's an example using LocalAdp and currentWindowDpSize()
+CompositionLocalProviderAdaptiveDpByWindowDpSize {
+    Text(
+        modifier = Modifier
+            .padding(
+                top = MaterialTheme.adp.from0To100._12adp,
+                bottom = LocalAdp.current.from0To100._12adp
+            ),
+            text = "Adaptive Dimensions",
+            style = MaterialTheme.typography.titleMedium
+    )
+}
+
+```
+
+You can also call a `dimensionalResource` composable function specific for 
+[`AdaptiveDp`](adaptive-dimensions/src/main/java/it/simonetugnetti/adaptivedimensions/resources/enums/AdaptiveDp.kt) enum entry that returns a `Dp` value based on screen size, 
+like in the example below:
+
+```kotlin
+
+// Using AdaptiveDp resource entry
+dimensionAdaptiveDpResource(AdaptiveDp._20adp)
+
+// Using @DimenRes
+dimensionAdaptiveDpResource(R.dimen._40adp.asAdaptiveDp())
+
+```
+
+For the full list of `LocalAdp` and `LocalStaticAdp` composable functions, please check AdaptiveDp 
+[`dynamic`](adaptive-dimensions/src/main/java/it/simonetugnetti/adaptivedimensions/compose/providers/dynamic/AdaptiveDp.kt) and 
+[`statics`](adaptive-dimensions/src/main/java/it/simonetugnetti/adaptivedimensions/compose/providers/statics/AdaptiveDp.kt) packages.
+
+###### `AdaptiveSp`
+
+You can use [`LocalAsp`](adaptive-dimensions/src/main/java/it/simonetugnetti/adaptivedimensions/compose/providers/dynamic/AdaptiveSp.kt), that use `compositionLocalOf`,
+and [`LocalStaticAsp`](adaptive-dimensions/src/main/java/it/simonetugnetti/adaptivedimensions/compose/providers/statics/AdaptiveSp.kt), that use `staticCompositionLocalOf`, 
+keys for retrieve actual [`Asp`](adaptive-dimensions/src/main/java/it/simonetugnetti/adaptivedimensions/compose/model/Asp.kt) data class based on screen width.<br>
+For update this keys, you need to provides new values every time the screen changes 
+by calling [`CompositionLocalProvider`](https://developer.android.com/develop/ui/compose/compositionlocal) and this library just does it for you :fire:.
+
+```kotlin
+
+// Here's an example using LocalAsp and currentWindowSize()
+CompositionLocalProviderAdaptiveSpByWindowSize {
+    Text(
+        text = "Adaptive Dimensions",
+        style = MaterialTheme.typography.titleMedium,
+        fontSize = LocalAsp.current.from0To100._20asp
+    )
+}
+
+```
+
+You can also call a `dimensionalResource` composable function specific for 
+[`AdaptiveSp`](adaptive-dimensions/src/main/java/it/simonetugnetti/adaptivedimensions/resources/enums/AdaptiveSp.kt) enum entry that returns a `TextUnit` value based on screen size, 
+like in the example below:
+
+```kotlin
+
+// Using AdaptiveSp resource entry
+dimensionAdaptiveSpResource(AdaptiveSp._20asp)
+
+// Using @DimenRes
+dimensionAdaptiveSpResource(R.dimen._40asp.asAdaptiveSp())
+
+```
+
+For the full list of `LocalAsp` and `LocalStaticAsp` composable functions, please check AdaptiveSp 
+[`dynamic`](adaptive-dimensions/src/main/java/it/simonetugnetti/adaptivedimensions/compose/providers/dynamic/AdaptiveSp.kt) and 
+[`statics`](adaptive-dimensions/src/main/java/it/simonetugnetti/adaptivedimensions/compose/providers/statics/AdaptiveSp.kt) packages.
 
 <br>
 
