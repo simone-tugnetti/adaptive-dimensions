@@ -6,7 +6,7 @@
 ![License](https://img.shields.io/badge/License-Apache_2.0-green)
 
 This simple library can be used to help [Android](https://www.android.com/) and [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/)
-application developers to create responsive layouts with the same design for every screen size.
+application developers to create responsive layouts with the same design for every screen size by using two new structures, `AdaptiveDp` and `AdaptiveSp`.
 
 <br>
 
@@ -14,6 +14,7 @@ application developers to create responsive layouts with the same design for eve
 
 - **Functionality**: Support for both Android Native and KMP development.
 - **Compatibility**: Support for various devices, such as Smartphones, Tablets, Desktop and Watches.
+- **Versatile**: Support for both portrait and landscape mode.
 - **Lightweight**: Less than 5Mb size and depends only on Kotlin, Compose Fundamentals, Material and Size Unit.
 - **Modern**: Made in Kotlin-first and interoperates with modern libraries including Compose, Material3 Adaptive and Dokka.
 
