@@ -3,7 +3,7 @@
 <br>
 
 [![Maven Central](https://img.shields.io/badge/Jitpack-1.0.0-blue)](https://jitpack.io/#simone-tugnetti/adaptive-dimensions)
-![License](https://img.shields.io/badge/License-Apache_2.0-green)
+[![License](https://img.shields.io/badge/License-Apache_2.0-green)](LICENSE.md)
 
 This simple library can be used to help [Android](https://www.android.com/) and [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/)
 application developers to create responsive layouts with the same design for every screen size by using two new structures, `AdaptiveDp` and `AdaptiveSp`.
@@ -50,7 +50,7 @@ repositories {
 
 ```kotlin
 dependencies {
-    implementation("io.github.simone-tugnetti:adaptive-dimensions:1.0.1")
+    implementation("io.github.simone-tugnetti:adaptive-dimensions:1.0.2")
 }
 ```
 
