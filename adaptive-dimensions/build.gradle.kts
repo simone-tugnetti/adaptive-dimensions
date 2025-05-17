@@ -89,6 +89,7 @@ afterEvaluate {
             name = "adaptive-dimensions"
             description = "A simple library to create responsive layouts with the same design for every screen size."
             url = "https://github.com/simone-tugnetti/adaptive-dimensions"
+            inceptionYear = "2025"
             licenses {
                 license {
                     name = "The Apache License, Version 2.0"
