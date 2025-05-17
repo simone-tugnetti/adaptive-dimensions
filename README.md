@@ -10,6 +10,20 @@ application developers to create responsive layouts with the same design for eve
 
 <br>
 
+<div align="center">
+    <img src="images/Smartphone.gif" width="30%"> 
+    &nbsp; &nbsp; &nbsp;
+    <img src="images/Tablet.gif" width="30%">
+</div>
+<br>
+<div align="center">
+    <img src="images/Desktop.gif" width="45%">
+    &nbsp; &nbsp; &nbsp;
+    <img src="images/Television.gif" width="45%">
+</div>
+
+<br>
+
 ## Feautures
 
 - **Functionality**: Support for both Android Native and KMP development.
