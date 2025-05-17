@@ -38,7 +38,7 @@ application developers to create responsive layouts with the same design for eve
 
 <b>Step 1.</b> Add the JitPack repository to your `build.gradle` file, 
 or to `settings.gradle` file if you using Gradle 7+
-```kotlin
+```gradle
 repositories {
     ...
     maven { url 'https://jitpack.io' }
