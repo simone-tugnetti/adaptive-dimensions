@@ -103,25 +103,11 @@ afterEvaluate {
                     email = "simone.tugnetti@gmail.com"
                 }
             }
-        }
-
-    }
-
-    // This repository is actually not functional,
-    // due to change from Nexus to Central Portal.
-    // Need further updates.
-    publishing {
-        repositories {
-            maven {
-                name = "mavenCentral"
-                url = URI("https://central.sonatype.com/api/v1/publisher/upload")
-
-                credentials {
-                    username = System.getenv("MAVEN_CENTRAL_USERNAME")
-                    password = System.getenv("MAVEN_CENTRAL_PASSWORD")
-                }
+            scm {
+                url = "https://github.com/simone-tugnetti/adaptive-dimensions"
             }
         }
+
     }
 
 }
