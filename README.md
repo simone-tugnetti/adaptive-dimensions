@@ -2,7 +2,7 @@
 
 <br>
 
-![Maven Central](https://img.shields.io/badge/Maven_Central-1.0.0-blue)
+![Maven Central](https://img.shields.io/badge/Jitpack-1.0.0-blue)
 ![License](https://img.shields.io/badge/License-Apache_2.0-green)
 
 This simple library can be used to help [Android](https://www.android.com/) and [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/)
@@ -36,7 +36,17 @@ application developers to create responsive layouts with the same design for eve
 
 ## Get started
 
-Place this code to your `build.gradle` file and then sync the project:
+<b>Step 1.</b> Add the JitPack repository to your `build.gradle` file, 
+or to `settings.gradle` file if you using Gradle 7+
+```kotlin
+repositories {
+    ...
+    maven { url 'https://jitpack.io' }
+}
+```
+<br>
+
+<b>Step 2.</b> Place this code to your `build.gradle` file and then sync the project:
 
 ```kotlin
 dependencies {
