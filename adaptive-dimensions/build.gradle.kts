@@ -64,8 +64,7 @@ tasks.withType<DokkaTask>().configureEach {
 
 tasks.register<Jar>("withSourcesJar") {
     archiveClassifier.set("sources")
-    from(android.sourceSets.getByName("main").java.getSourceFiles())
-    from(android.sourceSets.getByName("main").resources.getSourceFiles())
+    from(kotlin.sourceSets.getByName("main").kotlin.srcDirs)
 }
 
 tasks.register<Jar>("dokkaJavadocJar") {
