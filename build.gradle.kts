@@ -4,3 +4,9 @@ plugins {
     alias(libs.plugins.compose.compiler) apply false
     alias(libs.plugins.dokka) apply false
 }
+
+buildscript {
+    dependencies {
+        classpath(libs.dokka.base)
+    }
+}
