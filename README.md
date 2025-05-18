@@ -50,7 +50,7 @@ repositories {
 
 ```kotlin
 dependencies {
-    implementation("io.github.simone-tugnetti:adaptive-dimensions:1.0.2")
+    implementation("io.github.simone-tugnetti:adaptive-dimensions:1.0.3")
 }
 ```
 
