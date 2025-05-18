@@ -78,7 +78,7 @@ afterEvaluate {
 
         groupId = "io.github.simone-tugnetti"
         artifactId = "adaptive-dimensions"
-        version = "1.0.2"
+        version = "1.0.3"
 
         from(components.findByName("release"))
         artifact(tasks["dokkaJavadocJar"])
