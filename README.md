@@ -2,7 +2,7 @@
 
 <br>
 
-[![Maven Central](https://img.shields.io/badge/Jitpack-1.0.0-blue)](https://jitpack.io/#simone-tugnetti/adaptive-dimensions)
+[![Maven Central](https://img.shields.io/badge/Jitpack-1.0.3-blue)](https://jitpack.io/#simone-tugnetti/adaptive-dimensions)
 [![License](https://img.shields.io/badge/License-Apache_2.0-green)](LICENSE.md)
 
 This simple library can be used to help [Android](https://www.android.com/) and [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/)
